@@ -11,9 +11,9 @@ final class LoginViewController: UIViewController {
         static let identifier = "singInSegue"
         static let loginText = "q"
         static let passwordText = "q"
-        static let alertTitle = "Внимание!"
-        static let alertMessage = "Введен неверный логин и/или пароль"
-        static let alertActionTitle = "OK"
+        static let alertTitleText = "Внимание!"
+        static let alertMessageText = "Введен неверный логин и/или пароль"
+        static let alertActionTitleText = "OK"
     }
 
     // MARK: - Private IBOutlet
@@ -34,6 +34,8 @@ final class LoginViewController: UIViewController {
         keyboardRemoveObserver()
     }
 
+    // MARK: - Public Methods
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == Constants.identifier {
             if checkLoginInfo() {
@@ -45,6 +47,10 @@ final class LoginViewController: UIViewController {
         }
         return true
     }
+
+    // MARK: - Private IBAction
+
+    @IBAction private func loginButton(_ sender: Any) {}
 
     // MARK: - Private Methods
 
@@ -83,11 +89,11 @@ final class LoginViewController: UIViewController {
 
     private func showLoginError() {
         let alertController = UIAlertController(
-            title: Constants.alertTitle,
-            message: Constants.alertMessage,
+            title: Constants.alertTitleText,
+            message: Constants.alertMessageText,
             preferredStyle: .alert
         )
-        let alertControllerAction = UIAlertAction(title: Constants.alertActionTitle, style: .cancel)
+        let alertControllerAction = UIAlertAction(title: Constants.alertActionTitleText, style: .cancel)
         alertController.addAction(alertControllerAction)
         present(alertController, animated: true)
     }
@@ -109,8 +115,4 @@ final class LoginViewController: UIViewController {
     @objc private func hideKeyboardAction() {
         loginScrollView.endEditing(true)
     }
-
-    // MARK: - Private IBAction
-
-    @IBAction private func loginButton(_ sender: Any) {}
 }
