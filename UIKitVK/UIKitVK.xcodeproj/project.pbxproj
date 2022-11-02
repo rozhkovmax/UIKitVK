@@ -15,6 +15,7 @@
 		944CC8A9291069C800A5B7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */; };
 		944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC8B2291114AE00A5B7F1 /* FriendTableViewController.swift */; };
 		944CC8B8291139CC00A5B7F1 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */; };
+		94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		944CC8AA291069C800A5B7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944CC8B2291114AE00A5B7F1 /* FriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewController.swift; sourceTree = "<group>"; };
 		944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				944CC89E291069C600A5B7F1 /* SceneDelegate.swift */,
 				944CC8B92911439A00A5B7F1 /* View */,
 				944CC8B42911153700A5B7F1 /* Controller */,
+				94CE5A1C2912B1C600A4D148 /* Extension */,
 				944CC8A2291069C600A5B7F1 /* Main.storyboard */,
 				944CC8A5291069C800A5B7F1 /* Assets.xcassets */,
 				944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */,
@@ -87,6 +90,14 @@
 				944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		94CE5A1C2912B1C600A4D148 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */,
 				944CC8A1291069C600A5B7F1 /* LoginViewController.swift in Sources */,
 				944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */,
 				944CC8B8291139CC00A5B7F1 /* FriendTableViewCell.swift in Sources */,
