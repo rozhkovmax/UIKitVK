@@ -3,11 +3,5 @@
 
 import UIKit
 
-/// Представление строки в таблице "Друзья"
-final class FriendTableViewCell: UITableViewCell {
-    // MARK: - Life Cycle
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-}
+/// Ячейка друзей
+final class FriendTableViewCell: UITableViewCell {}

@@ -57,7 +57,6 @@
                                             </attributedString>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="loginButton:" destination="CTx-te-b27" eventType="touchUpInside" id="Mqb-Ob-Yws"/>
                                             <segue destination="Axc-v3-id5" kind="presentation" identifier="singInSegue" modalPresentationStyle="fullScreen" id="JBJ-Py-ib8"/>
                                         </connections>
                                     </button>
@@ -306,7 +305,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightGrayCustomColor">
-            <color red="0.80613619342939191" green="0.81411773989898983" blue="0.81411773989898983" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.80784313725490198" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="linkCustomColor">
             <color red="0.0" green="0.46666666666666667" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
