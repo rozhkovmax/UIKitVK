@@ -234,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="3341" y="-287"/>
         </scene>
-        <!--Group-->
+        <!--Groups-->
         <scene sceneID="vMn-XZ-7oD">
             <objects>
                 <tableViewController id="l9Z-R3-eqM" sceneMemberID="viewController">
@@ -257,7 +257,7 @@
                             <outlet property="delegate" destination="l9Z-R3-eqM" id="k3K-BP-Ku9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Group" id="Tts-38-F2d">
+                    <navigationItem key="navigationItem" title="Groups" id="Tts-38-F2d">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="xtw-xn-UW4">
                             <connections>
                                 <segue destination="tMH-1r-bet" kind="show" id="RPs-xD-RCZ"/>
