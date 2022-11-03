@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -278,17 +279,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="whiteCustomColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="4" minimumInteritemSpacing="0.0" id="0io-bi-IIi">
-                            <size key="itemSize" width="135" height="135"/>
+                            <size key="itemSize" width="135" height="180"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendGalleryCollectionViewCell" id="gpV-Mc-5l7" customClass="FriendCollectionViewCell" customModule="UIKitVK" customModuleProvider="target">
-                                <rect key="frame" x="1" y="0.0" width="135" height="135"/>
+                                <rect key="frame" x="1" y="0.0" width="135" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xv7-PQ-1bU">
-                                    <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-xa-uc8">
@@ -299,17 +300,54 @@
                                                 <constraint firstAttribute="width" constant="135" id="Yay-SY-REk"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2V-3c-qjN" customClass="LikeButton" customModule="UIKitVK" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="143" width="75" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEO-5u-Hw1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="0">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="25" name="Helvetica"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="likeButtonClick:" destination="gpV-Mc-5l7" eventType="touchUpInside" id="Cfb-MA-Nyh"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="HEO-5u-Hw1" firstAttribute="top" secondItem="w2V-3c-qjN" secondAttribute="top" id="A5U-JL-4fK"/>
+                                                <constraint firstAttribute="trailing" secondItem="HEO-5u-Hw1" secondAttribute="trailing" id="Gzu-8b-hkr"/>
+                                                <constraint firstAttribute="width" constant="75" id="PlH-wc-3YJ"/>
+                                                <constraint firstAttribute="height" constant="30" id="U9p-Lz-r46"/>
+                                                <constraint firstAttribute="bottom" secondItem="HEO-5u-Hw1" secondAttribute="bottom" id="rVA-KY-UzJ"/>
+                                                <constraint firstItem="HEO-5u-Hw1" firstAttribute="leading" secondItem="w2V-3c-qjN" secondAttribute="leading" id="yTE-qP-ae4"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
-                                    <color key="backgroundColor" name="whiteCustomColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="aFI-xa-uc8" secondAttribute="bottom" id="9AV-Fg-brc"/>
+                                        <constraint firstAttribute="bottom" secondItem="aFI-xa-uc8" secondAttribute="bottom" constant="45" id="9AV-Fg-brc"/>
+                                        <constraint firstItem="w2V-3c-qjN" firstAttribute="top" secondItem="aFI-xa-uc8" secondAttribute="bottom" constant="8" symbolic="YES" id="LF9-YI-06s"/>
                                         <constraint firstItem="aFI-xa-uc8" firstAttribute="top" secondItem="Xv7-PQ-1bU" secondAttribute="top" id="S4Z-SL-R0e"/>
+                                        <constraint firstItem="w2V-3c-qjN" firstAttribute="leading" secondItem="Xv7-PQ-1bU" secondAttribute="leading" constant="30" id="TXe-qG-aoC"/>
+                                        <constraint firstAttribute="bottom" secondItem="w2V-3c-qjN" secondAttribute="bottom" constant="7" id="kRE-Hw-lIM"/>
                                         <constraint firstItem="aFI-xa-uc8" firstAttribute="leading" secondItem="Xv7-PQ-1bU" secondAttribute="leading" id="p0i-Fq-UOQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="w2V-3c-qjN" secondAttribute="trailing" constant="30" id="rrs-tV-Rff"/>
                                         <constraint firstAttribute="trailing" secondItem="aFI-xa-uc8" secondAttribute="trailing" id="xhd-m8-AZe"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="135" height="180"/>
                                 <connections>
                                     <outlet property="friendGalleryImageView" destination="aFI-xa-uc8" id="6Qh-Lr-qv0"/>
+                                    <outlet property="likeButton" destination="HEO-5u-Hw1" id="SDT-9w-DZr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -461,6 +499,7 @@
     </scenes>
     <resources>
         <image name="VKLogo" width="48" height="48"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.3.sequence.fill" catalog="system" width="128" height="59"/>
@@ -480,5 +519,11 @@
         <namedColor name="whiteCustomColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
