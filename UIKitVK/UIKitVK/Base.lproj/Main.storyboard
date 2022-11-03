@@ -318,7 +318,7 @@
                                                         <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="likeButtonClick:" destination="gpV-Mc-5l7" eventType="touchUpInside" id="Cfb-MA-Nyh"/>
+                                                        <action selector="likeButtonClick:" destination="w2V-3c-qjN" eventType="touchUpInside" id="Rui-yL-dt9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -331,6 +331,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="HEO-5u-Hw1" secondAttribute="bottom" id="rVA-KY-UzJ"/>
                                                 <constraint firstItem="HEO-5u-Hw1" firstAttribute="leading" secondItem="w2V-3c-qjN" secondAttribute="leading" id="yTE-qP-ae4"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="likeButton" destination="HEO-5u-Hw1" id="rL8-Tm-Iax"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -347,7 +350,6 @@
                                 <size key="customSize" width="135" height="180"/>
                                 <connections>
                                     <outlet property="friendGalleryImageView" destination="aFI-xa-uc8" id="6Qh-Lr-qv0"/>
-                                    <outlet property="likeButton" destination="HEO-5u-Hw1" id="SDT-9w-DZr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
