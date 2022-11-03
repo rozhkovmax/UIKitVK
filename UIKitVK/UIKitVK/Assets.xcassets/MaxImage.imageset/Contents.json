@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "MaxImage.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

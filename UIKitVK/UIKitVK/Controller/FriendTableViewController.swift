@@ -11,20 +11,24 @@ final class FriendTableViewController: UITableViewController {
         static let identifierFriendTableViewCellID = "FriendTableViewCell"
     }
 
+    // MARK: - Private Properties
+
+    private var friends = vkFriends {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    // MARK: - UITableViewDataSource, UITableViewDelegate
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
+    // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,10 +36,8 @@ final class FriendTableViewController: UITableViewController {
             withIdentifier: Constants.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell else { return UITableViewCell() }
+        cell.friendNameLabel.text = friends[indexPath.row].friendName
+        cell.friendAvatarImageView.image = UIImage(named: friends[indexPath.row].friendAvatarImageName)
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
     }
 }
