@@ -5,17 +5,6 @@ import UIKit
 
 /// Экран авторизации
 final class LoginViewController: UIViewController {
-    // MARK: - Private Constants
-
-    private enum Constants {
-        static let identifier = "singInSegue"
-        static let loginText = "q"
-        static let passwordText = "q"
-        static let alertTitleText = "Внимание!"
-        static let alertMessageText = "Введен неверный логин и/или пароль"
-        static let alertActionTitleText = "OK"
-    }
-
     // MARK: - Private IBOutlet
 
     @IBOutlet private var loginScrollView: UIScrollView!
@@ -37,13 +26,13 @@ final class LoginViewController: UIViewController {
     // MARK: - Public Methods
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard identifier == Constants.identifier,
+        guard identifier == Constants.Identifiers.identifierSingInID,
               checkLoginInfo()
         else {
             showAlertController(
-                alertTitle: Constants.alertTitleText,
-                alertMessage: Constants.alertMessageText,
-                alertActionTitle: Constants.alertActionTitleText
+                alertTitle: Constants.OtherConstants.alertTitleText,
+                alertMessage: Constants.OtherConstants.alertMessageText,
+                alertActionTitle: Constants.OtherConstants.alertActionTitleText
             )
             return false
         }
@@ -75,8 +64,8 @@ final class LoginViewController: UIViewController {
     }
 
     private func checkLoginInfo() -> Bool {
-        guard loginTextField.text == Constants.loginText,
-              loginTextField.text == Constants.passwordText else { return false }
+        guard loginTextField.text == Constants.OtherConstants.loginText,
+              loginTextField.text == Constants.OtherConstants.passwordText else { return false }
         return true
     }
 

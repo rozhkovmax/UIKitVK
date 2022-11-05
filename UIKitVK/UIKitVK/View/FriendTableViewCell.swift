@@ -5,10 +5,10 @@ import UIKit
 
 /// Ячейка друзей
 final class FriendTableViewCell: UITableViewCell {
-    // MARK: - IBOutlet
+    // MARK: - Private IBOutlet
 
-    @IBOutlet var friendNameLabel: UILabel!
-    @IBOutlet var friendAvatarImageView: UIImageView!
+    @IBOutlet private var friendNameLabel: UILabel!
+    @IBOutlet private var friendAvatarImageView: UIImageView!
     @IBOutlet private var friendCustomView: CustomView!
 
     // MARK: - Life Cycle
@@ -16,6 +16,13 @@ final class FriendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+
+    // MARK: - Public Methods
+
+    func refreshFriend(_ friend: User) {
+        friendNameLabel.text = friend.friendName
+        friendAvatarImageView.image = UIImage(named: friend.friendAvatarImageName)
     }
 
     // MARK: - Private Methods

@@ -235,7 +235,6 @@
                                     <outlet property="friendAvatarImageView" destination="LEd-GF-ZPM" id="Uwj-Kn-A25"/>
                                     <outlet property="friendCustomView" destination="cGb-ek-3LP" id="iGu-yH-WGm"/>
                                     <outlet property="friendNameLabel" destination="qxv-Yw-FXm" id="6sK-vX-uWt"/>
-                                    <segue destination="I75-yn-8BF" kind="show" id="YGD-TE-QDx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -246,6 +245,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Друзья" id="kUE-7B-mgf"/>
+                    <connections>
+                        <segue destination="I75-yn-8BF" kind="show" id="yYl-g4-zDo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3A-zc-x2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,7 +275,7 @@
         <!--Friend Collection View Controller-->
         <scene sceneID="TZ9-O5-sGj">
             <objects>
-                <collectionViewController id="I75-yn-8BF" customClass="FriendCollectionViewController" customModule="UIKitVK" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="FriendCollectionVC" id="I75-yn-8BF" customClass="FriendCollectionViewController" customModule="UIKitVK" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="SON-BH-2yz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,8 +294,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="135" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-xa-uc8">
-                                            <rect key="frame" x="0.0" y="-0.5" width="135" height="135.5"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-xa-uc8">
+                                            <rect key="frame" x="0.0" y="0.5" width="135" height="134"/>
                                             <color key="tintColor" name="blackCustomColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="135" id="MKd-Ev-7Vj"/>
@@ -315,10 +317,10 @@
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
-                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                        <color key="baseForegroundColor" name="redCustomColor"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="likeButtonClick:" destination="w2V-3c-qjN" eventType="touchUpInside" id="Rui-yL-dt9"/>
+                                                        <action selector="likeButtonClickAction:" destination="w2V-3c-qjN" eventType="touchUpInside" id="fXu-dc-efH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -508,7 +510,6 @@
         <image name="person.badge.plus" catalog="system" width="128" height="125"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
-        <image name="sun.max" catalog="system" width="128" height="125"/>
         <namedColor name="blackCustomColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -518,14 +519,14 @@
         <namedColor name="linkCustomColor">
             <color red="0.0" green="0.46666666666666667" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="redCustomColor">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="whiteCustomColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

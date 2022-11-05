@@ -5,28 +5,13 @@ import UIKit
 
 /// Экран других групп
 final class OtherGroupTableViewController: UITableViewController {
-    // MARK: - Private Constants
-
-    private enum Constants {
-        static let identifierOtherGroupTableViewCellID = "OtherGroupTableViewCell"
-    }
-
     // MARK: - Public Properties
 
-    var closureGroup: ((Group) -> ())?
-
-    // MARK: - Private Properties
-
+    private var closureGroup: ((Group) -> ())?
     private var otherGroups = vkGroups {
         didSet {
             tableView.reloadData()
         }
-    }
-
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
     // MARK: - Public Methods
@@ -48,11 +33,11 @@ final class OtherGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.identifierOtherGroupTableViewCellID,
+            withIdentifier: Constants.Identifiers.identifierOtherGroupTableViewCellID,
             for: indexPath
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
-        cell.otherGroupNameLabel.text = otherGroups[indexPath.row].groupName
-        cell.otherGroupAvatarImageView.image = UIImage(named: otherGroups[indexPath.row].groupAvatarImageName)
+        let group = otherGroups[indexPath.row]
+        cell.refreshOtherGroup(group)
         return cell
     }
 

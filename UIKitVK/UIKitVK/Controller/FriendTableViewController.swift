@@ -5,25 +5,9 @@ import UIKit
 
 /// Экран друзей
 final class FriendTableViewController: UITableViewController {
-    // MARK: - Private Constants
-
-    private enum Constants {
-        static let identifierFriendTableViewCellID = "FriendTableViewCell"
-    }
-
     // MARK: - Private Properties
 
-    private var friends = vkFriends {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    private let friends = vkFriends
 
     // MARK: - UITableViewDataSource
 
@@ -33,11 +17,23 @@ final class FriendTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.identifierFriendTableViewCellID,
+            withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell else { return UITableViewCell() }
-        cell.friendNameLabel.text = friends[indexPath.row].friendName
-        cell.friendAvatarImageView.image = UIImage(named: friends[indexPath.row].friendAvatarImageName)
+        let friend = friends[indexPath.row]
+        cell.refreshFriend(friend)
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: Constants.OtherConstants.storyboardName, bundle: nil)
+        guard let friendCollectionVC = storyboard
+            .instantiateViewController(
+                withIdentifier: Constants.Identifiers
+                    .identifierFriendCollectionViewControllerID
+            ) as? FriendCollectionViewController
+        else { return }
+        friendCollectionVC.friendPhotos = friends[indexPath.row].friendAvatarImageName
+        navigationController?.pushViewController(friendCollectionVC, animated: true)
     }
 }

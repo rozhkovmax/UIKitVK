@@ -5,26 +5,14 @@ import UIKit
 
 /// Экран галереи
 final class FriendCollectionViewController: UICollectionViewController {
-    // MARK: - Private Constants
+    // MARK: - Public Properties
 
-    private enum Constants {
-        static let identifierFriendGalleryCollectionViewCellID = "FriendGalleryCollectionViewCell"
-    }
-
-    // MARK: - Private Properties
-
-    private var friendPhotos = vkFriendsPhotos
-
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var friendPhotos = ""
 
     // MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        friendPhotos.count
+        1
     }
 
     override func collectionView(
@@ -32,11 +20,10 @@ final class FriendCollectionViewController: UICollectionViewController {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Constants.identifierFriendGalleryCollectionViewCellID,
+            withReuseIdentifier: Constants.Identifiers.identifierFriendGalleryCollectionViewCellID,
             for: indexPath
         ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        let photo = friendPhotos[indexPath.row]
-        cell.friendGalleryImageView.image = UIImage(named: photo)
+        cell.refreshPhoto(friendPhotos)
         return cell
     }
 }

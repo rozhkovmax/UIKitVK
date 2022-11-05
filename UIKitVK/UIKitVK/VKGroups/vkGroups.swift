@@ -3,14 +3,44 @@
 
 /// Группы ВК
 var vkGroups: [Group] = [
-    Group(groupName: "Figma", groupAvatarImageName: "FigmaGroupImage"),
-    Group(groupName: "Game", groupAvatarImageName: "GameGroupImage"),
-    Group(groupName: "Cinema", groupAvatarImageName: "CinemaGroupImage"),
-    Group(groupName: "Design", groupAvatarImageName: "DesignGroupImage"),
-    Group(groupName: "Japanism", groupAvatarImageName: "JapanismGroupImage"),
-    Group(groupName: "Omanko", groupAvatarImageName: "OmankoGroupImage"),
-    Group(groupName: "Program", groupAvatarImageName: "ProgramGroupImage"),
-    Group(groupName: "TJ", groupAvatarImageName: "TJGroupImage"),
-    Group(groupName: "VC.RU", groupAvatarImageName: "VCGroupImage"),
-    Group(groupName: "VKGroup", groupAvatarImageName: "VKGroupImage")
+    Group(
+        groupName: Constants.GroupsNames.groupOneName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupOneAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupTwoName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupTwoAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupThreeName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupThreeAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupFourName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupFourAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupFiveName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupFiveAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupSixName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupSixAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupSevenName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupSevenAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupEightName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupEightAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupNineName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupNineAvatarImageName
+    ),
+    Group(
+        groupName: Constants.GroupsNames.groupTenName,
+        groupAvatarImageName: Constants.GroupsAvatarImageNames.groupTenAvatarImageName
+    )
 ]

@@ -5,29 +5,20 @@ import UIKit
 
 /// Кнопка лайков
 final class LikeButton: UIControl {
-    // MARK: - Private Constants
-
-    private enum Constants {
-        static let likeZero = "0"
-        static let likeOne = "1"
-        static let heartImageName = "heart"
-        static let heartFillImageName = "heart.fill"
-    }
-
     // MARK: - Private IBOutlet
 
     @IBOutlet private var likeButton: UIButton!
 
     // MARK: - Private IBAction
 
-    @IBAction private func likeButtonClick(_ sender: UIButton) {
+    @IBAction private func likeButtonClickAction(_ sender: UIButton) {
         if likeButton.tag == 0 {
-            likeButton.setImage(UIImage(systemName: Constants.heartImageName), for: .normal)
-            likeButton.setTitle(Constants.likeZero, for: .normal)
+            likeButton.setImage(UIImage(systemName: Constants.OtherConstants.heartImageName), for: .normal)
+            likeButton.setTitle(Constants.OtherConstants.likeZero, for: .normal)
             likeButton.tag = 1
         } else {
-            likeButton.setImage(UIImage(systemName: Constants.heartFillImageName), for: .normal)
-            likeButton.setTitle(Constants.likeOne, for: .normal)
+            likeButton.setImage(UIImage(systemName: Constants.OtherConstants.heartFillImageName), for: .normal)
+            likeButton.setTitle(Constants.OtherConstants.likeOne, for: .normal)
             likeButton.tag = 0
         }
     }

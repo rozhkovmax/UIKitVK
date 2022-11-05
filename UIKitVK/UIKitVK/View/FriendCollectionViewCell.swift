@@ -5,7 +5,13 @@ import UIKit
 
 /// Галерея друга
 final class FriendCollectionViewCell: UICollectionViewCell {
-    // MARK: - IBOutlet
+    // MARK: - Private IBOutlet
 
-    @IBOutlet var friendGalleryImageView: UIImageView!
+    @IBOutlet private var friendGalleryImageView: UIImageView!
+
+    // MARK: - Public Methods
+
+    func refreshPhoto(_ photo: String) {
+        friendGalleryImageView.image = UIImage(named: photo)
+    }
 }

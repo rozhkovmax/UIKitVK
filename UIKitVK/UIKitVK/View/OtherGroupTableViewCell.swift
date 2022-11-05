@@ -5,8 +5,15 @@ import UIKit
 
 // Ячейка других групп
 final class OtherGroupTableViewCell: UITableViewCell {
-    // MARK: - IBOutlet
+    // MARK: - Private IBOutlet
 
-    @IBOutlet var otherGroupAvatarImageView: UIImageView!
-    @IBOutlet var otherGroupNameLabel: UILabel!
+    @IBOutlet private var otherGroupAvatarImageView: UIImageView!
+    @IBOutlet private var otherGroupNameLabel: UILabel!
+
+    // MARK: - Public Methods
+
+    func refreshOtherGroup(_ otherGroup: Group) {
+        otherGroupNameLabel.text = otherGroup.groupName
+        otherGroupAvatarImageView.image = UIImage(named: otherGroup.groupAvatarImageName)
+    }
 }
