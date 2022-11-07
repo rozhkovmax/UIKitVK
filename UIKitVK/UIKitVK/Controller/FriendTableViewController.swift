@@ -5,37 +5,35 @@ import UIKit
 
 /// Экран друзей
 final class FriendTableViewController: UITableViewController {
-    // MARK: - Private Constants
+    // MARK: - Private Properties
 
-    private enum Constants {
-        static let identifierFriendTableViewCellID = "FriendTableViewCell"
-    }
+    private let friends = vkFriends
 
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    // MARK: - UITableViewDataSource, UITableViewDelegate
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
+    // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.identifierFriendTableViewCellID,
+            withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell else { return UITableViewCell() }
+        let friend = friends[indexPath.row]
+        cell.refreshFriend(friend)
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: Constants.OtherConstants.storyboardName, bundle: nil)
+        guard let friendCollectionVC = storyboard
+            .instantiateViewController(
+                withIdentifier: Constants.Identifiers
+                    .identifierFriendCollectionViewControllerID
+            ) as? FriendCollectionViewController
+        else { return }
+        friendCollectionVC.friendPhotos = friends[indexPath.row].friendAvatarImageName
+        navigationController?.pushViewController(friendCollectionVC, animated: true)
     }
 }
