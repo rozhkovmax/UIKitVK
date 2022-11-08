@@ -7,7 +7,7 @@ import UIKit
 final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
-    private var myGroups = [vkGroups.first].compactMap { $0 } {
+    private var myGroups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }
