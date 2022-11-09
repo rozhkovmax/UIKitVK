@@ -7,7 +7,7 @@ import UIKit
 final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
-    private var myGroups = [vkGroups.first].compactMap { $0 } {
+    private var myGroups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -22,8 +22,6 @@ final class GroupTableViewController: UITableViewController {
             self?.myGroups.append(group)
         }
     }
-
-    // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count

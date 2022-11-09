@@ -29,6 +29,10 @@
 		94CE5A3C291456A900A4D148 /* vkFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A3B291456A900A4D148 /* vkFriends.swift */; };
 		94CE5A4129145E3000A4D148 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A4029145E3000A4D148 /* LikeButton.swift */; };
 		94CE5A432916750300A4D148 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A422916750300A4D148 /* Constants.swift */; };
+		94CE5A4F2919CB5400A4D148 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A4E2919CB5400A4D148 /* NewsViewController.swift */; };
+		94CE5A512919CD1500A4D148 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A502919CD1500A4D148 /* NewsTableViewCell.swift */; };
+		94CE5A53291A5A8D00A4D148 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A52291A5A8D00A4D148 /* News.swift */; };
+		94CE5A55291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		94CE5A3B291456A900A4D148 /* vkFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vkFriends.swift; sourceTree = "<group>"; };
 		94CE5A4029145E3000A4D148 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		94CE5A422916750300A4D148 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		94CE5A4E2919CB5400A4D148 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		94CE5A502919CD1500A4D148 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		94CE5A52291A5A8D00A4D148 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 				94CE5A1F2912EBDB00A4D148 /* FriendCollectionViewController.swift */,
 				94CE5A212913070E00A4D148 /* GroupTableViewController.swift */,
 				94CE5A2529130C2500A4D148 /* OtherGroupTableViewController.swift */,
+				94CE5A4E2919CB5400A4D148 /* NewsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 				94CE5A1D2912EB9D00A4D148 /* FriendCollectionViewCell.swift */,
 				94CE5A232913078B00A4D148 /* GroupTableViewCell.swift */,
 				94CE5A2729130D1000A4D148 /* OtherGroupTableViewCell.swift */,
+				94CE5A502919CD1500A4D148 /* NewsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +142,7 @@
 		94CE5A1C2912B1C600A4D148 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */,
 				94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
@@ -141,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				94CE5A292913367B00A4D148 /* User.swift */,
+				94CE5A52291A5A8D00A4D148 /* News.swift */,
 				94CE5A2C2913376000A4D148 /* Group.swift */,
 			);
 			path = Model;
@@ -280,10 +292,14 @@
 				94CE5A3529140B9500A4D148 /* CustomView.swift in Sources */,
 				94CE5A2A2913367B00A4D148 /* User.swift in Sources */,
 				94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */,
+				94CE5A4F2919CB5400A4D148 /* NewsViewController.swift in Sources */,
 				94CE5A4129145E3000A4D148 /* LikeButton.swift in Sources */,
 				944CC8A1291069C600A5B7F1 /* LoginViewController.swift in Sources */,
+				94CE5A55291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift in Sources */,
+				94CE5A53291A5A8D00A4D148 /* News.swift in Sources */,
 				94CE5A222913070E00A4D148 /* GroupTableViewController.swift in Sources */,
 				94CE5A202912EBDB00A4D148 /* FriendCollectionViewController.swift in Sources */,
+				94CE5A512919CD1500A4D148 /* NewsTableViewCell.swift in Sources */,
 				944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */,
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
 				94CE5A2D2913376000A4D148 /* Group.swift in Sources */,

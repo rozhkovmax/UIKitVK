@@ -10,12 +10,16 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var loginScrollView: UIScrollView!
     @IBOutlet private var loginTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var thirdAnimateCircleView: UIView!
+    @IBOutlet private var secondAnimateCircleView: UIView!
+    @IBOutlet private var firstAnimateCircleView: UIView!
 
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         keyboardAddObserver()
+        circleViewAnimation()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -40,6 +44,27 @@ final class LoginViewController: UIViewController {
     }
 
     // MARK: - Private Methods
+
+    private func circleViewAnimation() {
+        UIView.animate(
+            withDuration: 0.6,
+            delay: 0.1,
+            options: .autoreverse,
+            animations: { self.firstAnimateCircleView.alpha = 0 }
+        )
+        UIView.animate(
+            withDuration: 0.6,
+            delay: 0.3,
+            options: .autoreverse,
+            animations: { self.secondAnimateCircleView.alpha = 0 }
+        )
+        UIView.animate(
+            withDuration: 0.6,
+            delay: 0.5,
+            options: .autoreverse,
+            animations: { self.thirdAnimateCircleView.alpha = 0 }
+        )
+    }
 
     private func keyboardAddObserver() {
         NotificationCenter.default.addObserver(

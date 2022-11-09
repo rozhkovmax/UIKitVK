@@ -5,6 +5,10 @@ import UIKit
 
 /// Экран других групп
 final class OtherGroupTableViewController: UITableViewController {
+    // MARK: - Private IBOutlet
+
+    @IBOutlet private var groupSearchBar: UISearchBar!
+
     // MARK: - Public Properties
 
     private var closureGroup: ((Group) -> ())?
@@ -13,6 +17,9 @@ final class OtherGroupTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+
+    private lazy var searchGroup: [Group] = []
+    private var searchBool = false
 
     // MARK: - Public Methods
 
@@ -25,10 +32,12 @@ final class OtherGroupTableViewController: UITableViewController {
         closureGroup = completion
     }
 
-    // MARK: - UITableViewDataSource
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        otherGroups.count
+        if searchBool {
+            return searchGroup.count
+        } else {
+            return otherGroups.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,14 +45,42 @@ final class OtherGroupTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierOtherGroupTableViewCellID,
             for: indexPath
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
-        let group = otherGroups[indexPath.row]
-        cell.refreshOtherGroup(group)
+
+        if searchBool {
+            let group = searchGroup[indexPath.row]
+            cell.refreshOtherGroup(group)
+        } else {
+            let group = otherGroups[indexPath.row]
+            cell.refreshOtherGroup(group)
+        }
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let group = otherGroups[indexPath.row]
-        closureGroup?(group)
+        if searchBool {
+            let group = searchGroup[indexPath.row]
+            closureGroup?(group)
+        } else {
+            let group = otherGroups[indexPath.row]
+            closureGroup?(group)
+        }
         navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension OtherGroupTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchGroup = otherGroups
+            .filter { $0.groupName.lowercased().prefix(searchText.count) == searchText.lowercased() }
+        searchBool = true
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBool = false
+        searchBar.text = Constants.OtherConstants.emptyString
+        tableView.reloadData()
     }
 }

@@ -3,7 +3,7 @@
 
 import Foundation
 
-// Модель группы
+// Группа
 struct Group: Equatable {
     let groupName: String
     let groupAvatarImageName: String

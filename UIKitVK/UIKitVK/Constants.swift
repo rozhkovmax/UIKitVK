@@ -13,6 +13,7 @@ enum Constants {
         static let identifierSegueOtherGroupsID = "segueOtherGroups"
         static let identifierOtherGroupTableViewCellID = "OtherGroupTableViewCell"
         static let identifierFriendCollectionViewControllerID = "FriendCollectionVC"
+        static let identifierNewsTableViewCellID = "NewsTableViewCell"
     }
 
     enum FriendsNames {
@@ -78,5 +79,55 @@ enum Constants {
         static let likeOne = "1"
         static let heartImageName = "heart"
         static let heartFillImageName = "heart.fill"
+        static let emptyString = ""
+    }
+
+    enum CustomColorName {
+        static let blackCustomColorName = "blackCustomColor"
+        static let lightGrayCustomColorName = "lightGrayCustomColor"
+        static let linkCustomColorName = "linkCustomColor"
+        static let redCustomColorName = "redCustomColor"
+        static let whiteCustomColorName = "whiteCustomColor"
+    }
+
+    enum AnimationKeyPathName {
+        static let transformScaleAnimationName = "transform.scale"
+    }
+
+    enum InfoNewsPost {
+        static let vkNews = [
+            News(
+                newsUserInfo: "Максим",
+                newsUserData: "08.11.2022г.",
+                newsUserAvatarImageName: "MaxImage",
+                newsUserText: """
+                Октябрь уж наступил — уж роща отряхает
+                Последние листы с нагих своих ветвей;
+                Дохнул осенний хлад — дорога промерзает.
+                Журча еще бежит за мельницу ручей,
+                Но пруд уже застыл; сосед мой поспешает
+                В отъезжие поля с охотою своей,
+                И страждут озими от бешеной забавы,
+                И будит лай собак уснувшие дубравы.
+                """,
+                newsUserPhotoImageName: "Photo1"
+            ),
+            News(
+                newsUserInfo: "Аня",
+                newsUserData: "07.11.2022г.",
+                newsUserAvatarImageName: "AnnImage",
+                newsUserText: """
+                Теперь моя пора: я не люблю весны;
+                Скучна мне оттепель; вонь, грязь — весной я болен;
+                Кровь бродит; чувства, ум тоскою стеснены.
+                Суровою зимой я более доволен,
+                Люблю ее снега; в присутствии луны
+                Как легкий бег саней с подругой быстр и волен,
+                Когда под соболем, согрета и свежа,
+                Она вам руку жмет, пылая и дрожа!
+                """,
+                newsUserPhotoImageName: "Photo2"
+            )
+        ]
     }
 }

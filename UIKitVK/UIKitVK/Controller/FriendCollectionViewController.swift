@@ -9,7 +9,7 @@ final class FriendCollectionViewController: UICollectionViewController {
 
     var friendPhotos = ""
 
-    // MARK: - UICollectionViewDataSource
+    // MARK: - Public Methods
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         1
