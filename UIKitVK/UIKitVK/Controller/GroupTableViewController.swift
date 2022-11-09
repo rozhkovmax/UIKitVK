@@ -23,8 +23,6 @@ final class GroupTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - UITableViewDataSource
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count
     }

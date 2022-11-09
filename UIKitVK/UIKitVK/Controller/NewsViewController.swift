@@ -11,7 +11,7 @@ final class NewsViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var news = vkNews {
+    private var news = Constants.InfoNewsPost.vkNews {
         didSet {
             newsTableView.reloadData()
         }

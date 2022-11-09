@@ -33,7 +33,6 @@
 		94CE5A512919CD1500A4D148 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A502919CD1500A4D148 /* NewsTableViewCell.swift */; };
 		94CE5A53291A5A8D00A4D148 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A52291A5A8D00A4D148 /* News.swift */; };
 		94CE5A55291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */; };
-		94CE5A58291A622700A4D148 /* vkNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A57291A622700A4D148 /* vkNews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +64,6 @@
 		94CE5A502919CD1500A4D148 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		94CE5A52291A5A8D00A4D148 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
-		94CE5A57291A622700A4D148 /* vkNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vkNews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				94CE5A3B291456A900A4D148 /* vkFriends.swift */,
-				94CE5A57291A622700A4D148 /* vkNews.swift */,
 				94CE5A38291449F900A4D148 /* vkGroups.swift */,
 			);
 			path = VKGroups;
@@ -305,7 +302,6 @@
 				94CE5A512919CD1500A4D148 /* NewsTableViewCell.swift in Sources */,
 				944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */,
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
-				94CE5A58291A622700A4D148 /* vkNews.swift in Sources */,
 				94CE5A2D2913376000A4D148 /* Group.swift in Sources */,
 				94CE5A2829130D1000A4D148 /* OtherGroupTableViewCell.swift in Sources */,
 				94CE5A39291449F900A4D148 /* vkGroups.swift in Sources */,

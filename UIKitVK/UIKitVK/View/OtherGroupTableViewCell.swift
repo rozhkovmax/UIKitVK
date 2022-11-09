@@ -32,11 +32,11 @@ final class OtherGroupTableViewCell: UITableViewCell {
 
     private func tapGesture() {
         otherGroupAvatarImageView.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(otherGroupAvatarSpringAnimationAction))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(avatarSpringAnimationAction))
         otherGroupAvatarImageView.addGestureRecognizer(tapGesture)
     }
 
-    @objc private func otherGroupAvatarSpringAnimationAction() {
+    @objc private func avatarSpringAnimationAction() {
         otherGroupAvatarImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(
             withDuration: 3.0,

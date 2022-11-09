@@ -34,12 +34,12 @@ final class FriendTableViewCell: UITableViewCell {
 
     private func tapGesture() {
         friendCustomView.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(friendAvatarSpringAnimationAction))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(avatarSpringAnimationAction))
         friendCustomView.addGestureRecognizer(tapGesture)
     }
 
-    @objc private func friendAvatarSpringAnimationAction() {
-        let animation = CASpringAnimation(keyPath: "transform.scale")
+    @objc private func avatarSpringAnimationAction() {
+        let animation = CASpringAnimation(keyPath: Constants.AnimationKeyPathName.transformScaleAnimationName)
         animation.fromValue = 0.1
         animation.toValue = 1
         animation.stiffness = 50

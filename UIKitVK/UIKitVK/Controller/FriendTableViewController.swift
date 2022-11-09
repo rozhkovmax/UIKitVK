@@ -18,25 +18,7 @@ final class FriendTableViewController: UITableViewController {
         setupUI()
     }
 
-    // MARK: - Private Methods
-
-    private func setupUI() {
-        headerFriendName()
-    }
-
-    private func headerFriendName() {
-        for friendName in friends {
-            guard let firstChar = friendName.friendName.first else { return }
-            if sections[firstChar] != nil {
-                sections[firstChar]?.append(friendName)
-            } else {
-                sections[firstChar] = [friendName]
-            }
-        }
-        sectionNameChar = Array(sections.keys).sorted()
-    }
-
-    // MARK: - UITableViewDataSource
+    // MARK: - Public Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionCount = sections[sectionNameChar[section]]?.count else { return 0 }
@@ -82,5 +64,23 @@ final class FriendTableViewController: UITableViewController {
         else { return }
         friendCollectionVC.friendPhotos = friendAvatar
         navigationController?.pushViewController(friendCollectionVC, animated: true)
+    }
+
+    // MARK: - Private Methods
+
+    private func setupUI() {
+        headerFriendName()
+    }
+
+    private func headerFriendName() {
+        for friendName in friends {
+            guard let firstChar = friendName.friendName.first else { return }
+            if sections[firstChar] != nil {
+                sections[firstChar]?.append(friendName)
+            } else {
+                sections[firstChar] = [friendName]
+            }
+        }
+        sectionNameChar = Array(sections.keys).sorted()
     }
 }
