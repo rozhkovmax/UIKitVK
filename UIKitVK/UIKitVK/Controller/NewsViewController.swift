@@ -9,7 +9,7 @@ final class NewsViewController: UIViewController {
 
     @IBOutlet private var newsTableView: UITableView!
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private var news = vkNews {
         didSet {
