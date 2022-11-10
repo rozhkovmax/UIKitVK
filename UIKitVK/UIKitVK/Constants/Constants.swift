@@ -1,7 +1,7 @@
 // Constants.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
+import UIKit
 
 /// Константы
 enum Constants {
@@ -92,6 +92,16 @@ enum Constants {
 
     enum AnimationKeyPathName {
         static let transformScaleAnimationName = "transform.scale"
+    }
+
+    enum FriendPhotoImage {
+        static let friendPhotos = [
+            UIImage(named: "Photo1"),
+            UIImage(named: "Photo2"),
+            UIImage(named: "Photo3"),
+            UIImage(named: "Photo4"),
+            UIImage(named: "Photo5")
+        ]
     }
 
     enum InfoNewsPost {
