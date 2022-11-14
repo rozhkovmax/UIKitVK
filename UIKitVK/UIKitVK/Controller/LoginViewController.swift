@@ -47,22 +47,22 @@ final class LoginViewController: UIViewController {
 
     private func circleViewAnimation() {
         UIView.animate(
-            withDuration: 0.6,
-            delay: 0.1,
+            withDuration: Constants.AnimationOptions.circleAnimationDuration,
+            delay: Constants.AnimationOptions.circleAnimationFirstDelay,
             options: .autoreverse,
-            animations: { self.firstAnimateCircleView.alpha = 0 }
+            animations: { self.firstAnimateCircleView.alpha = Constants.AnimationOptions.circleAnimationAlpha }
         )
         UIView.animate(
-            withDuration: 0.6,
-            delay: 0.3,
+            withDuration: Constants.AnimationOptions.circleAnimationDuration,
+            delay: Constants.AnimationOptions.circleAnimationSecondDelay,
             options: .autoreverse,
-            animations: { self.secondAnimateCircleView.alpha = 0 }
+            animations: { self.secondAnimateCircleView.alpha = Constants.AnimationOptions.circleAnimationAlpha }
         )
         UIView.animate(
-            withDuration: 0.6,
-            delay: 0.5,
+            withDuration: Constants.AnimationOptions.circleAnimationDuration,
+            delay: Constants.AnimationOptions.circleAnimationThirdDelay,
             options: .autoreverse,
-            animations: { self.thirdAnimateCircleView.alpha = 0 }
+            animations: { self.thirdAnimateCircleView.alpha = Constants.AnimationOptions.circleAnimationAlpha }
         )
     }
 
@@ -98,7 +98,12 @@ final class LoginViewController: UIViewController {
         guard let info = notification.userInfo as? NSDictionary,
               let keyboardSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue)?.cgRectValue
               .size else { return }
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+        let contentInsets = UIEdgeInsets(
+            top: Constants.OtherConstants.scrollViewContentInsetTop,
+            left: Constants.OtherConstants.scrollViewContentInsetLeft,
+            bottom: keyboardSize.height,
+            right: Constants.OtherConstants.scrollViewContentInsetRight
+        )
         loginScrollView.contentInset = contentInsets
         loginScrollView.scrollIndicatorInsets = contentInsets
     }

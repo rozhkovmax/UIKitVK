@@ -39,12 +39,12 @@ final class FriendTableViewCell: UITableViewCell {
     }
 
     @objc private func avatarSpringAnimationAction() {
-        let animation = CASpringAnimation(keyPath: Constants.AnimationKeyPathName.transformScaleAnimationName)
-        animation.fromValue = 0.1
-        animation.toValue = 1
-        animation.stiffness = 50
-        animation.mass = 2
-        animation.duration = 3
+        let animation = CASpringAnimation(keyPath: Constants.AnimationOptions.transformScaleAnimationName)
+        animation.fromValue = Constants.AnimationOptions.springAnimationFromValue
+        animation.toValue = Constants.AnimationOptions.springAnimationToValue
+        animation.stiffness = Constants.AnimationOptions.springAnimationStiffness
+        animation.mass = Constants.AnimationOptions.springAnimationMass
+        animation.duration = Constants.AnimationOptions.springAnimationDuration
         animation.fillMode = .forwards
         friendCustomView.layer.add(animation, forKey: nil)
     }

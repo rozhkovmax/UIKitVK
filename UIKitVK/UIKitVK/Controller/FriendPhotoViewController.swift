@@ -11,7 +11,7 @@ final class FriendPhotoViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private let friendPhotos = Constants.FriendPhotoImage.friendPhotos
+    private let friendPhotos = Constants.FriendPhotoImages.friendPhotos
     private var numberPhoto = 0
     private var propertyAnimator: UIViewPropertyAnimator!
 
@@ -35,13 +35,16 @@ final class FriendPhotoViewController: UIViewController {
     }
 
     @objc private func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
-        let scale = CGAffineTransform(scaleX: 2, y: 2)
+        let scale = CGAffineTransform(
+            scaleX: Constants.AnimationOptions.gestureAnimationScaleX,
+            y: Constants.AnimationOptions.gestureAnimationScaleY
+        )
         let translation = recognizer.translation(in: view).x
         switch recognizer.state {
         case .began:
             propertyAnimator?.startAnimation()
             propertyAnimator = UIViewPropertyAnimator(
-                duration: 1,
+                duration: Constants.AnimationOptions.gestureAnimationDuration,
                 curve: .easeInOut,
                 animations: {
                     self.friendPhotoImageView.transform = scale
@@ -50,16 +53,19 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator.pauseAnimation()
         case .changed:
             propertyAnimator.fractionComplete = abs(translation / view.frame.width)
-            friendPhotoImageView.transform = CGAffineTransform(translationX: translation, y: 0)
+            friendPhotoImageView.transform = CGAffineTransform(
+                translationX: translation,
+                y: Constants.AnimationOptions.gestureAnimationTranslationY
+            )
         case .ended:
             propertyAnimator.stopAnimation(true)
-            if translation < 0 {
-                if numberPhoto < friendPhotos.count - 1 {
-                    numberPhoto += 1
+            if translation < Constants.OtherConstants.gestureTranslationComparison {
+                if numberPhoto < friendPhotos.count - Constants.OtherConstants.gestureNumberFriendPhotoChange {
+                    numberPhoto += Constants.OtherConstants.gestureNumberPhotoCountChange
                 }
             } else {
-                if numberPhoto != 0 {
-                    numberPhoto -= 1
+                if numberPhoto != Constants.OtherConstants.gestureNumberPhotoChange {
+                    numberPhoto -= Constants.OtherConstants.gestureNumberPhotoCountChange
                 }
             }
             propertyAnimator.addAnimations {

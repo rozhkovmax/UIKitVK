@@ -13,12 +13,6 @@ final class CustomNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-
-    // MARK: - Private Methods
-
-    private func setupUI() {
         delegate = self
     }
 }
@@ -46,7 +40,7 @@ extension CustomNavigationController: UINavigationControllerDelegate {
         _ navigationController: UINavigationController,
         interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
     ) -> UIViewControllerInteractiveTransitioning? {
-        interactiveTransition.hasStarted ? interactiveTransition : nil
+        interactiveTransition.isStarted ? interactiveTransition : nil
     }
 
     func navigationController(

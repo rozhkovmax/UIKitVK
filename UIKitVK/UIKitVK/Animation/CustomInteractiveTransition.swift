@@ -7,8 +7,7 @@ import UIKit
 final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     // MARK: - Public Properties
 
-    var hasStarted = false
-    var shouldFinish = false
+    var isStarted = false
     var viewController: UIViewController? {
         didSet {
             let recognizer = UIScreenEdgePanGestureRecognizer(
@@ -20,28 +19,36 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
         }
     }
 
+    // MARK: - Private Properties
+
+    private var isShouldFinish = false
+
     // MARK: - Private Methods
 
     @objc private func handleScreenEdgeGestureAction(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            hasStarted = true
+            isStarted = true
             viewController?.navigationController?.popViewController(animated: true)
         case .changed:
             let translation = recognizer.translation(in: recognizer.view)
-            let relativeTranslation = translation.x / (recognizer.view?.bounds.width ?? 1)
-            let progress = max(0, min(1, relativeTranslation))
-            shouldFinish = progress > 0.33
+            let relativeTranslation = translation
+                .x / (recognizer.view?.bounds.width ?? Constants.OtherConstants.sizeCheck)
+            let progress = max(
+                Constants.AnimationOptions.screenEdgeGestureAnimationProgressMaxX,
+                min(Constants.AnimationOptions.screenEdgeGestureAnimationProgressMinX, relativeTranslation)
+            )
+            isShouldFinish = progress > Constants.OtherConstants.screenEdgeGestureProgressChange
             update(progress)
         case .ended:
-            hasStarted = false
-            if shouldFinish {
+            isStarted = false
+            if isShouldFinish {
                 finish()
             } else {
                 cancel()
             }
         case .cancelled:
-            hasStarted = false
+            isStarted = false
             cancel()
         default:
             return

@@ -21,7 +21,8 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Public Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sectionCount = sections[sectionNameChar[section]]?.count else { return 0 }
+        guard let sectionCount = sections[sectionNameChar[section]]?.count
+        else { return Constants.OtherConstants.sectionCheck }
         return sectionCount
     }
 
@@ -38,8 +39,8 @@ final class FriendTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        tableView.backgroundColor = UIColor(named: Constants.CustomColorName.lightGrayCustomColorName)?
-            .withAlphaComponent(0.95)
+        tableView.backgroundColor = UIColor(named: Constants.CustomColorNames.lightGrayCustomColorName)?
+            .withAlphaComponent(Constants.OtherConstants.tableViewBackgroundAlpha)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

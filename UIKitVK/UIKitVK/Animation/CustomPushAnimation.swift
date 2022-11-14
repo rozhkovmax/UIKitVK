@@ -8,7 +8,7 @@ final class CustomPushAnimation: NSObject, UIViewControllerAnimatedTransitioning
     // MARK: - Public Methods
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        1
+        Constants.AnimationOptions.pushAnimationDuration
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -17,23 +17,31 @@ final class CustomPushAnimation: NSObject, UIViewControllerAnimatedTransitioning
         let containerViewFrame = transitionContext.containerView.frame
         let sourceViewFrame = CGRect(
             x: -containerViewFrame.height,
-            y: 0,
+            y: Constants.OtherConstants.pushSourceViewControllerPositionY,
             width: source.view.frame.height,
             height: source.view.frame.width
         )
         let destinationViewFrame = source.view.frame
         transitionContext.containerView.addSubview(destination.view)
-        destination.view.transform = CGAffineTransform(rotationAngle: -.pi / 2)
+        destination.view
+            .transform = CGAffineTransform(
+                rotationAngle: Constants.AnimationOptions
+                    .pushAnimationDestinationRotationAngle
+            )
         destination.view.frame = CGRect(
             x: containerViewFrame.width,
-            y: 0,
+            y: Constants.OtherConstants.pushDestinationViewControllerPositionY,
             width: source.view.frame.height,
             height: source.view.frame.width
         )
         UIView.animate(
-            withDuration: 1
+            withDuration: Constants.AnimationOptions.pushAnimationDuration
         ) {
-            source.view.transform = CGAffineTransform(rotationAngle: .pi / 2)
+            source.view
+                .transform = CGAffineTransform(
+                    rotationAngle: Constants.AnimationOptions
+                        .pushAnimationSourceRotationAngle
+                )
             source.view.frame = sourceViewFrame
             destination.view.transform = .identity
             destination.view.frame = destinationViewFrame

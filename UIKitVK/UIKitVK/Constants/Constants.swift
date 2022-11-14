@@ -80,9 +80,68 @@ enum Constants {
         static let heartImageName = "heart"
         static let heartFillImageName = "heart.fill"
         static let emptyString = ""
+        static let scrollViewContentInsetTop = 0.0
+        static let scrollViewContentInsetLeft = 0.0
+        static let scrollViewContentInsetRight = 0.0
+        static let tableViewBackgroundAlpha = 0.95
+        static let sectionCheck = 0
+        static let collectionViewNumberOfItemsInSection = 1
+        static let gestureTranslationComparison = 0.0
+        static let gestureNumberPhotoChange = 1
+        static let gestureNumberFriendPhotoChange = 1
+        static let gestureNumberPhotoCountChange = 0
+        static let boldFontSize = 18.0
+        static let fontSize = 15.0
+        static let likeButtonTagOn = 0
+        static let likeButtonTagOff = 1
+        static let customViewBorderWidthInitialValue = 0.0
+        static let customViewShadowOpacityInitialValue = 0.0
+        static let customViewShadowRadiusInitialValue = 0.0
+        static let customViewCornerRadius = 40.0
+        static let sizeCheck = CGFloat(1.0)
+        static let screenEdgeGestureProgressChange = 1.0
+        static let popSourceViewControllerPositionY = 0.0
+        static let popDestinationViewControllerPositionY = 0.0
+        static let pushSourceViewControllerPositionY = 0.0
+        static let pushDestinationViewControllerPositionY = 0.0
     }
 
-    enum CustomColorName {
+    enum AnimationOptions {
+        static let transformScaleAnimationName = "transform.scale"
+        static let springAnimationFromValue = 0.1
+        static let springAnimationToValue = 1.0
+        static let springAnimationStiffness = 50.0
+        static let springAnimationMass = 2.0
+        static let springAnimationDuration = 3.0
+        static let springAnimationScaleX = 0.1
+        static let springAnimationScaleY = 0.1
+        static let springAnimationDelay = 0.0
+        static let springAnimationDamping = 0.6
+        static let springAnimationInitialVelocity = 0.5
+        static let circleAnimationDuration = 0.6
+        static let circleAnimationAlpha = 0.6
+        static let circleAnimationFirstDelay = 0.1
+        static let circleAnimationSecondDelay = 0.3
+        static let circleAnimationThirdDelay = 0.5
+        static let gestureAnimationScaleX = 2.0
+        static let gestureAnimationScaleY = 2.0
+        static let gestureAnimationDuration = 2.0
+        static let gestureAnimationTranslationY = 0.0
+        static let likeButtonAnimationDuration = 0.3
+        static let likeButtonAnimationDelay = 0.0
+        static let likeButtonAnimationTranslationX = 0.0
+        static let likeButtonAnimationTranslationY = 50.0
+        static let screenEdgeGestureAnimationProgressMaxX = 0.0
+        static let screenEdgeGestureAnimationProgressMinX = 1.0
+        static let popAnimationDuration = 1.0
+        static let popAnimationDestinationRotationAngle = .pi / 2.0
+        static let popAnimationSourceRotationAngle = -.pi / 2.0
+        static let pushAnimationDuration = 1.0
+        static let pushAnimationDestinationRotationAngle = -.pi / 2.0
+        static let pushAnimationSourceRotationAngle = .pi / 2.0
+    }
+
+    enum CustomColorNames {
         static let blackCustomColorName = "blackCustomColor"
         static let lightGrayCustomColorName = "lightGrayCustomColor"
         static let linkCustomColorName = "linkCustomColor"
@@ -90,11 +149,7 @@ enum Constants {
         static let whiteCustomColorName = "whiteCustomColor"
     }
 
-    enum AnimationKeyPathName {
-        static let transformScaleAnimationName = "transform.scale"
-    }
-
-    enum FriendPhotoImage {
+    enum FriendPhotoImages {
         static let friendPhotos = [
             UIImage(named: "Photo1"),
             UIImage(named: "Photo2"),
@@ -104,7 +159,7 @@ enum Constants {
         ]
     }
 
-    enum InfoNewsPost {
+    enum InfoNewsPosts {
         static let vkNews = [
             News(
                 newsUserInfo: "Максим",
