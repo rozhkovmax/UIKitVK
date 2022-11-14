@@ -12,7 +12,7 @@ final class FriendCollectionViewController: UICollectionViewController {
     // MARK: - Public Methods
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        Constants.OtherConstants.collectionViewNumberOfItemsInSection
     }
 
     override func collectionView(

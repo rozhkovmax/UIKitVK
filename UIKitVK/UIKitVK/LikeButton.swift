@@ -13,14 +13,14 @@ final class LikeButton: UIControl {
 
     @IBAction private func likeButtonClickAction(_ sender: UIButton) {
         animateLikeButton()
-        if likeButton.tag == 1 {
+        if likeButton.tag == Constants.OtherConstants.likeButtonTagOff {
             likeButton.setImage(UIImage(systemName: Constants.OtherConstants.heartImageName), for: .normal)
             likeButton.setTitle(Constants.OtherConstants.likeZero, for: .normal)
-            likeButton.tag = 0
+            likeButton.tag = Constants.OtherConstants.likeButtonTagOn
         } else {
             likeButton.setImage(UIImage(systemName: Constants.OtherConstants.heartFillImageName), for: .normal)
             likeButton.setTitle(Constants.OtherConstants.likeOne, for: .normal)
-            likeButton.tag = 1
+            likeButton.tag = Constants.OtherConstants.likeButtonTagOff
         }
     }
 
@@ -28,10 +28,19 @@ final class LikeButton: UIControl {
 
     private func animateLikeButton() {
         let originalButton = likeButton.transform
-        UIView.animate(withDuration: 0.3, delay: 0, options: .autoreverse, animations: {
-            self.likeButton.transform = CGAffineTransform(translationX: 0, y: 50)
-        }, completion: { _ in
-            self.likeButton.transform = originalButton
-        })
+        UIView.animate(
+            withDuration: Constants.AnimationOptions.likeButtonAnimationDuration,
+            delay: Constants.AnimationOptions.likeButtonAnimationDelay,
+            options: .autoreverse,
+            animations: {
+                self.likeButton.transform = CGAffineTransform(
+                    translationX: Constants.AnimationOptions.likeButtonAnimationTranslationX,
+                    y: Constants.AnimationOptions.likeButtonAnimationTranslationY
+                )
+            },
+            completion: { _ in
+                self.likeButton.transform = originalButton
+            }
+        )
     }
 }

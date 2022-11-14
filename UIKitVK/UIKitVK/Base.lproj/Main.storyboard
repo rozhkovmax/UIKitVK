@@ -181,7 +181,7 @@
         <!--Друзья-->
         <scene sceneID="bEA-pa-XPR">
             <objects>
-                <navigationController id="sYt-Vl-b72" sceneMemberID="viewController">
+                <navigationController id="sYt-Vl-b72" customClass="CustomNavigationController" customModule="UIKitVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.badge.plus" catalog="system" selectedImage="person.fill.badge.plus" id="szy-4h-5KW">
                         <color key="badgeColor" name="linkCustomColor"/>
                     </tabBarItem>
@@ -538,7 +538,7 @@
         <!--Группы-->
         <scene sceneID="3c9-Cc-tSm">
             <objects>
-                <navigationController id="pH2-M6-8HX" sceneMemberID="viewController">
+                <navigationController id="pH2-M6-8HX" customClass="CustomNavigationController" customModule="UIKitVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" selectedImage="person.3.fill" id="NkF-Gx-lz0">
                         <color key="badgeColor" name="linkCustomColor"/>
                     </tabBarItem>
@@ -634,6 +634,7 @@
                                 <size key="customSize" width="135" height="180"/>
                                 <connections>
                                     <outlet property="friendGalleryImageView" destination="aFI-xa-uc8" id="6Qh-Lr-qv0"/>
+                                    <segue destination="cGN-qM-YYL" kind="show" id="z45-oo-6TD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -647,6 +648,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gE-56-qrL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3340.579710144928" y="-287.27678571428572"/>
+        </scene>
+        <!--Фото друга-->
+        <scene sceneID="ogW-sG-c4O">
+            <objects>
+                <viewController id="cGN-qM-YYL" customClass="FriendPhotoViewController" customModule="UIKitVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1zh-TQ-Ku4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NUD-ZX-qDy">
+                                <rect key="frame" x="57" y="302.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="LdC-ds-cQS"/>
+                                    <constraint firstAttribute="height" constant="300" id="T6x-9g-IHk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LNs-vU-7Ps"/>
+                        <color key="backgroundColor" name="whiteCustomColor"/>
+                        <constraints>
+                            <constraint firstItem="NUD-ZX-qDy" firstAttribute="centerX" secondItem="LNs-vU-7Ps" secondAttribute="centerX" id="O8m-UF-aVF"/>
+                            <constraint firstItem="NUD-ZX-qDy" firstAttribute="centerY" secondItem="LNs-vU-7Ps" secondAttribute="centerY" id="dP7-wx-Htd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Фото друга" id="AUG-Zu-sNa"/>
+                    <connections>
+                        <outlet property="friendPhotoImageView" destination="NUD-ZX-qDy" id="Q93-Tn-fyU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihQ-Gi-K6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4165" y="-287"/>
         </scene>
         <!--Мои Группы-->
         <scene sceneID="vMn-XZ-7oD">

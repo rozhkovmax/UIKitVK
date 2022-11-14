@@ -5,8 +5,8 @@ import UIKit
 
 // Расширение для NSMutableAttributedString
 extension NSMutableAttributedString {
-    var boldFont: UIFont { UIFont.boldSystemFont(ofSize: 18) }
-    var systemFont: UIFont { UIFont.systemFont(ofSize: 15) }
+    var boldFont: UIFont { UIFont.boldSystemFont(ofSize: Constants.OtherConstants.boldFontSize) }
+    var systemFont: UIFont { UIFont.systemFont(ofSize: Constants.OtherConstants.fontSize) }
 
     func bold(_ value: String) -> NSMutableAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [

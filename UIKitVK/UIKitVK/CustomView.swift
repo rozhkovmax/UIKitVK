@@ -25,19 +25,19 @@ import UIKit
         }
     }
 
-    @IBInspectable private var borderWidth: CGFloat = 0 {
+    @IBInspectable private var borderWidth: CGFloat = Constants.OtherConstants.customViewBorderWidthInitialValue {
         didSet {
             setNeedsDisplay()
         }
     }
 
-    @IBInspectable private var shadowOpacity: CGFloat = 0.0 {
+    @IBInspectable private var shadowOpacity: CGFloat = Constants.OtherConstants.customViewShadowOpacityInitialValue {
         didSet {
             setNeedsDisplay()
         }
     }
 
-    @IBInspectable private var shadowRadius: CGFloat = 0 {
+    @IBInspectable private var shadowRadius: CGFloat = Constants.OtherConstants.customViewShadowRadiusInitialValue {
         didSet {
             setNeedsDisplay()
         }
@@ -48,7 +48,7 @@ import UIKit
     func configure() {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
-        layer.cornerRadius = 40
+        layer.cornerRadius = Constants.OtherConstants.customViewCornerRadius
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOpacity = Float(shadowOpacity)
         layer.shadowRadius = shadowRadius

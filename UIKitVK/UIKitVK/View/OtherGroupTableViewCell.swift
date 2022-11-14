@@ -37,12 +37,15 @@ final class OtherGroupTableViewCell: UITableViewCell {
     }
 
     @objc private func avatarSpringAnimationAction() {
-        otherGroupAvatarImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        otherGroupAvatarImageView.transform = CGAffineTransform(
+            scaleX: Constants.AnimationOptions.springAnimationScaleX,
+            y: Constants.AnimationOptions.springAnimationScaleY
+        )
         UIView.animate(
-            withDuration: 3.0,
-            delay: 0.0,
-            usingSpringWithDamping: 0.6,
-            initialSpringVelocity: 0.5,
+            withDuration: Constants.AnimationOptions.springAnimationDuration,
+            delay: Constants.AnimationOptions.springAnimationDelay,
+            usingSpringWithDamping: Constants.AnimationOptions.springAnimationDamping,
+            initialSpringVelocity: Constants.AnimationOptions.springAnimationInitialVelocity,
             options: .curveEaseOut,
             animations: {
                 self.otherGroupAvatarImageView.transform = .identity
