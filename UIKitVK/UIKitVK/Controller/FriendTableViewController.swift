@@ -10,6 +10,7 @@ final class FriendTableViewController: UITableViewController {
     private let friends = vkFriends
     private var sections: [Character: [User]] = [:]
     private var sectionNameChar: [Character] = []
+    private lazy var service = NetworkService()
 
     // MARK: - Life Cycle
 
@@ -71,6 +72,7 @@ final class FriendTableViewController: UITableViewController {
 
     private func setupUI() {
         headerFriendName()
+        service.photosRequest()
     }
 
     private func headerFriendName() {

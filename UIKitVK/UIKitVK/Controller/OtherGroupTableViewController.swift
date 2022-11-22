@@ -9,7 +9,7 @@ final class OtherGroupTableViewController: UITableViewController {
 
     @IBOutlet private var groupSearchBar: UISearchBar!
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private var closureGroup: ((Group) -> ())?
     private var otherGroups = vkGroups {
@@ -18,8 +18,9 @@ final class OtherGroupTableViewController: UITableViewController {
         }
     }
 
-    private lazy var searchGroup: [Group] = []
     private var searchBool = false
+    private lazy var searchGroup: [Group] = []
+    private lazy var service = NetworkService()
 
     // MARK: - Public Methods
 
@@ -76,6 +77,7 @@ extension OtherGroupTableViewController: UISearchBarDelegate {
             .filter { $0.groupName.lowercased().prefix(searchText.count) == searchText.lowercased() }
         searchBool = true
         tableView.reloadData()
+        service.otherGroupsRequest(group: searchText)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

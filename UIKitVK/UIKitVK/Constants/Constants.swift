@@ -14,8 +14,9 @@ enum Constants {
         static let identifierOtherGroupTableViewCellID = "OtherGroupTableViewCell"
         static let identifierFriendCollectionViewControllerID = "FriendCollectionVC"
         static let identifierNewsTableViewCellID = "NewsTableViewCell"
+        static let identifierTabBarID = "LoginSegue"
     }
-
+    
     enum FriendsNames {
         static let friendOneName = "Максим"
         static let friendTwoName = "Аня"
@@ -28,7 +29,7 @@ enum Constants {
         static let friendNineName = "Ира"
         static let friendTenName = "Люда"
     }
-
+    
     enum FriendsAvatarImageNames {
         static let friendOneAvatarImageName = "MaxImage"
         static let friendTwoAvatarImageName = "AnnImage"
@@ -41,7 +42,7 @@ enum Constants {
         static let friendNineAvatarImageName = "IraImage"
         static let friendTenAvatarImageName = "LudaImage"
     }
-
+    
     enum GroupsNames {
         static let groupOneName = "Figma"
         static let groupTwoName = "Game"
@@ -54,7 +55,7 @@ enum Constants {
         static let groupNineName = "VC.RU"
         static let groupTenName = "VKGroup"
     }
-
+    
     enum GroupsAvatarImageNames {
         static let groupOneAvatarImageName = "FigmaGroupImage"
         static let groupTwoAvatarImageName = "GameGroupImage"
@@ -67,7 +68,7 @@ enum Constants {
         static let groupNineAvatarImageName = "VCGroupImage"
         static let groupTenAvatarImageName = "VKGroupImage"
     }
-
+    
     enum OtherConstants {
         static let loginText = "q"
         static let passwordText = "q"
@@ -104,8 +105,13 @@ enum Constants {
         static let popDestinationViewControllerPositionY = 0.0
         static let pushSourceViewControllerPositionY = 0.0
         static let pushDestinationViewControllerPositionY = 0.0
+        static let firstFriendPhotoIndex = 0
+        static let ampersand = "&"
+        static let equals = "="
+        static let paramKeyIndex = 0
+        static let paramValueIndex = 1
     }
-
+    
     enum AnimationOptions {
         static let transformScaleAnimationName = "transform.scale"
         static let springAnimationFromValue = 0.1
@@ -119,7 +125,7 @@ enum Constants {
         static let springAnimationDamping = 0.6
         static let springAnimationInitialVelocity = 0.5
         static let circleAnimationDuration = 0.6
-        static let circleAnimationAlpha = 0.6
+        static let circleAnimationAlpha = 0.0
         static let circleAnimationFirstDelay = 0.1
         static let circleAnimationSecondDelay = 0.3
         static let circleAnimationThirdDelay = 0.5
@@ -140,7 +146,7 @@ enum Constants {
         static let pushAnimationDestinationRotationAngle = -.pi / 2.0
         static let pushAnimationSourceRotationAngle = .pi / 2.0
     }
-
+    
     enum CustomColorNames {
         static let blackCustomColorName = "blackCustomColor"
         static let lightGrayCustomColorName = "lightGrayCustomColor"
@@ -148,7 +154,7 @@ enum Constants {
         static let redCustomColorName = "redCustomColor"
         static let whiteCustomColorName = "whiteCustomColor"
     }
-
+    
     enum FriendPhotoImages {
         static let friendPhotos = [
             UIImage(named: "Photo1"),
@@ -158,7 +164,39 @@ enum Constants {
             UIImage(named: "Photo5")
         ]
     }
-
+    
+    enum UrlComponents {
+        static let scheme = "https"
+        static let host = "oauth.vk.com"
+        static let path = "/authorize"
+        static let queryItemsClientIdKeyName = "client_id"
+        static let queryItemsClientIdValue = "51483156"
+        static let queryItemsDisplayKeyName = "display"
+        static let queryItemsDisplayValue = "mobile"
+        static let queryItemsRedirectUriKeyName = "redirect_uri"
+        static let queryItemsRedirectUriValue = "https://oauth.vk.com/blank.html"
+        static let queryItemsScopeKeyName = "scope"
+        static let queryItemsScopeValue = "262150"
+        static let queryItemsResponseTypeKeyName = "response_type"
+        static let queryItemsResponseTypeValue = "token"
+        static let queryItemsVersionKeyName = "v"
+        static let queryItemsVersionValue = "5.68"
+        static let urlPath = "/blank.html"
+        static let accessTokenKey = "access_token"
+        static let userIdKey = "user_id"
+        static let baseUrl = "https://api.vk.com/method/"
+        static let friendsMethod = "friends.get?"
+        static let userId = "/user_ids="
+        static let accessToken = "&access_token="
+        static let version = "&v=5.131"
+        static let friendsFields = "&fields=nickname"
+        static let photosMethod = "photos.getAll?"
+        static let myGroupMethod = "groups.get?"
+        static let myGroupExtended = "extended=1"
+        static let otherGroupMethod = "groups.search?"
+        static let otherGroupSearch = "&q="
+    }
+    
     enum InfoNewsPosts {
         static let vkNews = [
             News(

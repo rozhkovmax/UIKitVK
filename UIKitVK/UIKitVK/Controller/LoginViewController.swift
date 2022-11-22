@@ -14,7 +14,16 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var secondAnimateCircleView: UIView!
     @IBOutlet private var firstAnimateCircleView: UIView!
 
+    // MARK: - Private Properties
+
+    private lazy var service = NetworkService()
+
     // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        service.friendsRequest()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

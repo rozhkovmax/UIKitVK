@@ -13,6 +13,15 @@ final class GroupTableViewController: UITableViewController {
         }
     }
 
+    private lazy var service = NetworkService()
+
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        service.myGroupsRequest()
+    }
+
     // MARK: - Public Methods
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
