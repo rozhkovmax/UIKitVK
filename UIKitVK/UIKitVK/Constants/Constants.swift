@@ -16,7 +16,7 @@ enum Constants {
         static let identifierNewsTableViewCellID = "NewsTableViewCell"
         static let identifierTabBarID = "LoginSegue"
     }
-    
+
     enum FriendsNames {
         static let friendOneName = "Максим"
         static let friendTwoName = "Аня"
@@ -29,7 +29,7 @@ enum Constants {
         static let friendNineName = "Ира"
         static let friendTenName = "Люда"
     }
-    
+
     enum FriendsAvatarImageNames {
         static let friendOneAvatarImageName = "MaxImage"
         static let friendTwoAvatarImageName = "AnnImage"
@@ -42,7 +42,7 @@ enum Constants {
         static let friendNineAvatarImageName = "IraImage"
         static let friendTenAvatarImageName = "LudaImage"
     }
-    
+
     enum GroupsNames {
         static let groupOneName = "Figma"
         static let groupTwoName = "Game"
@@ -55,7 +55,7 @@ enum Constants {
         static let groupNineName = "VC.RU"
         static let groupTenName = "VKGroup"
     }
-    
+
     enum GroupsAvatarImageNames {
         static let groupOneAvatarImageName = "FigmaGroupImage"
         static let groupTwoAvatarImageName = "GameGroupImage"
@@ -68,7 +68,7 @@ enum Constants {
         static let groupNineAvatarImageName = "VCGroupImage"
         static let groupTenAvatarImageName = "VKGroupImage"
     }
-    
+
     enum OtherConstants {
         static let loginText = "q"
         static let passwordText = "q"
@@ -111,7 +111,7 @@ enum Constants {
         static let paramKeyIndex = 0
         static let paramValueIndex = 1
     }
-    
+
     enum AnimationOptions {
         static let transformScaleAnimationName = "transform.scale"
         static let springAnimationFromValue = 0.1
@@ -146,7 +146,7 @@ enum Constants {
         static let pushAnimationDestinationRotationAngle = -.pi / 2.0
         static let pushAnimationSourceRotationAngle = .pi / 2.0
     }
-    
+
     enum CustomColorNames {
         static let blackCustomColorName = "blackCustomColor"
         static let lightGrayCustomColorName = "lightGrayCustomColor"
@@ -154,7 +154,7 @@ enum Constants {
         static let redCustomColorName = "redCustomColor"
         static let whiteCustomColorName = "whiteCustomColor"
     }
-    
+
     enum FriendPhotoImages {
         static let friendPhotos = [
             UIImage(named: "Photo1"),
@@ -164,7 +164,7 @@ enum Constants {
             UIImage(named: "Photo5")
         ]
     }
-    
+
     enum UrlComponents {
         static let scheme = "https"
         static let host = "oauth.vk.com"
@@ -196,7 +196,7 @@ enum Constants {
         static let otherGroupMethod = "groups.search?"
         static let otherGroupSearch = "&q="
     }
-    
+
     enum InfoNewsPosts {
         static let vkNews = [
             News(
