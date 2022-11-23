@@ -7,10 +7,18 @@ import UIKit
 final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
+    private let networkService = NetworkService()
     private var myGroups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }
+    }
+
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        networkServiceUserGroups()
     }
 
     // MARK: - Public Methods
@@ -45,5 +53,11 @@ final class GroupTableViewController: UITableViewController {
         if editingStyle == .delete {
             myGroups.remove(at: indexPath.row)
         }
+    }
+
+    // MARK: - Private Methods
+
+    private func networkServiceUserGroups() {
+        networkService.fetchUserGroups()
     }
 }

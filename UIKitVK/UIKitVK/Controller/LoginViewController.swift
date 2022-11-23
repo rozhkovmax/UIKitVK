@@ -14,7 +14,16 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var secondAnimateCircleView: UIView!
     @IBOutlet private var firstAnimateCircleView: UIView!
 
+    // MARK: - Private Properties
+
+    private let networkService = NetworkService()
+
     // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        networkServiceFriends()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,6 +101,10 @@ final class LoginViewController: UIViewController {
         guard loginTextField.text == Constants.OtherConstants.loginText,
               loginTextField.text == Constants.OtherConstants.passwordText else { return false }
         return true
+    }
+
+    private func networkServiceFriends() {
+        networkService.fetchFriends()
     }
 
     @objc private func keyboardWillShownAction(notification: Notification) {

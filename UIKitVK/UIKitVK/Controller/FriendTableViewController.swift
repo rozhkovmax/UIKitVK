@@ -7,9 +7,10 @@ import UIKit
 final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
+    private let networkService = NetworkService()
     private let friends = vkFriends
-    private var sections: [Character: [User]] = [:]
-    private var sectionNameChar: [Character] = []
+    private var sectionsMap: [Character: [User]] = [:]
+    private var sectionNameChars: [Character] = []
 
     // MARK: - Life Cycle
 
@@ -21,21 +22,21 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Public Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sectionCount = sections[sectionNameChar[section]]?.count
+        guard let sectionCount = sectionsMap[sectionNameChars[section]]?.count
         else { return Constants.OtherConstants.sectionCheck }
         return sectionCount
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        sectionsMap.count
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        sectionNameChar.compactMap { String($0) }
+        sectionNameChars.compactMap { String($0) }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        String(sectionNameChar[section])
+        String(sectionNameChars[section])
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -48,7 +49,7 @@ final class FriendTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell,
-            let friend = sections[sectionNameChar[indexPath.section]]?[indexPath.row]
+            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
         cell.refreshFriend(friend)
         return cell
@@ -61,7 +62,7 @@ final class FriendTableViewController: UITableViewController {
                 withIdentifier: Constants.Identifiers
                     .identifierFriendCollectionViewControllerID
             ) as? FriendCollectionViewController else { return }
-        guard let friendAvatar = sections[sectionNameChar[indexPath.section]]?[indexPath.row].friendAvatarImageName
+        guard let friendAvatar = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row].friendAvatarImageName
         else { return }
         friendCollectionVC.friendPhotos = friendAvatar
         navigationController?.pushViewController(friendCollectionVC, animated: true)
@@ -71,17 +72,22 @@ final class FriendTableViewController: UITableViewController {
 
     private func setupUI() {
         headerFriendName()
+        networkServicePhotos()
+    }
+
+    private func networkServicePhotos() {
+        networkService.fetchPhotos()
     }
 
     private func headerFriendName() {
         for friendName in friends {
             guard let firstChar = friendName.friendName.first else { return }
-            if sections[firstChar] != nil {
-                sections[firstChar]?.append(friendName)
+            if sectionsMap[firstChar] != nil {
+                sectionsMap[firstChar]?.append(friendName)
             } else {
-                sections[firstChar] = [friendName]
+                sectionsMap[firstChar] = [friendName]
             }
         }
-        sectionNameChar = Array(sections.keys).sorted()
+        sectionNameChars = Array(sectionsMap.keys).sorted()
     }
 }

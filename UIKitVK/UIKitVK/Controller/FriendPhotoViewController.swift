@@ -12,7 +12,7 @@ final class FriendPhotoViewController: UIViewController {
     // MARK: - Private Properties
 
     private let friendPhotos = Constants.FriendPhotoImages.friendPhotos
-    private var numberPhoto = 0
+    private var numberPhoto = Constants.OtherConstants.firstFriendPhotoIndex
     private var propertyAnimator: UIViewPropertyAnimator!
 
     // MARK: - Life Cycle
@@ -60,12 +60,12 @@ final class FriendPhotoViewController: UIViewController {
         case .ended:
             propertyAnimator.stopAnimation(true)
             if translation < Constants.OtherConstants.gestureTranslationComparison {
-                if numberPhoto < friendPhotos.count - Constants.OtherConstants.gestureNumberFriendPhotoChange {
-                    numberPhoto += Constants.OtherConstants.gestureNumberPhotoCountChange
+                if numberPhoto < friendPhotos.count - Constants.OtherConstants.gestureNumberPhotoChange {
+                    numberPhoto += Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             } else {
-                if numberPhoto != Constants.OtherConstants.gestureNumberPhotoChange {
-                    numberPhoto -= Constants.OtherConstants.gestureNumberPhotoCountChange
+                if numberPhoto != Constants.OtherConstants.gestureNumberPhotoCountChange {
+                    numberPhoto -= Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             }
             propertyAnimator.addAnimations {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A236DBCDEA6E6B262085384 /* Pods_UIKitVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC8FE048C430982395D2F81 /* Pods_UIKitVK.framework */; };
+		9433AC29292BC42E00E03BA8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433AC28292BC42E00E03BA8 /* Session.swift */; };
+		9433AC2D292C0FAA00E03BA8 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433AC2C292C0FAA00E03BA8 /* LoginWebViewController.swift */; };
+		9433AC2F292D42F700E03BA8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433AC2E292D42F700E03BA8 /* NetworkService.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
 		944CC89F291069C600A5B7F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89E291069C600A5B7F1 /* SceneDelegate.swift */; };
 		944CC8A1291069C600A5B7F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC8A0291069C600A5B7F1 /* LoginViewController.swift */; };
@@ -41,6 +45,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31CC7744822FB647CF7F5636 /* Pods-UIKitVK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitVK.release.xcconfig"; path = "Target Support Files/Pods-UIKitVK/Pods-UIKitVK.release.xcconfig"; sourceTree = "<group>"; };
+		9433AC28292BC42E00E03BA8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		9433AC2C292C0FAA00E03BA8 /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		9433AC2E292D42F700E03BA8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944CC89C291069C600A5B7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		944CC89E291069C600A5B7F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,8 @@
 		94CE5A63291D263D00A4D148 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		94CE5A65291D3A0900A4D148 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
 		94CE5A67291D3AB900A4D148 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
+		DA10F8F167F9AFF842452E5A /* Pods-UIKitVK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitVK.debug.xcconfig"; path = "Target Support Files/Pods-UIKitVK/Pods-UIKitVK.debug.xcconfig"; sourceTree = "<group>"; };
+		FCC8FE048C430982395D2F81 /* Pods_UIKitVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKitVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,17 +91,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A236DBCDEA6E6B262085384 /* Pods_UIKitVK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42C21E0F15E431592E39AEC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA10F8F167F9AFF842452E5A /* Pods-UIKitVK.debug.xcconfig */,
+				31CC7744822FB647CF7F5636 /* Pods-UIKitVK.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		944CC890291069C600A5B7F1 = {
 			isa = PBXGroup;
 			children = (
 				944CC89B291069C600A5B7F1 /* UIKitVK */,
 				944CC89A291069C600A5B7F1 /* Products */,
+				42C21E0F15E431592E39AEC2 /* Pods */,
+				D0BBD3EEC8E8B00E992E9C3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +138,8 @@
 				94CE5A3F29145B5200A4D148 /* VKGroups */,
 				94CE5A3A2914556900A4D148 /* CustomUI */,
 				94CE5A69291DA05200A4D148 /* Animation */,
+				9433AC28292BC42E00E03BA8 /* Session.swift */,
+				9433AC2E292D42F700E03BA8 /* NetworkService.swift */,
 				944CC8A2291069C600A5B7F1 /* Main.storyboard */,
 				944CC8A5291069C800A5B7F1 /* Assets.xcassets */,
 				944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */,
@@ -127,6 +151,7 @@
 		944CC8B42911153700A5B7F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9433AC2C292C0FAA00E03BA8 /* LoginWebViewController.swift */,
 				944CC8A0291069C600A5B7F1 /* LoginViewController.swift */,
 				944CC8B2291114AE00A5B7F1 /* FriendTableViewController.swift */,
 				94CE5A1F2912EBDB00A4D148 /* FriendCollectionViewController.swift */,
@@ -206,6 +231,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		D0BBD3EEC8E8B00E992E9C3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCC8FE048C430982395D2F81 /* Pods_UIKitVK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,11 +246,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 944CC8AD291069C800A5B7F1 /* Build configuration list for PBXNativeTarget "UIKitVK" */;
 			buildPhases = (
+				9DEE342547BCB8206C79EBD4 /* [CP] Check Pods Manifest.lock */,
 				944CC8B029106A3D00A5B7F1 /* Swift Format */,
 				944CC8B129106A5400A5B7F1 /* Swift Lint */,
 				944CC895291069C600A5B7F1 /* Sources */,
 				944CC896291069C600A5B7F1 /* Frameworks */,
 				944CC897291069C600A5B7F1 /* Resources */,
+				960811D16BB11127678DA698 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +348,45 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		960811D16BB11127678DA698 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIKitVK/Pods-UIKitVK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIKitVK/Pods-UIKitVK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UIKitVK/Pods-UIKitVK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DEE342547BCB8206C79EBD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIKitVK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -321,6 +395,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				94CE5A3529140B9500A4D148 /* CustomView.swift in Sources */,
+				9433AC2D292C0FAA00E03BA8 /* LoginWebViewController.swift in Sources */,
+				9433AC29292BC42E00E03BA8 /* Session.swift in Sources */,
 				94CE5A2A2913367B00A4D148 /* User.swift in Sources */,
 				94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */,
 				94CE5A4F2919CB5400A4D148 /* NewsViewController.swift in Sources */,
@@ -346,6 +422,7 @@
 				94CE5A3C291456A900A4D148 /* vkFriends.swift in Sources */,
 				944CC89F291069C600A5B7F1 /* SceneDelegate.swift in Sources */,
 				94CE5A62291D1FC900A4D148 /* CustomPushAnimation.swift in Sources */,
+				9433AC2F292D42F700E03BA8 /* NetworkService.swift in Sources */,
 				94CE5A242913078B00A4D148 /* GroupTableViewCell.swift in Sources */,
 				94CE5A66291D3A0900A4D148 /* CustomPopAnimation.swift in Sources */,
 			);
@@ -489,6 +566,7 @@
 		};
 		944CC8AE291069C800A5B7F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA10F8F167F9AFF842452E5A /* Pods-UIKitVK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +594,7 @@
 		};
 		944CC8AF291069C800A5B7F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31CC7744822FB647CF7F5636 /* Pods-UIKitVK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
