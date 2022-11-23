@@ -1,73 +1,64 @@
 // NetworkService.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
-
 import Alamofire
+import Foundation
 
 /// Сетевой сервис
 final class NetworkService {
     // MARK: - Public Methods
 
-    func friendsRequest() {
-        let urlFriends =
-            Constants.UrlComponents.baseUrl +
-            Constants.UrlComponents.friendsMethod +
-            Constants.UrlComponents.userId +
-            Session.shared.userId +
-            Constants.UrlComponents.accessToken +
-            Session.shared.token +
-            Constants.UrlComponents.friendsFields +
-            Constants.UrlComponents.version
-        AF.request(urlFriends).responseJSON { response in
+    func fetchFriends() {
+        let parameters: Parameters = [
+            Constants.UrlComponents.userIdKey: Session.shared.userId,
+            Constants.UrlComponents.friendsFieldsKey: Constants.UrlComponents.friendsFieldsValue,
+            Constants.UrlComponents.accessTokenKey: Session.shared.token,
+            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+        ]
+        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.friendsMethod
+        AF.request(path, parameters: parameters).responseData { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
 
-    func photosRequest() {
-        let urlPhotos =
-            Constants.UrlComponents.baseUrl +
-            Constants.UrlComponents.photosMethod +
-            Constants.UrlComponents.userId +
-            Session.shared.userId +
-            Constants.UrlComponents.accessToken +
-            Session.shared.token +
-            Constants.UrlComponents.version
-        AF.request(urlPhotos).responseJSON { response in
+    func fetchPhotos() {
+        let parameters: Parameters = [
+            Constants.UrlComponents.userIdKey: Session.shared.userId,
+            Constants.UrlComponents.accessTokenKey: Session.shared.token,
+            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+        ]
+        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.photosMethod
+        AF.request(path, parameters: parameters).responseData { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
 
-    func myGroupsRequest() {
-        let urlMyGroups =
-            Constants.UrlComponents.baseUrl +
-            Constants.UrlComponents.myGroupMethod +
-            Constants.UrlComponents.myGroupExtended +
-            Constants.UrlComponents.userId +
-            Session.shared.userId +
-            Constants.UrlComponents.accessToken +
-            Session.shared.token +
-            Constants.UrlComponents.version
-        AF.request(urlMyGroups).responseJSON { response in
+    func fetchUserGroups() {
+        let parameters: Parameters = [
+            Constants.UrlComponents.userIdKey: Session.shared.userId,
+            Constants.UrlComponents.myGroupExtendedKey: Constants.UrlComponents.myGroupExtendedValue,
+            Constants.UrlComponents.accessTokenKey: Session.shared.token,
+            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+        ]
+        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.myGroupMethod
+        AF.request(path, parameters: parameters).responseData { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
 
-    func otherGroupsRequest(group: String) {
-        let urlMyGroups =
-            Constants.UrlComponents.baseUrl +
-            Constants.UrlComponents.otherGroupMethod +
-            Constants.UrlComponents.userId +
-            Session.shared.userId +
-            Constants.UrlComponents.otherGroupSearch +
-            group +
-            Constants.UrlComponents.accessToken +
-            Session.shared.token +
-            Constants.UrlComponents.version
-        AF.request(urlMyGroups).responseJSON { response in
+    func fetchGroup(group searchText: String) {
+        let parameters: Parameters = [
+            Constants.UrlComponents.otherGroupSearch: Constants.OtherConstants.emptyString,
+            Constants.UrlComponents.accessTokenKey: Session.shared.token,
+            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+        ]
+        var param = parameters
+        param[Constants.OtherConstants.emptyString] = searchText
+        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.otherGroupSearch
+        AF.request(path, parameters: param).responseData { response in
             guard let value = response.value else { return }
             print(value)
         }

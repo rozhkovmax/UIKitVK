@@ -16,13 +16,13 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private lazy var service = NetworkService()
+    private let networkService = NetworkService()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        service.friendsRequest()
+        networkServiceFriends()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +101,10 @@ final class LoginViewController: UIViewController {
         guard loginTextField.text == Constants.OtherConstants.loginText,
               loginTextField.text == Constants.OtherConstants.passwordText else { return false }
         return true
+    }
+
+    private func networkServiceFriends() {
+        networkService.fetchFriends()
     }
 
     @objc private func keyboardWillShownAction(notification: Notification) {

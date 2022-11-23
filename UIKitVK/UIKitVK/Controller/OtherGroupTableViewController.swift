@@ -19,8 +19,8 @@ final class OtherGroupTableViewController: UITableViewController {
     }
 
     private var searchBool = false
-    private lazy var searchGroup: [Group] = []
-    private lazy var service = NetworkService()
+    private lazy var searchGroups: [Group] = []
+    private lazy var networkService = NetworkService()
 
     // MARK: - Public Methods
 
@@ -35,7 +35,7 @@ final class OtherGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchBool {
-            return searchGroup.count
+            return searchGroups.count
         } else {
             return otherGroups.count
         }
@@ -46,9 +46,8 @@ final class OtherGroupTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierOtherGroupTableViewCellID,
             for: indexPath
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
-
         if searchBool {
-            let group = searchGroup[indexPath.row]
+            let group = searchGroups[indexPath.row]
             cell.refreshOtherGroup(group)
         } else {
             let group = otherGroups[indexPath.row]
@@ -59,7 +58,7 @@ final class OtherGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchBool {
-            let group = searchGroup[indexPath.row]
+            let group = searchGroups[indexPath.row]
             closureGroup?(group)
         } else {
             let group = otherGroups[indexPath.row]
@@ -73,11 +72,11 @@ final class OtherGroupTableViewController: UITableViewController {
 
 extension OtherGroupTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchGroup = otherGroups
+        searchGroups = otherGroups
             .filter { $0.groupName.lowercased().prefix(searchText.count) == searchText.lowercased() }
         searchBool = true
         tableView.reloadData()
-        service.otherGroupsRequest(group: searchText)
+        networkService.fetchGroup(group: searchText)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

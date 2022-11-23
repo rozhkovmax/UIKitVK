@@ -3,7 +3,7 @@
 
 import Foundation
 
-// Singleton
+// Хранение данных о текущей сессии
 final class Session {
     // MARK: - Public Properties
 

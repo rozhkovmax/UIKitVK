@@ -2,7 +2,6 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
-
 import WebKit
 
 /// Экран авторизации через Web
@@ -23,12 +22,12 @@ final class LoginWebViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        webComponents()
+        loadLoginWebView()
     }
 
     // MARK: - Private Methods
 
-    private func webComponents() {
+    private func loadLoginWebView() {
         urlComponents.scheme = Constants.UrlComponents.scheme
         urlComponents.host = Constants.UrlComponents.host
         urlComponents.path = Constants.UrlComponents.path
@@ -91,11 +90,9 @@ extension LoginWebViewController: WKNavigationDelegate {
             }
         guard let token = params[Constants.UrlComponents.accessTokenKey] else { return }
         Session.shared.token = token
-        print(token)
         guard let userId = params[Constants.UrlComponents.userIdKey] else { return }
         Session.shared.userId = userId
-        print(userId)
         decisionHandler(.cancel)
-        performSegue(withIdentifier: Constants.Identifiers.identifierTabBarID, sender: nil)
+        performSegue(withIdentifier: Constants.Identifiers.identifierLoginID, sender: nil)
     }
 }

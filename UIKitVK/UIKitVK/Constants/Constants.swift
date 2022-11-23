@@ -14,7 +14,7 @@ enum Constants {
         static let identifierOtherGroupTableViewCellID = "OtherGroupTableViewCell"
         static let identifierFriendCollectionViewControllerID = "FriendCollectionVC"
         static let identifierNewsTableViewCellID = "NewsTableViewCell"
-        static let identifierTabBarID = "LoginSegue"
+        static let identifierLoginID = "LoginSegue"
     }
 
     enum FriendsNames {
@@ -186,15 +186,18 @@ enum Constants {
         static let userIdKey = "user_id"
         static let baseUrl = "https://api.vk.com/method/"
         static let friendsMethod = "friends.get?"
-        static let userId = "/user_ids="
         static let accessToken = "&access_token="
-        static let version = "&v=5.131"
-        static let friendsFields = "&fields=nickname"
+        static let versionKey = "v"
+        static let versionValue = "5.131"
+        static let friendsFieldsKey = "fields"
+        static let friendsFieldsValue = "nickname"
+        static let ownerIdKey = "owner_id"
         static let photosMethod = "photos.getAll?"
         static let myGroupMethod = "groups.get?"
-        static let myGroupExtended = "extended=1"
+        static let myGroupExtendedKey = "extended"
+        static let myGroupExtendedValue = "1"
         static let otherGroupMethod = "groups.search?"
-        static let otherGroupSearch = "&q="
+        static let otherGroupSearch = "q"
     }
 
     enum InfoNewsPosts {
