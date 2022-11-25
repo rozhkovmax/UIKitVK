@@ -11,15 +11,15 @@ final class OtherGroupTableViewController: UITableViewController {
 
     // MARK: - Private Properties
 
-    private var closureGroup: ((AllGroup) -> ())?
-    private var otherGroups: [AllGroup] = [] {
+    private var closureGroup: ((Group) -> ())?
+    private var otherGroups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }
     }
 
     private var searchBool = false
-    private lazy var searchGroups: [AllGroup] = []
+    private lazy var searchGroups: [Group] = []
     private lazy var networkService = NetworkService()
 
     // MARK: - Life Cycle

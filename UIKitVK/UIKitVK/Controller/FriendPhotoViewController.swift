@@ -9,10 +9,13 @@ final class FriendPhotoViewController: UIViewController {
 
     @IBOutlet private var friendPhotoImageView: UIImageView!
 
+    // MARK: - Public Properties
+
+    var friendPhotos: [Photo] = []
+    var numberPhoto = Int()
+
     // MARK: - Private Properties
 
-    var friendPhotos: [AllPhoto] = []
-    var numberPhoto = Int()
     private var propertyAnimator: UIViewPropertyAnimator!
 
     // MARK: - Life Cycle
@@ -32,7 +35,7 @@ final class FriendPhotoViewController: UIViewController {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
         guard let url = friendPhotos[numberPhoto].sizes.last?.url else { return }
-        friendPhotoImageView.loadAvatar(url: url)
+        friendPhotoImageView.loadImage(url: url)
     }
 
     @objc private func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
@@ -76,6 +79,6 @@ final class FriendPhotoViewController: UIViewController {
         default: return
         }
         guard let url = friendPhotos[numberPhoto].sizes.last?.url else { return }
-        friendPhotoImageView.loadAvatar(url: url)
+        friendPhotoImageView.loadImage(url: url)
     }
 }

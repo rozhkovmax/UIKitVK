@@ -4,15 +4,15 @@
 import Foundation
 import RealmSwift
 
-// Группа
-struct Group: Decodable {
+// Ответ запроса
+struct ResultGroup: Decodable {
     let response: ResponseGroup
 }
 
-// Первый уровень JSON
+// Список групп
 struct ResponseGroup: Codable {
     let count: Int
-    let groups: [AllGroup]
+    let groups: [Group]
 
     private enum CodingKeys: String, CodingKey {
         case count
@@ -20,8 +20,8 @@ struct ResponseGroup: Codable {
     }
 }
 
-// JSON Групп
-final class AllGroup: Codable {
+// Группы
+final class Group: Codable {
     @objc dynamic var id: Int
     @objc dynamic var name: String
     @objc dynamic var groupAvatar: String?

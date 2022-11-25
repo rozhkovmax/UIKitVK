@@ -3,9 +3,9 @@
 
 import UIKit
 
-/// Расширение для получения аватара
+/// Расширение для получения изображения
 extension UIImageView {
-    func loadAvatar(url: String) {
+    func loadImage(url: String) {
         guard let url = URL(string: url) else { return }
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url),

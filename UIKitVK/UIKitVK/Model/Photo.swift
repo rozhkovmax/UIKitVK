@@ -4,15 +4,15 @@
 import Foundation
 import RealmSwift
 
-// Фото
-struct Photo: Decodable {
+// Ответ запроса
+struct ResultPhoto: Decodable {
     let response: ResponsePhoto
 }
 
-// Первый уровень JSON
+// Список фото
 struct ResponsePhoto: Codable {
     let count: Int
-    let photos: [AllPhoto]
+    let photos: [Photo]
 
     private enum CodingKeys: String, CodingKey {
         case count
@@ -20,12 +20,12 @@ struct ResponsePhoto: Codable {
     }
 }
 
-// Второй уровень JSON
-struct AllPhoto: Codable {
+// Фото
+final class Photo: Codable {
     let sizes: [SizePhoto]
 }
 
-// JSON Фоток
+// Ссылка на фото
 final class SizePhoto: Codable {
     @objc dynamic var url: String
 }

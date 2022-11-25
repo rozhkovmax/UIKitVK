@@ -8,8 +8,8 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var friends: [Item] = []
-    private var sectionsMap: [Character: [Item]] = [:]
+    private var friends: [User] = []
+    private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
 
     // MARK: - Life Cycle

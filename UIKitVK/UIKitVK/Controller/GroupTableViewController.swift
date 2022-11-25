@@ -8,7 +8,7 @@ final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var myGroups: [AllGroup] = [] {
+    private var myGroups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }

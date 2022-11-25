@@ -12,7 +12,7 @@ final class FriendCollectionViewController: UICollectionViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var photos: [AllPhoto] = []
+    private var photos: [Photo] = []
 
     // MARK: - Life Cycle
 

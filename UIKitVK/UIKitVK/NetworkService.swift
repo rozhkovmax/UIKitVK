@@ -8,7 +8,7 @@ import Foundation
 final class NetworkService {
     // MARK: - Public Methods
 
-    func fetchFriends(completion: @escaping ([Item]) -> Void) {
+    func fetchFriends(completion: @escaping ([User]) -> Void) {
         let parameters: Parameters = [
             Constants.UrlComponents.userIdKey: Session.shared.userId,
             Constants.UrlComponents.friendsFieldsKey: Constants.UrlComponents.friendsFieldsValue,
@@ -19,16 +19,16 @@ final class NetworkService {
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
-                let users = try JSONDecoder().decode(User.self, from: data)
-                let friends = users.response.friends
-                completion(friends)
+                let result = try JSONDecoder().decode(ResultUser.self, from: data)
+                let users = result.response.users
+                completion(users)
             } catch {
                 completion([])
             }
         }
     }
 
-    func fetchPhotos(ownerID: Int, completion: @escaping ([AllPhoto]) -> Void) {
+    func fetchPhotos(ownerID: Int, completion: @escaping ([Photo]) -> Void) {
         let parameters: Parameters = [
             Constants.UrlComponents.ownerIdKey: ownerID,
             Constants.UrlComponents.accessTokenKey: Session.shared.token,
@@ -38,16 +38,16 @@ final class NetworkService {
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
-                let photos = try JSONDecoder().decode(Photo.self, from: data)
-                let photoFriends = photos.response.photos
-                completion(photoFriends)
+                let result = try JSONDecoder().decode(ResultPhoto.self, from: data)
+                let photos = result.response.photos
+                completion(photos)
             } catch {
                 completion([])
             }
         }
     }
 
-    func fetchUserGroups(completion: @escaping ([AllGroup]) -> Void) {
+    func fetchUserGroups(completion: @escaping ([Group]) -> Void) {
         let parameters: Parameters = [
             Constants.UrlComponents.userIdKey: Session.shared.userId,
             Constants.UrlComponents.myGroupExtendedKey: Constants.UrlComponents.myGroupExtendedValue,
@@ -58,16 +58,16 @@ final class NetworkService {
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
-                let groups = try JSONDecoder().decode(Group.self, from: data)
-                let userGroups = groups.response.groups
-                completion(userGroups)
+                let result = try JSONDecoder().decode(ResultGroup.self, from: data)
+                let groups = result.response.groups
+                completion(groups)
             } catch {
                 completion([])
             }
         }
     }
 
-    func fetchGroup(group searchText: String, completion: @escaping ([AllGroup]) -> Void) {
+    func fetchGroup(group searchText: String, completion: @escaping ([Group]) -> Void) {
         let parameters: Parameters = [
             Constants.UrlComponents.otherGroupSearch: searchText,
             Constants.UrlComponents.accessTokenKey: Session.shared.token,
@@ -77,9 +77,9 @@ final class NetworkService {
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
-                let groups = try JSONDecoder().decode(Group.self, from: data)
-                let searchGroups = groups.response.groups
-                completion(searchGroups)
+                let result = try JSONDecoder().decode(ResultGroup.self, from: data)
+                let groups = result.response.groups
+                completion(groups)
             } catch {
                 completion([])
             }

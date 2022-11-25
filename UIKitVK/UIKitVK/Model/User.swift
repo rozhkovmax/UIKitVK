@@ -4,24 +4,24 @@
 import Foundation
 import RealmSwift
 
-// Пользователь
-struct User: Decodable {
-    let response: Response
+// Ответ запроса
+struct ResultUser: Decodable {
+    let response: ResponseUser
 }
 
-// Первый уровень JSON
-struct Response: Codable {
+// Cписок пользователей
+struct ResponseUser: Codable {
     let count: Int
-    let friends: [Item]
+    let users: [User]
 
     private enum CodingKeys: String, CodingKey {
         case count
-        case friends = "items"
+        case users = "items"
     }
 }
 
-// JSON Друзей
-final class Item: Codable {
+// Пользователь
+final class User: Codable {
     @objc dynamic var id: Int
     @objc dynamic var firstName: String
     @objc dynamic var lastName: String
