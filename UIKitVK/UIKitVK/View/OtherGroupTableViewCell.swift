@@ -19,9 +19,10 @@ final class OtherGroupTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func refreshOtherGroup(_ otherGroup: Group) {
-        otherGroupNameLabel.text = otherGroup.groupName
-        otherGroupAvatarImageView.image = UIImage(named: otherGroup.groupAvatarImageName)
+    func refreshOtherGroup(_ otherGroup: AllGroup) {
+        otherGroupNameLabel.text = otherGroup.name
+        guard let urlOtherGroupAvatar = otherGroup.groupAvatar else { return }
+        otherGroupAvatarImageView.loadAvatar(url: urlOtherGroupAvatar)
     }
 
     // MARK: - Private Methods

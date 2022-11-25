@@ -15,58 +15,7 @@ enum Constants {
         static let identifierFriendCollectionViewControllerID = "FriendCollectionVC"
         static let identifierNewsTableViewCellID = "NewsTableViewCell"
         static let identifierLoginID = "LoginSegue"
-    }
-
-    enum FriendsNames {
-        static let friendOneName = "Максим"
-        static let friendTwoName = "Аня"
-        static let friendThreeName = "Рома"
-        static let friendFourName = "Арут"
-        static let friendFiveName = "Глеб"
-        static let friendSixName = "Миша"
-        static let friendSevenName = "Алёна"
-        static let friendEightName = "Никита"
-        static let friendNineName = "Ира"
-        static let friendTenName = "Люда"
-    }
-
-    enum FriendsAvatarImageNames {
-        static let friendOneAvatarImageName = "MaxImage"
-        static let friendTwoAvatarImageName = "AnnImage"
-        static let friendThreeAvatarImageName = "RomaImage"
-        static let friendFourAvatarImageName = "ArutImage"
-        static let friendFiveAvatarImageName = "GlebImage"
-        static let friendSixAvatarImageName = "MishaImage"
-        static let friendSevenAvatarImageName = "AlyonaImage"
-        static let friendEightAvatarImageName = "NikitaImage"
-        static let friendNineAvatarImageName = "IraImage"
-        static let friendTenAvatarImageName = "LudaImage"
-    }
-
-    enum GroupsNames {
-        static let groupOneName = "Figma"
-        static let groupTwoName = "Game"
-        static let groupThreeName = "Cinema"
-        static let groupFourName = "Design"
-        static let groupFiveName = "Japanism"
-        static let groupSixName = "Omanko"
-        static let groupSevenName = "Program"
-        static let groupEightName = "TJ"
-        static let groupNineName = "VC.RU"
-        static let groupTenName = "VKGroup"
-    }
-
-    enum GroupsAvatarImageNames {
-        static let groupOneAvatarImageName = "FigmaGroupImage"
-        static let groupTwoAvatarImageName = "GameGroupImage"
-        static let groupThreeAvatarImageName = "CinemaGroupImage"
-        static let groupFourAvatarImageName = "DesignGroupImage"
-        static let groupFiveAvatarImageName = "JapanismGroupImage"
-        static let groupSixAvatarImageName = "OmankoGroupImage"
-        static let groupSevenAvatarImageName = "ProgramGroupImage"
-        static let groupEightAvatarImageName = "TJGroupImage"
-        static let groupNineAvatarImageName = "VCGroupImage"
-        static let groupTenAvatarImageName = "VKGroupImage"
+        static let identifierFriendsPhotoID = "friendsPhotoSegue"
     }
 
     enum OtherConstants {
@@ -155,16 +104,6 @@ enum Constants {
         static let whiteCustomColorName = "whiteCustomColor"
     }
 
-    enum FriendPhotoImages {
-        static let friendPhotos = [
-            UIImage(named: "Photo1"),
-            UIImage(named: "Photo2"),
-            UIImage(named: "Photo3"),
-            UIImage(named: "Photo4"),
-            UIImage(named: "Photo5")
-        ]
-    }
-
     enum UrlComponents {
         static let scheme = "https"
         static let host = "oauth.vk.com"
@@ -190,7 +129,7 @@ enum Constants {
         static let versionKey = "v"
         static let versionValue = "5.131"
         static let friendsFieldsKey = "fields"
-        static let friendsFieldsValue = "nickname"
+        static let friendsFieldsValue = "photo_100"
         static let ownerIdKey = "owner_id"
         static let photosMethod = "photos.getAll?"
         static let myGroupMethod = "groups.get?"

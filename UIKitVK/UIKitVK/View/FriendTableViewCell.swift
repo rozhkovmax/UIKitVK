@@ -20,9 +20,10 @@ final class FriendTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func refreshFriend(_ friend: User) {
-        friendNameLabel.text = friend.friendName
-        friendAvatarImageView.image = UIImage(named: friend.friendAvatarImageName)
+    func refreshFriend(_ friend: Item) {
+        friendNameLabel.text = "\(friend.firstName) \(friend.lastName)"
+        guard let urlFriendAvatar = friend.friendAvatar else { return }
+        friendAvatarImageView.loadAvatar(url: urlFriendAvatar)
     }
 
     // MARK: - Private Methods

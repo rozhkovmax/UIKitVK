@@ -669,7 +669,7 @@
                                 <size key="customSize" width="135" height="180"/>
                                 <connections>
                                     <outlet property="friendGalleryImageView" destination="aFI-xa-uc8" id="6Qh-Lr-qv0"/>
-                                    <segue destination="cGN-qM-YYL" kind="show" id="z45-oo-6TD"/>
+                                    <segue destination="cGN-qM-YYL" kind="show" identifier="friendsPhotoSegue" id="z45-oo-6TD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

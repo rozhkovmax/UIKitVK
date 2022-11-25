@@ -8,7 +8,7 @@ final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var myGroups: [Group] = [] {
+    private var myGroups: [AllGroup] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -22,14 +22,6 @@ final class GroupTableViewController: UITableViewController {
     }
 
     // MARK: - Public Methods
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == Constants.Identifiers.identifierSegueOtherGroupsID,
-              let otherGroupTableVC = segue.destination as? OtherGroupTableViewController else { return }
-        otherGroupTableVC.configure(myGroups) { [weak self] group in
-            self?.myGroups.append(group)
-        }
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count
@@ -58,6 +50,9 @@ final class GroupTableViewController: UITableViewController {
     // MARK: - Private Methods
 
     private func networkServiceUserGroups() {
-        networkService.fetchUserGroups()
+        networkService.fetchUserGroups { [weak self] group in
+            self?.myGroups = group
+            self?.tableView.reloadData()
+        }
     }
 }

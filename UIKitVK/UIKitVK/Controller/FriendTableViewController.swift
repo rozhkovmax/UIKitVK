@@ -8,15 +8,15 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private let friends = vkFriends
-    private var sectionsMap: [Character: [User]] = [:]
+    private var friends: [Item] = []
+    private var sectionsMap: [Character: [Item]] = [:]
     private var sectionNameChars: [Character] = []
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        networkServiceFriends()
     }
 
     // MARK: - Public Methods
@@ -62,26 +62,25 @@ final class FriendTableViewController: UITableViewController {
                 withIdentifier: Constants.Identifiers
                     .identifierFriendCollectionViewControllerID
             ) as? FriendCollectionViewController else { return }
-        guard let friendAvatar = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row].friendAvatarImageName
+        guard let ownerID = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row].id
         else { return }
-        friendCollectionVC.friendPhotos = friendAvatar
+        friendCollectionVC.ownerID = ownerID
         navigationController?.pushViewController(friendCollectionVC, animated: true)
     }
 
     // MARK: - Private Methods
 
-    private func setupUI() {
-        headerFriendName()
-        networkServicePhotos()
-    }
-
-    private func networkServicePhotos() {
-        networkService.fetchPhotos()
+    private func networkServiceFriends() {
+        networkService.fetchFriends { [weak self] friend in
+            self?.friends = friend
+            self?.headerFriendName()
+            self?.tableView.reloadData()
+        }
     }
 
     private func headerFriendName() {
         for friendName in friends {
-            guard let firstChar = friendName.friendName.first else { return }
+            guard let firstChar = friendName.firstName.first else { return }
             if sectionsMap[firstChar] != nil {
                 sectionsMap[firstChar]?.append(friendName)
             } else {
