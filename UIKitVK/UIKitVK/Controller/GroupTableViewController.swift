@@ -18,7 +18,7 @@ final class GroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkServiceUserGroups()
+        fetchUserGroups()
     }
 
     // MARK: - Public Methods
@@ -33,7 +33,7 @@ final class GroupTableViewController: UITableViewController {
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
         let group = myGroups[indexPath.row]
-        cell.refreshGroup(group)
+        cell.configure(group)
         return cell
     }
 
@@ -49,9 +49,9 @@ final class GroupTableViewController: UITableViewController {
 
     // MARK: - Private Methods
 
-    private func networkServiceUserGroups() {
-        networkService.fetchUserGroups { [weak self] group in
-            self?.myGroups = group
+    private func fetchUserGroups() {
+        networkService.fetchUserGroups { [weak self] groups in
+            self?.myGroups = groups
             self?.tableView.reloadData()
         }
     }

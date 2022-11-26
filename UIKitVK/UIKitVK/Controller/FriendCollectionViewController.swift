@@ -18,7 +18,7 @@ final class FriendCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkServicePhotos()
+        fetchPhotos()
     }
 
     // MARK: - Public Methods
@@ -35,7 +35,7 @@ final class FriendCollectionViewController: UICollectionViewController {
             withReuseIdentifier: Constants.Identifiers.identifierFriendGalleryCollectionViewCellID,
             for: indexPath
         ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        cell.refreshPhoto(photos[indexPath.row])
+        cell.configure(photos[indexPath.row])
         return cell
     }
 
@@ -44,14 +44,14 @@ final class FriendCollectionViewController: UICollectionViewController {
             guard let friendsImages = segue.destination as? FriendPhotoViewController else { return }
             if let indexPath = collectionView.indexPathsForSelectedItems?.first {
                 friendsImages.friendPhotos = photos
-                friendsImages.numberPhoto = indexPath.row
+                friendsImages.currentPhotoIndex = indexPath.row
             }
         }
     }
 
     // MARK: - Private Methods
 
-    private func networkServicePhotos() {
+    private func fetchPhotos() {
         networkService.fetchPhotos(ownerID: ownerID) { [weak self] photos in
             self?.photos = photos
             self?.collectionView.reloadData()

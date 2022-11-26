@@ -28,33 +28,33 @@ final class LoginWebViewController: UIViewController {
     // MARK: - Private Methods
 
     private func loadLoginWebView() {
-        urlComponents.scheme = Constants.UrlComponents.scheme
-        urlComponents.host = Constants.UrlComponents.host
-        urlComponents.path = Constants.UrlComponents.path
+        urlComponents.scheme = Constants.URLComponents.scheme
+        urlComponents.host = Constants.URLComponents.host
+        urlComponents.path = Constants.URLComponents.path
         urlComponents.queryItems = [
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsClientIdKeyName,
-                value: Constants.UrlComponents.queryItemsClientIdValue
+                name: Constants.URLComponents.queryItemsClientIdKeyName,
+                value: Constants.URLComponents.queryItemsClientIdValue
             ),
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsDisplayKeyName,
-                value: Constants.UrlComponents.queryItemsDisplayValue
+                name: Constants.URLComponents.queryItemsDisplayKeyName,
+                value: Constants.URLComponents.queryItemsDisplayValue
             ),
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsRedirectUriKeyName,
-                value: Constants.UrlComponents.queryItemsRedirectUriValue
+                name: Constants.URLComponents.queryItemsRedirectUriKeyName,
+                value: Constants.URLComponents.queryItemsRedirectUriValue
             ),
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsScopeKeyName,
-                value: Constants.UrlComponents.queryItemsScopeValue
+                name: Constants.URLComponents.queryItemsScopeKeyName,
+                value: Constants.URLComponents.queryItemsScopeValue
             ),
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsResponseTypeKeyName,
-                value: Constants.UrlComponents.queryItemsResponseTypeValue
+                name: Constants.URLComponents.queryItemsResponseTypeKeyName,
+                value: Constants.URLComponents.queryItemsResponseTypeValue
             ),
             URLQueryItem(
-                name: Constants.UrlComponents.queryItemsVersionKeyName,
-                value: Constants.UrlComponents.queryItemsVersionValue
+                name: Constants.URLComponents.queryItemsVersionKeyName,
+                value: Constants.URLComponents.queryItemsVersionValue
             )
         ]
         guard let url = urlComponents.url else { return }
@@ -72,7 +72,7 @@ extension LoginWebViewController: WKNavigationDelegate {
         WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-        guard let url = navigationResponse.response.url, url.path == Constants.UrlComponents.urlPath,
+        guard let url = navigationResponse.response.url, url.path == Constants.URLComponents.urlPath,
               let fragment = url.fragment
         else {
             decisionHandler(.allow)
@@ -88,9 +88,9 @@ extension LoginWebViewController: WKNavigationDelegate {
                 dict[key] = value
                 return dict
             }
-        guard let token = params[Constants.UrlComponents.accessTokenKey] else { return }
+        guard let token = params[Constants.URLComponents.accessTokenKey] else { return }
         Session.shared.token = token
-        guard let userId = params[Constants.UrlComponents.userIdKey] else { return }
+        guard let userId = params[Constants.URLComponents.userIdKey] else { return }
         Session.shared.userId = userId
         decisionHandler(.cancel)
         performSegue(withIdentifier: Constants.Identifiers.identifierLoginID, sender: nil)

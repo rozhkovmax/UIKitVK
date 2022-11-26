@@ -104,7 +104,7 @@ enum Constants {
         static let whiteCustomColorName = "whiteCustomColor"
     }
 
-    enum UrlComponents {
+    enum URLComponents {
         static let scheme = "https"
         static let host = "oauth.vk.com"
         static let path = "/authorize"

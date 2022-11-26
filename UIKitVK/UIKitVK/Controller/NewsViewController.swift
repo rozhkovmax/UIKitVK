@@ -31,7 +31,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
             for: indexPath
         ) as? NewsTableViewCell else { return UITableViewCell() }
         let news = news[indexPath.row]
-        cell.refreshNews(news)
+        cell.configure(news)
         return cell
     }
 

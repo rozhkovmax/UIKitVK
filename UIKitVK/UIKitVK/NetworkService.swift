@@ -10,12 +10,12 @@ final class NetworkService {
 
     func fetchFriends(completion: @escaping ([User]) -> Void) {
         let parameters: Parameters = [
-            Constants.UrlComponents.userIdKey: Session.shared.userId,
-            Constants.UrlComponents.friendsFieldsKey: Constants.UrlComponents.friendsFieldsValue,
-            Constants.UrlComponents.accessTokenKey: Session.shared.token,
-            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+            Constants.URLComponents.userIdKey: Session.shared.userId,
+            Constants.URLComponents.friendsFieldsKey: Constants.URLComponents.friendsFieldsValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
         ]
-        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.friendsMethod
+        let path = Constants.URLComponents.baseUrl + Constants.URLComponents.friendsMethod
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
@@ -30,11 +30,11 @@ final class NetworkService {
 
     func fetchPhotos(ownerID: Int, completion: @escaping ([Photo]) -> Void) {
         let parameters: Parameters = [
-            Constants.UrlComponents.ownerIdKey: ownerID,
-            Constants.UrlComponents.accessTokenKey: Session.shared.token,
-            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+            Constants.URLComponents.ownerIdKey: ownerID,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
         ]
-        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.photosMethod
+        let path = Constants.URLComponents.baseUrl + Constants.URLComponents.photosMethod
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
@@ -49,12 +49,12 @@ final class NetworkService {
 
     func fetchUserGroups(completion: @escaping ([Group]) -> Void) {
         let parameters: Parameters = [
-            Constants.UrlComponents.userIdKey: Session.shared.userId,
-            Constants.UrlComponents.myGroupExtendedKey: Constants.UrlComponents.myGroupExtendedValue,
-            Constants.UrlComponents.accessTokenKey: Session.shared.token,
-            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+            Constants.URLComponents.userIdKey: Session.shared.userId,
+            Constants.URLComponents.myGroupExtendedKey: Constants.URLComponents.myGroupExtendedValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
         ]
-        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.myGroupMethod
+        let path = Constants.URLComponents.baseUrl + Constants.URLComponents.myGroupMethod
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {
@@ -69,11 +69,11 @@ final class NetworkService {
 
     func fetchGroup(group searchText: String, completion: @escaping ([Group]) -> Void) {
         let parameters: Parameters = [
-            Constants.UrlComponents.otherGroupSearch: searchText,
-            Constants.UrlComponents.accessTokenKey: Session.shared.token,
-            Constants.UrlComponents.versionKey: Constants.UrlComponents.versionValue
+            Constants.URLComponents.otherGroupSearch: searchText,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
         ]
-        let path = Constants.UrlComponents.baseUrl + Constants.UrlComponents.otherGroupSearch
+        let path = Constants.URLComponents.baseUrl + Constants.URLComponents.otherGroupSearch
         AF.request(path, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
             do {

@@ -16,7 +16,7 @@ final class FriendTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkServiceFriends()
+        fetchFriends()
     }
 
     // MARK: - Public Methods
@@ -51,7 +51,7 @@ final class FriendTableViewController: UITableViewController {
         ) as? FriendTableViewCell,
             let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
-        cell.refreshFriend(friend)
+        cell.configure(friend)
         return cell
     }
 
@@ -70,9 +70,9 @@ final class FriendTableViewController: UITableViewController {
 
     // MARK: - Private Methods
 
-    private func networkServiceFriends() {
-        networkService.fetchFriends { [weak self] friend in
-            self?.friends = friend
+    private func fetchFriends() {
+        networkService.fetchFriends { [weak self] friends in
+            self?.friends = friends
             self?.headerFriendName()
             self?.tableView.reloadData()
         }

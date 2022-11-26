@@ -12,7 +12,7 @@ final class FriendPhotoViewController: UIViewController {
     // MARK: - Public Properties
 
     var friendPhotos: [Photo] = []
-    var numberPhoto = Int()
+    var currentPhotoIndex = Int()
 
     // MARK: - Private Properties
 
@@ -34,7 +34,7 @@ final class FriendPhotoViewController: UIViewController {
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
-        guard let url = friendPhotos[numberPhoto].sizes.last?.url else { return }
+        guard let url = friendPhotos[currentPhotoIndex].sizes.last?.url else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 
@@ -64,12 +64,12 @@ final class FriendPhotoViewController: UIViewController {
         case .ended:
             propertyAnimator.stopAnimation(true)
             if translation < Constants.OtherConstants.gestureTranslationComparison {
-                if numberPhoto < friendPhotos.count - Constants.OtherConstants.gestureNumberPhotoChange {
-                    numberPhoto += Constants.OtherConstants.gestureNumberFriendPhotoChange
+                if currentPhotoIndex < friendPhotos.count - Constants.OtherConstants.gestureNumberPhotoChange {
+                    currentPhotoIndex += Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             } else {
-                if numberPhoto != Constants.OtherConstants.gestureNumberPhotoCountChange {
-                    numberPhoto -= Constants.OtherConstants.gestureNumberFriendPhotoChange
+                if currentPhotoIndex != Constants.OtherConstants.gestureNumberPhotoCountChange {
+                    currentPhotoIndex -= Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             }
             propertyAnimator.addAnimations {
@@ -78,7 +78,7 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator?.startAnimation()
         default: return
         }
-        guard let url = friendPhotos[numberPhoto].sizes.last?.url else { return }
+        guard let url = friendPhotos[currentPhotoIndex].sizes.last?.url else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 }

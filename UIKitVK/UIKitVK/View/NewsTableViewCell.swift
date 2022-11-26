@@ -18,7 +18,7 @@ final class NewsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func refreshNews(_ news: News) {
+    func configure(_ news: News) {
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(news.newsUserInfo)\n")
             .normal("\(news.newsUserData)")
