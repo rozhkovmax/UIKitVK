@@ -18,18 +18,10 @@ final class GroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkServiceUserGroups()
+        fetchUserGroups()
     }
 
     // MARK: - Public Methods
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == Constants.Identifiers.identifierSegueOtherGroupsID,
-              let otherGroupTableVC = segue.destination as? OtherGroupTableViewController else { return }
-        otherGroupTableVC.configure(myGroups) { [weak self] group in
-            self?.myGroups.append(group)
-        }
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count
@@ -41,7 +33,7 @@ final class GroupTableViewController: UITableViewController {
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
         let group = myGroups[indexPath.row]
-        cell.refreshGroup(group)
+        cell.configure(group)
         return cell
     }
 
@@ -57,7 +49,11 @@ final class GroupTableViewController: UITableViewController {
 
     // MARK: - Private Methods
 
-    private func networkServiceUserGroups() {
-        networkService.fetchUserGroups()
+    private func fetchUserGroups() {
+        networkService.fetchUserGroups { [weak self] groups in
+            guard let self = self else { return }
+            self.myGroups = groups
+            self.tableView.reloadData()
+        }
     }
 }

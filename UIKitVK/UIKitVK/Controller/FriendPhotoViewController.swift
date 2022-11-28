@@ -9,10 +9,13 @@ final class FriendPhotoViewController: UIViewController {
 
     @IBOutlet private var friendPhotoImageView: UIImageView!
 
+    // MARK: - Public Properties
+
+    var photos: [Photo] = []
+    var currentPhotoIndex = Int()
+
     // MARK: - Private Properties
 
-    private let friendPhotos = Constants.FriendPhotoImages.friendPhotos
-    private var numberPhoto = Constants.OtherConstants.firstFriendPhotoIndex
     private var propertyAnimator: UIViewPropertyAnimator!
 
     // MARK: - Life Cycle
@@ -26,12 +29,13 @@ final class FriendPhotoViewController: UIViewController {
 
     private func setupUI() {
         panGesture()
-        friendPhotoImageView.image = friendPhotos[numberPhoto]
     }
 
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
+        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
+        friendPhotoImageView.loadImage(url: url)
     }
 
     @objc private func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
@@ -60,12 +64,12 @@ final class FriendPhotoViewController: UIViewController {
         case .ended:
             propertyAnimator.stopAnimation(true)
             if translation < Constants.OtherConstants.gestureTranslationComparison {
-                if numberPhoto < friendPhotos.count - Constants.OtherConstants.gestureNumberPhotoChange {
-                    numberPhoto += Constants.OtherConstants.gestureNumberFriendPhotoChange
+                if currentPhotoIndex < photos.count - Constants.OtherConstants.gestureNumberPhotoChange {
+                    currentPhotoIndex += Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             } else {
-                if numberPhoto != Constants.OtherConstants.gestureNumberPhotoCountChange {
-                    numberPhoto -= Constants.OtherConstants.gestureNumberFriendPhotoChange
+                if currentPhotoIndex != Constants.OtherConstants.gestureNumberPhotoCountChange {
+                    currentPhotoIndex -= Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             }
             propertyAnimator.addAnimations {
@@ -74,6 +78,7 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator?.startAnimation()
         default: return
         }
-        friendPhotoImageView.image = friendPhotos[numberPhoto]
+        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
+        friendPhotoImageView.loadImage(url: url)
     }
 }

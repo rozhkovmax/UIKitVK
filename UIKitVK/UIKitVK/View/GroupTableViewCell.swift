@@ -19,9 +19,10 @@ final class GroupTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func refreshGroup(_ group: Group) {
-        groupNameLabel.text = group.groupName
-        groupAvatarImageView.image = UIImage(named: group.groupAvatarImageName)
+    func configure(_ group: Group) {
+        groupNameLabel.text = group.name
+        guard let urlGroupAvatar = group.groupAvatar else { return }
+        groupAvatarImageView.loadImage(url: urlGroupAvatar)
     }
 
     // MARK: - Private Methods

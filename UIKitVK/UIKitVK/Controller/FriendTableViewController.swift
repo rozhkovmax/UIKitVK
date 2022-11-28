@@ -8,7 +8,7 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private let friends = vkFriends
+    private var users: [User] = []
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
 
@@ -16,7 +16,7 @@ final class FriendTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        fetchFriends()
     }
 
     // MARK: - Public Methods
@@ -51,7 +51,7 @@ final class FriendTableViewController: UITableViewController {
         ) as? FriendTableViewCell,
             let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
-        cell.refreshFriend(friend)
+        cell.configure(friend)
         return cell
     }
 
@@ -62,26 +62,26 @@ final class FriendTableViewController: UITableViewController {
                 withIdentifier: Constants.Identifiers
                     .identifierFriendCollectionViewControllerID
             ) as? FriendCollectionViewController else { return }
-        guard let friendAvatar = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row].friendAvatarImageName
+        guard let ownerID = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row].id
         else { return }
-        friendCollectionVC.friendPhotos = friendAvatar
+        friendCollectionVC.ownerID = ownerID
         navigationController?.pushViewController(friendCollectionVC, animated: true)
     }
 
     // MARK: - Private Methods
 
-    private func setupUI() {
-        headerFriendName()
-        networkServicePhotos()
-    }
-
-    private func networkServicePhotos() {
-        networkService.fetchPhotos()
+    private func fetchFriends() {
+        networkService.fetchFriends { [weak self] friends in
+            guard let self = self else { return }
+            self.users = friends
+            self.headerFriendName()
+            self.tableView.reloadData()
+        }
     }
 
     private func headerFriendName() {
-        for friendName in friends {
-            guard let firstChar = friendName.friendName.first else { return }
+        for friendName in users {
+            guard let firstChar = friendName.firstName.first else { return }
             if sectionsMap[firstChar] != nil {
                 sectionsMap[firstChar]?.append(friendName)
             } else {

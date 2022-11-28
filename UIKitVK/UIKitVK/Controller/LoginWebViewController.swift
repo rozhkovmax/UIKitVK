@@ -16,7 +16,7 @@ final class LoginWebViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var urlComponents = URLComponents()
+    private let networkService = NetworkService()
 
     // MARK: - Life Cycle
 
@@ -28,36 +28,7 @@ final class LoginWebViewController: UIViewController {
     // MARK: - Private Methods
 
     private func loadLoginWebView() {
-        urlComponents.scheme = Constants.UrlComponents.scheme
-        urlComponents.host = Constants.UrlComponents.host
-        urlComponents.path = Constants.UrlComponents.path
-        urlComponents.queryItems = [
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsClientIdKeyName,
-                value: Constants.UrlComponents.queryItemsClientIdValue
-            ),
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsDisplayKeyName,
-                value: Constants.UrlComponents.queryItemsDisplayValue
-            ),
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsRedirectUriKeyName,
-                value: Constants.UrlComponents.queryItemsRedirectUriValue
-            ),
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsScopeKeyName,
-                value: Constants.UrlComponents.queryItemsScopeValue
-            ),
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsResponseTypeKeyName,
-                value: Constants.UrlComponents.queryItemsResponseTypeValue
-            ),
-            URLQueryItem(
-                name: Constants.UrlComponents.queryItemsVersionKeyName,
-                value: Constants.UrlComponents.queryItemsVersionValue
-            )
-        ]
-        guard let url = urlComponents.url else { return }
+        guard let url = networkService.createURLWebView() else { return }
         let request = URLRequest(url: url)
         loginWebView.load(request)
     }
@@ -72,7 +43,7 @@ extension LoginWebViewController: WKNavigationDelegate {
         WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-        guard let url = navigationResponse.response.url, url.path == Constants.UrlComponents.urlPath,
+        guard let url = navigationResponse.response.url, url.path == Constants.URLComponents.urlPath,
               let fragment = url.fragment
         else {
             decisionHandler(.allow)
@@ -88,9 +59,9 @@ extension LoginWebViewController: WKNavigationDelegate {
                 dict[key] = value
                 return dict
             }
-        guard let token = params[Constants.UrlComponents.accessTokenKey] else { return }
+        guard let token = params[Constants.URLComponents.accessTokenKey] else { return }
         Session.shared.token = token
-        guard let userId = params[Constants.UrlComponents.userIdKey] else { return }
+        guard let userId = params[Constants.URLComponents.userIdKey] else { return }
         Session.shared.userId = userId
         decisionHandler(.cancel)
         performSegue(withIdentifier: Constants.Identifiers.identifierLoginID, sender: nil)

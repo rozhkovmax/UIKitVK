@@ -11,8 +11,8 @@ final class OtherGroupTableViewController: UITableViewController {
 
     // MARK: - Private Properties
 
-    private var closureGroup: ((Group) -> ())?
-    private var otherGroups = vkGroups {
+    private var groupHandler: ((Group) -> ())?
+    private var groups: [Group] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -22,22 +22,20 @@ final class OtherGroupTableViewController: UITableViewController {
     private lazy var searchGroups: [Group] = []
     private lazy var networkService = NetworkService()
 
-    // MARK: - Public Methods
+    // MARK: - Life Cycle
 
-    func configure(_ group: [Group], completion: @escaping ((Group) -> ())) {
-        otherGroups = otherGroups.filter { groups in
-            !group.contains { myGroup in
-                myGroup == groups
-            }
-        }
-        closureGroup = completion
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchUserGroups()
     }
+
+    // MARK: - Public Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchBool {
             return searchGroups.count
         } else {
-            return otherGroups.count
+            return groups.count
         }
     }
 
@@ -48,10 +46,10 @@ final class OtherGroupTableViewController: UITableViewController {
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
         if searchBool {
             let group = searchGroups[indexPath.row]
-            cell.refreshOtherGroup(group)
+            cell.configure(group)
         } else {
-            let group = otherGroups[indexPath.row]
-            cell.refreshOtherGroup(group)
+            let group = groups[indexPath.row]
+            cell.configure(group)
         }
         return cell
     }
@@ -59,12 +57,22 @@ final class OtherGroupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchBool {
             let group = searchGroups[indexPath.row]
-            closureGroup?(group)
+            groupHandler?(group)
         } else {
-            let group = otherGroups[indexPath.row]
-            closureGroup?(group)
+            let group = groups[indexPath.row]
+            groupHandler?(group)
         }
         navigationController?.popViewController(animated: true)
+    }
+
+    // MARK: - Private Methods
+
+    private func fetchUserGroups() {
+        networkService.fetchUserGroups { [weak self] groups in
+            guard let self = self else { return }
+            self.groups = groups
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -72,11 +80,13 @@ final class OtherGroupTableViewController: UITableViewController {
 
 extension OtherGroupTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchGroups = otherGroups
-            .filter { $0.groupName.lowercased().prefix(searchText.count) == searchText.lowercased() }
+        searchGroups = groups
+            .filter { $0.name.lowercased().prefix(searchText.count) == searchText.lowercased() }
         searchBool = true
         tableView.reloadData()
-        networkService.fetchGroup(group: searchText)
+        networkService.fetchGroup(group: searchText) { [weak self] groups in
+            self?.searchGroups = groups
+        }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
