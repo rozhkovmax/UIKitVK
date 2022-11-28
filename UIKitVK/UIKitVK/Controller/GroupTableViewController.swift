@@ -51,8 +51,9 @@ final class GroupTableViewController: UITableViewController {
 
     private func fetchUserGroups() {
         networkService.fetchUserGroups { [weak self] groups in
-            self?.myGroups = groups
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.myGroups = groups
+            self.tableView.reloadData()
         }
     }
 }

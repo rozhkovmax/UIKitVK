@@ -59,6 +59,7 @@ enum Constants {
         static let equals = "="
         static let paramKeyIndex = 0
         static let paramValueIndex = 1
+        static let error = "Ошибка"
     }
 
     enum AnimationOptions {

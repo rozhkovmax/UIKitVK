@@ -16,7 +16,7 @@ final class LoginWebViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var urlComponents = URLComponents()
+    private let networkService = NetworkService()
 
     // MARK: - Life Cycle
 
@@ -28,36 +28,7 @@ final class LoginWebViewController: UIViewController {
     // MARK: - Private Methods
 
     private func loadLoginWebView() {
-        urlComponents.scheme = Constants.URLComponents.scheme
-        urlComponents.host = Constants.URLComponents.host
-        urlComponents.path = Constants.URLComponents.path
-        urlComponents.queryItems = [
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsClientIdKeyName,
-                value: Constants.URLComponents.queryItemsClientIdValue
-            ),
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsDisplayKeyName,
-                value: Constants.URLComponents.queryItemsDisplayValue
-            ),
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsRedirectUriKeyName,
-                value: Constants.URLComponents.queryItemsRedirectUriValue
-            ),
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsScopeKeyName,
-                value: Constants.URLComponents.queryItemsScopeValue
-            ),
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsResponseTypeKeyName,
-                value: Constants.URLComponents.queryItemsResponseTypeValue
-            ),
-            URLQueryItem(
-                name: Constants.URLComponents.queryItemsVersionKeyName,
-                value: Constants.URLComponents.queryItemsVersionValue
-            )
-        ]
-        guard let url = urlComponents.url else { return }
+        guard let url = networkService.createURLWebView() else { return }
         let request = URLRequest(url: url)
         loginWebView.load(request)
     }

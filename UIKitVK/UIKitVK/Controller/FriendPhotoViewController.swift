@@ -11,7 +11,7 @@ final class FriendPhotoViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    var friendPhotos: [Photo] = []
+    var photos: [Photo] = []
     var currentPhotoIndex = Int()
 
     // MARK: - Private Properties
@@ -34,7 +34,7 @@ final class FriendPhotoViewController: UIViewController {
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
-        guard let url = friendPhotos[currentPhotoIndex].sizes.last?.url else { return }
+        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 
@@ -64,7 +64,7 @@ final class FriendPhotoViewController: UIViewController {
         case .ended:
             propertyAnimator.stopAnimation(true)
             if translation < Constants.OtherConstants.gestureTranslationComparison {
-                if currentPhotoIndex < friendPhotos.count - Constants.OtherConstants.gestureNumberPhotoChange {
+                if currentPhotoIndex < photos.count - Constants.OtherConstants.gestureNumberPhotoChange {
                     currentPhotoIndex += Constants.OtherConstants.gestureNumberFriendPhotoChange
                 }
             } else {
@@ -78,7 +78,7 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator?.startAnimation()
         default: return
         }
-        guard let url = friendPhotos[currentPhotoIndex].sizes.last?.url else { return }
+        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 }

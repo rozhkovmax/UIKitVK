@@ -40,21 +40,22 @@ final class FriendCollectionViewController: UICollectionViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Identifiers.identifierFriendsPhotoID {
-            guard let friendsImages = segue.destination as? FriendPhotoViewController else { return }
-            if let indexPath = collectionView.indexPathsForSelectedItems?.first {
-                friendsImages.friendPhotos = photos
-                friendsImages.currentPhotoIndex = indexPath.row
-            }
-        }
+        guard
+            segue.identifier == Constants.Identifiers.identifierFriendsPhotoID,
+            let friendsImages = segue.destination as? FriendPhotoViewController,
+            let indexPath = collectionView.indexPathsForSelectedItems?.first
+        else { return }
+        friendsImages.photos = photos
+        friendsImages.currentPhotoIndex = indexPath.row
     }
 
     // MARK: - Private Methods
 
     private func fetchPhotos() {
         networkService.fetchPhotos(ownerID: ownerID) { [weak self] photos in
-            self?.photos = photos
-            self?.collectionView.reloadData()
+            guard let self = self else { return }
+            self.photos = photos
+            self.collectionView.reloadData()
         }
     }
 }

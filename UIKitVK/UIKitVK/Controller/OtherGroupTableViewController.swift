@@ -69,8 +69,9 @@ final class OtherGroupTableViewController: UITableViewController {
 
     private func fetchUserGroups() {
         networkService.fetchUserGroups { [weak self] groups in
-            self?.groups = groups
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.groups = groups
+            self.tableView.reloadData()
         }
     }
 }

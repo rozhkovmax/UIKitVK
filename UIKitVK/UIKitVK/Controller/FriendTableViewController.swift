@@ -8,7 +8,7 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var friends: [User] = []
+    private var users: [User] = []
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
 
@@ -72,14 +72,15 @@ final class FriendTableViewController: UITableViewController {
 
     private func fetchFriends() {
         networkService.fetchFriends { [weak self] friends in
-            self?.friends = friends
-            self?.headerFriendName()
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.users = friends
+            self.headerFriendName()
+            self.tableView.reloadData()
         }
     }
 
     private func headerFriendName() {
-        for friendName in friends {
+        for friendName in users {
             guard let firstChar = friendName.firstName.first else { return }
             if sectionsMap[firstChar] != nil {
                 sectionsMap[firstChar]?.append(friendName)
