@@ -152,6 +152,15 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
+		94446E142935249A0055E6EA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9433AC28292BC42E00E03BA8 /* Session.swift */,
+				9433AC2E292D42F700E03BA8 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		944CC890291069C600A5B7F1 = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +191,7 @@
 				94CE5A2B2913368200A4D148 /* Model */,
 				94CE5A3A2914556900A4D148 /* CustomUI */,
 				94CE5A69291DA05200A4D148 /* Animation */,
-				9433AC28292BC42E00E03BA8 /* Session.swift */,
-				9433AC2E292D42F700E03BA8 /* NetworkService.swift */,
+				94446E142935249A0055E6EA /* Network */,
 				944CC8A2291069C600A5B7F1 /* Main.storyboard */,
 				944CC8A5291069C800A5B7F1 /* Assets.xcassets */,
 				944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */,

@@ -6,13 +6,17 @@ import RealmSwift
 
 // Группы
 final class Group: Object, Codable {
-    @objc dynamic var id: Int
-    @objc dynamic var name: String
-    @objc dynamic var groupAvatar: String?
+    @Persisted var id: Int
+    @Persisted var name: String
+    @Persisted var groupAvatar: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case groupAvatar = "photo_50"
+    }
+
+    override static func primaryKey() -> String? {
+        "id"
     }
 }

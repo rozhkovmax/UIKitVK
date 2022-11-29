@@ -1,6 +1,7 @@
 // FriendCollectionViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 /// Экран галереи
@@ -18,7 +19,7 @@ final class FriendCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPhotos()
+        unloadingPhotosRealm()
     }
 
     // MARK: - Public Methods
@@ -54,8 +55,34 @@ final class FriendCollectionViewController: UICollectionViewController {
     private func fetchPhotos() {
         networkService.fetchPhotos(ownerID: ownerID) { [weak self] photos in
             guard let self = self else { return }
-            self.photos = photos
-            self.collectionView.reloadData()
+            switch photos {
+            case let .success(data):
+                self.photos = data
+                self.networkService.saveDataRealm(self.photos)
+                self.collectionView.reloadData()
+            case let .failure(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func unloadingPhotosRealm() {
+        do {
+            let realm = try Realm()
+            let friendPhotos = Array(realm.objects(Photo.self))
+            let userID = friendPhotos.map(\.ownerID)
+            if userID.contains(where: { realmID in
+                realmID == ownerID
+            }) {
+                photos = friendPhotos.filter {
+                    $0.ownerID == ownerID
+                }
+                collectionView.reloadData()
+            } else {
+                fetchPhotos()
+            }
+        } catch {
+            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
 }

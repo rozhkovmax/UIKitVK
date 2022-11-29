@@ -3,6 +3,7 @@
 
 import Alamofire
 import Foundation
+import RealmSwift
 
 /// Сетевой сервис
 final class NetworkService {
@@ -49,7 +50,7 @@ final class NetworkService {
         return imageData
     }
 
-    func fetchFriends(completion: @escaping ([User]) -> Void) {
+    func fetchFriends(completion: @escaping (Result<[User], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.userIdKey: Session.shared.userId,
             Constants.URLComponents.friendsFieldsKey: Constants.URLComponents.friendsFieldsValue,
@@ -62,14 +63,14 @@ final class NetworkService {
             do {
                 let result = try JSONDecoder().decode(ResultUser.self, from: data)
                 let users = result.response.users
-                completion(users)
+                completion(.success(users))
             } catch {
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
 
-    func fetchPhotos(ownerID: Int, completion: @escaping ([Photo]) -> Void) {
+    func fetchPhotos(ownerID: Int, completion: @escaping (Result<[Photo], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.ownerIdKey: ownerID,
             Constants.URLComponents.accessTokenKey: Session.shared.token,
@@ -81,14 +82,14 @@ final class NetworkService {
             do {
                 let result = try JSONDecoder().decode(ResultPhoto.self, from: data)
                 let photos = result.response.photos
-                completion(photos)
+                completion(.success(photos))
             } catch {
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
 
-    func fetchUserGroups(completion: @escaping ([Group]) -> Void) {
+    func fetchUserGroups(completion: @escaping (Result<[Group], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.userIdKey: Session.shared.userId,
             Constants.URLComponents.myGroupExtendedKey: Constants.URLComponents.myGroupExtendedValue,
@@ -101,14 +102,14 @@ final class NetworkService {
             do {
                 let result = try JSONDecoder().decode(ResultGroup.self, from: data)
                 let groups = result.response.groups
-                completion(groups)
+                completion(.success(groups))
             } catch {
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
 
-    func fetchGroup(group searchText: String, completion: @escaping ([Group]) -> Void) {
+    func fetchGroup(group searchText: String, completion: @escaping (Result<[Group], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.otherGroupSearch: searchText,
             Constants.URLComponents.accessTokenKey: Session.shared.token,
@@ -120,10 +121,22 @@ final class NetworkService {
             do {
                 let result = try JSONDecoder().decode(ResultGroup.self, from: data)
                 let groups = result.response.groups
-                completion(groups)
+                completion(.success(groups))
             } catch {
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+                completion(.failure(error))
             }
+        }
+    }
+
+    func saveDataRealm<T: Object>(_ object: [T]) {
+        do {
+            let configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let realm = try Realm(configuration: configuration)
+            try realm.write {
+                realm.add(object, update: .modified)
+            }
+        } catch {
+            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
 }
