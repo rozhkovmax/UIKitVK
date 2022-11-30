@@ -1,6 +1,7 @@
 // OtherGroupTableViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 /// Экран других групп
@@ -70,8 +71,13 @@ final class OtherGroupTableViewController: UITableViewController {
     private func fetchUserGroups() {
         networkService.fetchUserGroups { [weak self] groups in
             guard let self = self else { return }
-            self.groups = groups
-            self.tableView.reloadData()
+            switch groups {
+            case let .success(data):
+                self.groups = data
+                self.tableView.reloadData()
+            case let .failure(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
         }
     }
 }
@@ -85,7 +91,13 @@ extension OtherGroupTableViewController: UISearchBarDelegate {
         searchBool = true
         tableView.reloadData()
         networkService.fetchGroup(group: searchText) { [weak self] groups in
-            self?.searchGroups = groups
+            guard let self = self else { return }
+            switch groups {
+            case let .success(data):
+                self.searchGroups = data
+            case let .failure(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
         }
     }
 

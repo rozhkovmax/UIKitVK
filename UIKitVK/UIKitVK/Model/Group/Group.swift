@@ -4,11 +4,11 @@
 import Foundation
 import RealmSwift
 
-// Группы
+// Группа
 final class Group: Object, Codable {
-    @objc dynamic var id: Int
-    @objc dynamic var name: String
-    @objc dynamic var groupAvatar: String?
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var name: String
+    @Persisted var groupAvatar: String?
 
     private enum CodingKeys: String, CodingKey {
         case id

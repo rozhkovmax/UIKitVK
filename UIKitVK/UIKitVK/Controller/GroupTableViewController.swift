@@ -1,6 +1,7 @@
 // GroupTableViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 /// Экран групп
@@ -8,7 +9,8 @@ final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var myGroups: [Group] = [] {
+    private var notificationToken: NotificationToken?
+    private var myGroups: Results<Group>? {
         didSet {
             tableView.reloadData()
         }
@@ -18,13 +20,13 @@ final class GroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUserGroups()
+        unloadingGroupsRealm()
     }
 
     // MARK: - Public Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myGroups.count
+        myGroups?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,28 +34,46 @@ final class GroupTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierGroupTableViewCellID,
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
-        let group = myGroups[indexPath.row]
+        guard let group = myGroups?[indexPath.row] else { return UITableViewCell() }
         cell.configure(group)
         return cell
     }
 
-    override func tableView(
-        _ tableView: UITableView,
-        commit editingStyle: UITableViewCell.EditingStyle,
-        forRowAt indexPath: IndexPath
-    ) {
-        if editingStyle == .delete {
-            myGroups.remove(at: indexPath.row)
+    // MARK: - Private Methods
+
+    private func groupNotifications(result: Results<Group>) {
+        notificationToken = result.observe { [weak self] change in
+            guard let self = self else { return }
+            switch change {
+            case .initial:
+                break
+            case .update:
+                self.myGroups = result
+                self.tableView.reloadData()
+            case let .error(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
         }
     }
 
-    // MARK: - Private Methods
-
     private func fetchUserGroups() {
-        networkService.fetchUserGroups { [weak self] groups in
-            guard let self = self else { return }
-            self.myGroups = groups
-            self.tableView.reloadData()
+        networkService.fetchUserGroups { groups in
+            switch groups {
+            case let .success(data):
+                RealmService.defaultRealmService.save(data)
+            case let .failure(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func unloadingGroupsRealm() {
+        guard let groups = RealmService.defaultRealmService.get(type: Group.self) else { return }
+        groupNotifications(result: groups)
+        if !groups.isEmpty {
+            myGroups = groups
+        } else {
+            fetchUserGroups()
         }
     }
 }

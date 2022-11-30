@@ -1,6 +1,7 @@
 // FriendTableViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 /// Экран друзей
@@ -8,15 +9,16 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
     private let networkService = NetworkService()
-    private var users: [User] = []
+    private var users: Results<User>?
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
+    private var notificationToken: NotificationToken?
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFriends()
+        unloadingFriendsRealm()
     }
 
     // MARK: - Public Methods
@@ -70,16 +72,46 @@ final class FriendTableViewController: UITableViewController {
 
     // MARK: - Private Methods
 
-    private func fetchFriends() {
-        networkService.fetchFriends { [weak self] friends in
+    private func friendsNotifications(result: Results<User>) {
+        notificationToken = result.observe { [weak self] change in
             guard let self = self else { return }
-            self.users = friends
-            self.headerFriendName()
-            self.tableView.reloadData()
+            switch change {
+            case .initial:
+                break
+            case .update:
+                self.users = result
+                self.headerFriendName()
+                self.tableView.reloadData()
+            case let .error(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func unloadingFriendsRealm() {
+        guard let friends = RealmService.defaultRealmService.get(type: User.self) else { return }
+        friendsNotifications(result: friends)
+        if !friends.isEmpty {
+            users = friends
+            headerFriendName()
+        } else {
+            fetchFriends()
+        }
+    }
+
+    private func fetchFriends() {
+        networkService.fetchFriends { friends in
+            switch friends {
+            case let .success(data):
+                RealmService.defaultRealmService.save(data)
+            case let .failure(error):
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            }
         }
     }
 
     private func headerFriendName() {
+        guard let users = users else { return }
         for friendName in users {
             guard let firstChar = friendName.firstName.first else { return }
             if sectionsMap[firstChar] != nil {

@@ -6,10 +6,10 @@ import RealmSwift
 
 // Пользователь
 final class User: Object, Codable {
-    @objc dynamic var id: Int
-    @objc dynamic var firstName: String
-    @objc dynamic var lastName: String
-    @objc dynamic var friendAvatar: String?
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var friendAvatar: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
