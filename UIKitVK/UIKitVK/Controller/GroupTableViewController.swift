@@ -51,17 +51,16 @@ final class GroupTableViewController: UITableViewController {
                 self.myGroups = result
                 self.tableView.reloadData()
             case let .error(error):
-                print(error)
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
         }
     }
 
     private func fetchUserGroups() {
-        networkService.fetchUserGroups { [weak self] groups in
-            guard let self = self else { return }
+        networkService.fetchUserGroups { groups in
             switch groups {
             case let .success(data):
-                self.networkService.saveDataRealm(data)
+                RealmService.defaultRealmService.save(data)
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
@@ -69,20 +68,12 @@ final class GroupTableViewController: UITableViewController {
     }
 
     private func unloadingGroupsRealm() {
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Group.self)
-            groupNotifications(result: groups)
-            if !groups.isEmpty {
-                myGroups = groups
-            }
-            if myGroups != groups {
-                myGroups = groups
-            } else {
-                fetchUserGroups()
-            }
-        } catch {
-            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+        guard let groups = RealmService.defaultRealmService.get(type: Group.self) else { return }
+        groupNotifications(result: groups)
+        if !groups.isEmpty {
+            myGroups = groups
+        } else {
+            fetchUserGroups()
         }
     }
 }

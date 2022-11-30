@@ -4,7 +4,7 @@
 import Foundation
 import RealmSwift
 
-// Группы
+// Группа
 final class Group: Object, Codable {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String

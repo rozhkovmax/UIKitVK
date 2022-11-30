@@ -58,7 +58,7 @@ final class FriendCollectionViewController: UICollectionViewController {
             switch photos {
             case let .success(data):
                 self.photos = data
-                self.networkService.saveDataRealm(self.photos)
+                RealmService.defaultRealmService.save(data)
                 self.collectionView.reloadData()
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
@@ -67,22 +67,17 @@ final class FriendCollectionViewController: UICollectionViewController {
     }
 
     private func unloadingPhotosRealm() {
-        do {
-            let realm = try Realm()
-            let friendPhotos = Array(realm.objects(Photo.self))
-            let userID = friendPhotos.map(\.ownerID)
-            if userID.contains(where: { ownerID in
-                ownerID == ownerID
-            }) {
-                photos = friendPhotos.filter {
-                    $0.ownerID == ownerID
-                }
-                collectionView.reloadData()
-            } else {
-                fetchPhotos()
+        guard let friendPhotos = RealmService.defaultRealmService.get(type: Photo.self) else { return }
+        let userID = friendPhotos.map(\.ownerID)
+        if userID.contains(where: { ownerID in
+            ownerID == ownerID
+        }) {
+            photos = friendPhotos.filter {
+                $0.ownerID == ownerID
             }
-        } catch {
-            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+            collectionView.reloadData()
+        } else {
+            fetchPhotos()
         }
     }
 }

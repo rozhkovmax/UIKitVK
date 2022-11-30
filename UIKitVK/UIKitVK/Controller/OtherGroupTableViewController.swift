@@ -27,7 +27,7 @@ final class OtherGroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        unloadingGroupsRealm()
+        fetchUserGroups()
     }
 
     // MARK: - Public Methods
@@ -74,25 +74,10 @@ final class OtherGroupTableViewController: UITableViewController {
             switch groups {
             case let .success(data):
                 self.groups = data
-                self.networkService.saveDataRealm(self.groups)
                 self.tableView.reloadData()
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
-        }
-    }
-
-    private func unloadingGroupsRealm() {
-        do {
-            let realm = try Realm()
-            let searchGroups = Array(realm.objects(Group.self))
-            if groups != searchGroups {
-                groups = searchGroups
-            } else {
-                fetchUserGroups()
-            }
-        } catch {
-            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
 }
@@ -110,7 +95,6 @@ extension OtherGroupTableViewController: UISearchBarDelegate {
             switch groups {
             case let .success(data):
                 self.searchGroups = data
-                self.networkService.saveDataRealm(self.searchGroups)
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }

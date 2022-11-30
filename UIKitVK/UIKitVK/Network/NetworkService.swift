@@ -127,16 +127,4 @@ final class NetworkService {
             }
         }
     }
-
-    func saveDataRealm<T: Object>(_ object: [T]) {
-        do {
-            let configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-            let realm = try Realm(configuration: configuration)
-            try realm.write {
-                realm.add(object, update: .modified)
-            }
-        } catch {
-            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
-        }
-    }
 }

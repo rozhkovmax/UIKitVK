@@ -83,33 +83,27 @@ final class FriendTableViewController: UITableViewController {
                 self.headerFriendName()
                 self.tableView.reloadData()
             case let .error(error):
-                print(error)
+                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
         }
     }
 
     private func unloadingFriendsRealm() {
-        do {
-            let realm = try Realm()
-            let friends = realm.objects(User.self)
-            friendsNotifications(result: friends)
-            if !friends.isEmpty {
-                users = friends
-                headerFriendName()
-            } else {
-                fetchFriends()
-            }
-        } catch {
-            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
+        guard let friends = RealmService.defaultRealmService.get(type: User.self) else { return }
+        friendsNotifications(result: friends)
+        if !friends.isEmpty {
+            users = friends
+            headerFriendName()
+        } else {
+            fetchFriends()
         }
     }
 
     private func fetchFriends() {
-        networkService.fetchFriends { [weak self] friends in
-            guard let self = self else { return }
+        networkService.fetchFriends { friends in
             switch friends {
             case let .success(data):
-                self.networkService.saveDataRealm(data)
+                RealmService.defaultRealmService.save(data)
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
