@@ -6,7 +6,7 @@ import RealmSwift
 
 // Группы
 final class Group: Object, Codable {
-    @Persisted var id: Int
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String
     @Persisted var groupAvatar: String?
 
@@ -14,9 +14,5 @@ final class Group: Object, Codable {
         case id
         case name
         case groupAvatar = "photo_50"
-    }
-
-    override static func primaryKey() -> String? {
-        "id"
     }
 }

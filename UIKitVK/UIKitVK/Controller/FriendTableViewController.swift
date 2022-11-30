@@ -73,7 +73,8 @@ final class FriendTableViewController: UITableViewController {
     // MARK: - Private Methods
 
     private func friendsNotifications(result: Results<User>) {
-        notificationToken = result.observe { change in
+        notificationToken = result.observe { [weak self] change in
+            guard let self = self else { return }
             switch change {
             case .initial:
                 break

@@ -6,7 +6,7 @@ import RealmSwift
 
 // Пользователь
 final class User: Object, Codable {
-    @Persisted var id: Int
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var firstName: String
     @Persisted var lastName: String
     @Persisted var friendAvatar: String?
@@ -16,9 +16,5 @@ final class User: Object, Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case friendAvatar = "photo_100"
-    }
-
-    override static func primaryKey() -> String? {
-        "id"
     }
 }

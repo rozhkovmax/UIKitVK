@@ -7,7 +7,7 @@ import UIKit
 /// Экран групп
 final class GroupTableViewController: UITableViewController {
     // MARK: - Private Properties
-    
+
     private let networkService = NetworkService()
     private var notificationToken: NotificationToken?
     private var myGroups: Results<Group>? {
@@ -15,20 +15,20 @@ final class GroupTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         unloadingGroupsRealm()
     }
-    
+
     // MARK: - Public Methods
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.Identifiers.identifierGroupTableViewCellID,
@@ -38,11 +38,12 @@ final class GroupTableViewController: UITableViewController {
         cell.configure(group)
         return cell
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func groupNotifications(result: Results<Group>) {
-        notificationToken = result.observe { change in
+        notificationToken = result.observe { [weak self] change in
+            guard let self = self else { return }
             switch change {
             case .initial:
                 break
@@ -54,7 +55,7 @@ final class GroupTableViewController: UITableViewController {
             }
         }
     }
-    
+
     private func fetchUserGroups() {
         networkService.fetchUserGroups { [weak self] groups in
             guard let self = self else { return }
@@ -66,7 +67,7 @@ final class GroupTableViewController: UITableViewController {
             }
         }
     }
-    
+
     private func unloadingGroupsRealm() {
         do {
             let realm = try Realm()

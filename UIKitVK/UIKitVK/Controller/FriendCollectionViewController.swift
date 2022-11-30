@@ -71,8 +71,8 @@ final class FriendCollectionViewController: UICollectionViewController {
             let realm = try Realm()
             let friendPhotos = Array(realm.objects(Photo.self))
             let userID = friendPhotos.map(\.ownerID)
-            if userID.contains(where: { realmID in
-                realmID == ownerID
+            if userID.contains(where: { ownerID in
+                ownerID == ownerID
             }) {
                 photos = friendPhotos.filter {
                     $0.ownerID == ownerID
