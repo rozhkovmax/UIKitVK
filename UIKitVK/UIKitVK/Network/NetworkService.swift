@@ -127,4 +127,23 @@ final class NetworkService {
             }
         }
     }
+
+    func fetchPostNews(completion: @escaping (Result<ResponseNews, Error>) -> Void) {
+        let parameters: Parameters = [
+            Constants.URLComponents.newsFiltersKey: Constants.URLComponents.newsFiltersPostValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
+        ]
+        let path = "\(Constants.URLComponents.baseUrl)\(Constants.URLComponents.newsMethod)"
+        AF.request(path, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+            do {
+                let result = try JSONDecoder().decode(ResultNews.self, from: data)
+                let news = result.response
+                completion(.success(news))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
 }
