@@ -613,10 +613,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="Apl-my-KrH" id="tkP-R4-nwd"/>
-                                            <outlet property="likeLabel" destination="Pcz-Q1-FFG" id="ypa-xu-Ehl"/>
-                                            <outlet property="repostLabel" destination="oXA-1Z-Mni" id="2Ef-3f-QZa"/>
-                                            <outlet property="viewLabel" destination="FzM-0w-zfU" id="UeW-w5-uxI"/>
+                                            <outlet property="commentCountLabel" destination="Apl-my-KrH" id="zSo-LA-4Pt"/>
+                                            <outlet property="likeCountLabel" destination="Pcz-Q1-FFG" id="b5q-Cd-CV2"/>
+                                            <outlet property="repostCountLabel" destination="oXA-1Z-Mni" id="lzV-qI-QbU"/>
+                                            <outlet property="viewCountLabel" destination="FzM-0w-zfU" id="XhB-1V-d16"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsPostTableViewCell" id="Yws-Ta-h0s" customClass="NewsPostTableViewCell" customModule="UIKitVK" customModuleProvider="target">

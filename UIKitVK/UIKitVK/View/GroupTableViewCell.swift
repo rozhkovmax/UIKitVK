@@ -21,8 +21,9 @@ final class GroupTableViewCell: UITableViewCell {
 
     func configure(_ group: Group) {
         groupNameLabel.text = group.name
-        guard let urlGroupAvatar = group.groupAvatar else { return }
-        groupAvatarImageView.loadImage(url: urlGroupAvatar)
+        guard let string = group.groupAvatar,
+              let url = URL(string: string) else { return }
+        groupAvatarImageView.loadImage(url: url)
     }
 
     // MARK: - Private Methods

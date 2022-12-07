@@ -4,7 +4,7 @@
 import Foundation
 import RealmSwift
 
-// Сервис для сохранения, чтения данных
+/// Сервис для сохранения, чтения данных
 final class RealmService {
     // MARK: - Public Properties
 

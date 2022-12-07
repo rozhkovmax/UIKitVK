@@ -3,13 +3,12 @@
 
 import Foundation
 
-// Список групп
+/// Список групп
 struct ResponseGroup: Codable {
-    let count: Int
+    /// Группы
     let groups: [Group]
 
     private enum CodingKeys: String, CodingKey {
-        case count
         case groups = "items"
     }
 }

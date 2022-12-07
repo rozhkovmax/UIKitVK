@@ -27,6 +27,7 @@
 		9439E565293FE486003EEF54 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E564293FE486003EEF54 /* Comments.swift */; };
 		9439E567293FE4C3003EEF54 /* Reposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E566293FE4C3003EEF54 /* Reposts.swift */; };
 		9439E569293FE4F0003EEF54 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E568293FE4F0003EEF54 /* Views.swift */; };
+		9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56A2940A667003EEF54 /* NewsConfigurable.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
 		94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		9439E564293FE486003EEF54 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		9439E566293FE4C3003EEF54 /* Reposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reposts.swift; sourceTree = "<group>"; };
 		9439E568293FE4F0003EEF54 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		9439E56A2940A667003EEF54 /* NewsConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConfigurable.swift; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
 		94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				944CC89C291069C600A5B7F1 /* AppDelegate.swift */,
 				944CC89E291069C600A5B7F1 /* SceneDelegate.swift */,
 				945C32BF29378D86000821AA /* RealmService.swift */,
+				9439E56A2940A667003EEF54 /* NewsConfigurable.swift */,
 				94CE5A6A291DA08200A4D148 /* Constants */,
 				944CC8B92911439A00A5B7F1 /* View */,
 				944CC8B42911153700A5B7F1 /* Controller */,
@@ -506,6 +509,7 @@
 				945C32C029378D86000821AA /* RealmService.swift in Sources */,
 				9439E558293E3920003EEF54 /* NewsFooterTableViewCell.swift in Sources */,
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
+				9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */,
 				94CE5A2D2913376000A4D148 /* Group.swift in Sources */,
 				94CE5A68291D3AB900A4D148 /* CustomInteractiveTransition.swift in Sources */,
 				9439E55F293FC9A6003EEF54 /* ResultNews.swift in Sources */,

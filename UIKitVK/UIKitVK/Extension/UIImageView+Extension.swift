@@ -3,13 +3,17 @@
 
 import UIKit
 
-// Расширение для получения изображения
+/// Расширение для получения изображения
 extension UIImageView {
-    func loadImage(url: String) {
-        let networkService = NetworkService()
-        DispatchQueue.main.async {
-            guard let image = UIImage(data: networkService.loadImageData(url: url)) else { return }
-            self.image = image
+    func loadImage(url: URL) {
+        DispatchQueue.global().async {
+            guard
+                let data = try? Data(contentsOf: url),
+                let image = UIImage(data: data) else { return }
+
+            DispatchQueue.main.async {
+                self.image = image
+            }
         }
     }
 }

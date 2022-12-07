@@ -12,7 +12,7 @@ final class FriendCollectionViewCell: UICollectionViewCell {
     // MARK: - Public Methods
 
     func configure(_ photo: Photo) {
-        guard let urlPhoto = photo.sizes.first?.url else { return }
-        friendGalleryImageView.loadImage(url: urlPhoto)
+        guard let url = URL(string: photo.sizes.first?.url ?? "") else { return }
+        friendGalleryImageView.loadImage(url: url)
     }
 }

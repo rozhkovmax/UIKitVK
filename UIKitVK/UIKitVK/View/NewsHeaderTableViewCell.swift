@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка заголовка новости
-final class NewsHeaderTableViewCell: UITableViewCell {
+final class NewsHeaderTableViewCell: UITableViewCell, NewsConfigurable {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var avatarImageView: UIImageView!
@@ -18,14 +18,15 @@ final class NewsHeaderTableViewCell: UITableViewCell {
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(name)\n")
             .normal("\(date)")
-        guard let avatarURL = news.avatarURL else { return }
-        avatarImageView.loadImage(url: avatarURL)
+        guard let string = news.avatarURL,
+              let url = URL(string: string) else { return }
+        avatarImageView.loadImage(url: url)
     }
 
     // MARK: - Private Methods
 
-    private func dateFormat(dateForm: Double) -> String {
-        let date = Date(timeIntervalSince1970: dateForm)
+    private func dateFormat(dateForm: Int) -> String {
+        let date = Date(timeIntervalSince1970: Double(dateForm))
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.short
         dateFormatter.dateStyle = DateFormatter.Style.medium

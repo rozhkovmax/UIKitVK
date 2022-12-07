@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка фото новости
-final class NewsPhotoTableViewCell: UITableViewCell {
+final class NewsPhotoTableViewCell: UITableViewCell, NewsConfigurable {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var newsImageView: UIImageView!
@@ -12,7 +12,8 @@ final class NewsPhotoTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func configure(_ news: NewsItem) {
-        guard let photoURL = news.avatarURL else { return }
-        newsImageView.loadImage(url: photoURL)
+        guard let string = news.avatarURL,
+              let url = URL(string: string) else { return }
+        newsImageView.loadImage(url: url)
     }
 }

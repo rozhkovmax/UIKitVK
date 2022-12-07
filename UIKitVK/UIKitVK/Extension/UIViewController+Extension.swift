@@ -3,7 +3,7 @@
 
 import UIKit
 
-// Расширение UIViewController для вызова AlertController
+/// Расширение UIViewController для вызова AlertController
 extension UIViewController {
     func showAlertController(alertTitle: String?, alertMessage: String?, alertActionTitle: String?) {
         let alertController = UIAlertController(

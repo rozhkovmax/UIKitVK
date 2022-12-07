@@ -3,23 +3,33 @@
 
 import Foundation
 
-// Тип поста
+/// Тип поста
 enum NewsItemType: Decodable {
     case post
     case photo
 }
 
-// Содержание новости
+/// Содержание новости
 final class NewsItem: Codable {
-    var text: String
-    var date: Double
-    var sourceID: Int
+    /// Текст новости
+    let text: String
+    /// Дата новости
+    let date: Int
+    /// Идентификатор группы
+    let sourceID: Int
+    /// Фото автора
     var avatarURL: String?
+    /// Имя автора
     var creatorName: String?
-    var likes: Likes
-    var comments: Comments
-    var reposts: Reposts
+    /// Лайки новости
+    let likes: Likes
+    /// Комментарии новости
+    let comments: Comments
+    /// Репосты новости
+    let reposts: Reposts
+    /// Просмотры новости
     var views: Views?
+    /// Тип поста
     var newsType: NewsItemType?
 
     enum CodingKeys: String, CodingKey {

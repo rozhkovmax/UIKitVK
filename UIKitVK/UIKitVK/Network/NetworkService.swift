@@ -43,13 +43,6 @@ final class NetworkService {
         return urlComponents.url
     }
 
-    func loadImageData(url: String) -> Data {
-        var imageData = Data()
-        guard let url = URL(string: url), let data = try? Data(contentsOf: url) else { return imageData }
-        imageData = data
-        return imageData
-    }
-
     func fetchFriends(completion: @escaping (Result<[User], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.userIdKey: Session.shared.userId,

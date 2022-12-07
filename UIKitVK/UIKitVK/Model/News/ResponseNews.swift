@@ -3,10 +3,13 @@
 
 import Foundation
 
-// Список новостей
+/// Список новостей
 struct ResponseNews: Codable {
+    /// Новости
     let news: [NewsItem]
+    /// Пользователи
     let friends: [User]
+    /// Группы
     let groups: [Group]
 
     enum CodingKeys: String, CodingKey {

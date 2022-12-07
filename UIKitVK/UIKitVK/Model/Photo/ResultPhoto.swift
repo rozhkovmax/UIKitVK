@@ -3,7 +3,8 @@
 
 import Foundation
 
-// Ответ запроса
+/// Ответ запроса
 struct ResultPhoto: Decodable {
+    /// Ответ запроса
     let response: ResponsePhoto
 }

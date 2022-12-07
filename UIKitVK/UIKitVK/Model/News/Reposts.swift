@@ -3,7 +3,8 @@
 
 import Foundation
 
-// Репосты
+/// Репосты новости
 struct Reposts: Codable {
+    /// Количество репостов
     var count: Int
 }

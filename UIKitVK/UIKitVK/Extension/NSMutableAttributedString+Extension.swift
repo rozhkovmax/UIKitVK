@@ -3,7 +3,7 @@
 
 import UIKit
 
-// Расширение для NSMutableAttributedString
+/// Расширение для NSMutableAttributedString
 extension NSMutableAttributedString {
     var boldFont: UIFont { UIFont.boldSystemFont(ofSize: Constants.OtherConstants.boldFontSize) }
     var systemFont: UIFont { UIFont.systemFont(ofSize: Constants.OtherConstants.fontSize) }

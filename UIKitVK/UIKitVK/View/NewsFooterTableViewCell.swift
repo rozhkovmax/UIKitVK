@@ -4,21 +4,21 @@
 import UIKit
 
 /// Ячейка нижнего колонтитула новости
-final class NewsFooterTableViewCell: UITableViewCell {
+final class NewsFooterTableViewCell: UITableViewCell, NewsConfigurable {
     // MARK: - Private IBOutlet
 
-    @IBOutlet private var repostLabel: UILabel!
-    @IBOutlet private var commentLabel: UILabel!
-    @IBOutlet private var likeLabel: UILabel!
-    @IBOutlet private var viewLabel: UILabel!
+    @IBOutlet private var repostCountLabel: UILabel!
+    @IBOutlet private var commentCountLabel: UILabel!
+    @IBOutlet private var likeCountLabel: UILabel!
+    @IBOutlet private var viewCountLabel: UILabel!
 
     // MARK: - Public Methods
 
     func configure(_ news: NewsItem) {
-        repostLabel.text = String(news.reposts.count)
-        commentLabel.text = String(news.comments.count)
-        likeLabel.text = String(news.likes.count)
+        repostCountLabel.text = String(news.reposts.count)
+        commentCountLabel.text = String(news.comments.count)
+        likeCountLabel.text = String(news.likes.count)
         guard let view = news.views?.count else { return }
-        viewLabel.text = String(view)
+        viewCountLabel.text = String(view)
     }
 }

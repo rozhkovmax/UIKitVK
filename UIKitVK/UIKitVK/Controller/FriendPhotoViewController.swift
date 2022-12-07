@@ -34,7 +34,7 @@ final class FriendPhotoViewController: UIViewController {
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
-        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
+        guard let url = URL(string: photos[currentPhotoIndex].sizes.last?.url ?? "") else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 
@@ -78,7 +78,7 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator?.startAnimation()
         default: return
         }
-        guard let url = photos[currentPhotoIndex].sizes.last?.url else { return }
+        guard let url = URL(string: photos[currentPhotoIndex].sizes.last?.url ?? "") else { return }
         friendPhotoImageView.loadImage(url: url)
     }
 }

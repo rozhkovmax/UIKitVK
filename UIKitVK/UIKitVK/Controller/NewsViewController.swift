@@ -5,6 +5,14 @@ import UIKit
 
 /// Экран новостей
 final class NewsViewController: UIViewController {
+    // MARK: - Private Types
+
+    private enum NewsCellType: Int, CaseIterable {
+        case header
+        case content
+        case footer
+    }
+
     // MARK: - Private IBOutlet
 
     @IBOutlet private var newsTableView: UITableView!
@@ -28,14 +36,14 @@ final class NewsViewController: UIViewController {
             guard let self = self else { return }
             switch news {
             case let .success(data):
-                self.fetchSome(response: data)
+                self.updateNewsTable(response: data)
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
             }
         }
     }
 
-    private func fetchSome(response: ResponseNews) {
+    private func updateNewsTable(response: ResponseNews) {
         response.news.forEach { item in
             if item.sourceID < 0 {
                 guard let group = response.groups.filter({ group in
@@ -54,14 +62,6 @@ final class NewsViewController: UIViewController {
         news = response.news
         newsTableView.reloadData()
     }
-
-    // MARK: - Private Types
-
-    private enum NewsCellType: Int, CaseIterable {
-        case header
-        case content
-        case footer
-    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -78,29 +78,21 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = news[indexPath.section]
         guard let cellType = NewsCellType(rawValue: indexPath.row) else { return UITableViewCell() }
+        var cellID = Constants.OtherConstants.emptyString
         switch cellType {
         case .header:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constants.Identifiers.identifierNewsHeaderTableViewCellID,
-                for: indexPath
-            ) as? NewsHeaderTableViewCell else { return UITableViewCell() }
-            cell.configure(news)
-            return cell
+            cellID = Constants.Identifiers.identifierNewsHeaderTableViewCellID
         case .content:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constants.Identifiers.identifierNewsPostTableViewCellID,
-                for: indexPath
-            ) as? NewsPostTableViewCell else { return UITableViewCell() }
-            cell.configure(news)
-            return cell
+            cellID = Constants.Identifiers.identifierNewsPostTableViewCellID
         case .footer:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constants.Identifiers.identifierNewsFooterTableViewCellID,
-                for: indexPath
-            ) as? NewsFooterTableViewCell else { return UITableViewCell() }
-            cell.configure(news)
-            return cell
+            cellID = Constants.Identifiers.identifierNewsFooterTableViewCellID
         }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellID,
+            for: indexPath
+        ) as? NewsCell else { return UITableViewCell() }
+        cell.configure(news)
+        return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

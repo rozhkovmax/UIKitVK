@@ -3,7 +3,8 @@
 
 import Foundation
 
-// Ответ запроса
+/// Ответ запроса
 struct ResultUser: Decodable {
+    /// Ответ запроса
     let response: ResponseUser
 }

@@ -3,7 +3,7 @@
 
 import UIKit
 
-// Кастомная вью
+/// Кастомная вью
 @IBDesignable final class CustomView: UIView {
     // MARK: - Public Properties
 
