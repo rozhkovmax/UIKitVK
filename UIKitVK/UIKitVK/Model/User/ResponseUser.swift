@@ -3,13 +3,12 @@
 
 import Foundation
 
-// Список пользователей
+/// Список пользователей
 struct ResponseUser: Codable {
-    let count: Int
+    /// Пользователи
     let users: [User]
 
     private enum CodingKeys: String, CodingKey {
-        case count
         case users = "items"
     }
 }

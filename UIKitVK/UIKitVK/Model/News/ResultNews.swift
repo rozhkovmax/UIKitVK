@@ -1,10 +1,10 @@
-// ResultGroup.swift
+// ResultNews.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
 /// Ответ запроса
-struct ResultGroup: Decodable {
+struct ResultNews: Decodable {
     /// Ответ запроса
-    let response: ResponseGroup
+    let response: ResponseNews
 }

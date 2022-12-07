@@ -4,11 +4,15 @@
 import Foundation
 import RealmSwift
 
-// Пользователь
+/// Пользователь
 final class User: Object, Codable {
+    /// Идентификатор пользователя
     @Persisted(primaryKey: true) var id: Int
+    /// Имя пользователя
     @Persisted var firstName: String
+    /// Фамилия пользователя
     @Persisted var lastName: String
+    /// Аватар пользоваетля
     @Persisted var friendAvatar: String?
 
     private enum CodingKeys: String, CodingKey {

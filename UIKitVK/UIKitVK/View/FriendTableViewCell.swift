@@ -22,8 +22,9 @@ final class FriendTableViewCell: UITableViewCell {
 
     func configure(_ friend: User) {
         friendNameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        guard let urlFriendAvatar = friend.friendAvatar else { return }
-        friendAvatarImageView.loadImage(url: urlFriendAvatar)
+        guard let string = friend.friendAvatar,
+              let url = URL(string: string) else { return }
+        friendAvatarImageView.loadImage(url: url)
     }
 
     // MARK: - Private Methods

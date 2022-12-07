@@ -13,7 +13,10 @@ enum Constants {
         static let identifierSegueOtherGroupsID = "segueOtherGroups"
         static let identifierOtherGroupTableViewCellID = "OtherGroupTableViewCell"
         static let identifierFriendCollectionViewControllerID = "FriendCollectionVC"
-        static let identifierNewsTableViewCellID = "NewsTableViewCell"
+        static let identifierNewsHeaderTableViewCellID = "NewsHeaderTableViewCell"
+        static let identifierNewsFooterTableViewCellID = "NewsFooterTableViewCell"
+        static let identifierNewsPostTableViewCellID = "NewsPostTableViewCell"
+        static let identifierNewsPhotoTableViewCellID = "NewsPhotoTableViewCell"
         static let identifierLoginID = "LoginSegue"
         static let identifierFriendsPhotoID = "friendsPhotoSegue"
     }
@@ -116,7 +119,7 @@ enum Constants {
         static let queryItemsRedirectUriKeyName = "redirect_uri"
         static let queryItemsRedirectUriValue = "https://oauth.vk.com/blank.html"
         static let queryItemsScopeKeyName = "scope"
-        static let queryItemsScopeValue = "262150"
+        static let queryItemsScopeValue = "friends,groups,photos,wall"
         static let queryItemsResponseTypeKeyName = "response_type"
         static let queryItemsResponseTypeValue = "token"
         static let queryItemsVersionKeyName = "v"
@@ -138,42 +141,9 @@ enum Constants {
         static let myGroupExtendedValue = "1"
         static let otherGroupMethod = "groups.search?"
         static let otherGroupSearch = "q"
-    }
-
-    enum InfoNewsPosts {
-        static let vkNews = [
-            News(
-                newsUserInfo: "Максим",
-                newsUserData: "08.11.2022г.",
-                newsUserAvatarImageName: "MaxImage",
-                newsUserText: """
-                Октябрь уж наступил — уж роща отряхает
-                Последние листы с нагих своих ветвей;
-                Дохнул осенний хлад — дорога промерзает.
-                Журча еще бежит за мельницу ручей,
-                Но пруд уже застыл; сосед мой поспешает
-                В отъезжие поля с охотою своей,
-                И страждут озими от бешеной забавы,
-                И будит лай собак уснувшие дубравы.
-                """,
-                newsUserPhotoImageName: "Photo1"
-            ),
-            News(
-                newsUserInfo: "Аня",
-                newsUserData: "07.11.2022г.",
-                newsUserAvatarImageName: "AnnImage",
-                newsUserText: """
-                Теперь моя пора: я не люблю весны;
-                Скучна мне оттепель; вонь, грязь — весной я болен;
-                Кровь бродит; чувства, ум тоскою стеснены.
-                Суровою зимой я более доволен,
-                Люблю ее снега; в присутствии луны
-                Как легкий бег саней с подругой быстр и волен,
-                Когда под соболем, согрета и свежа,
-                Она вам руку жмет, пылая и дрожа!
-                """,
-                newsUserPhotoImageName: "Photo2"
-            )
-        ]
+        static let newsMethod = "newsfeed.get?"
+        static let newsFiltersKey = "filters"
+        static let newsFiltersPostValue = "post"
+        static let newsFiltersPhotoValue = "wall_photo"
     }
 }

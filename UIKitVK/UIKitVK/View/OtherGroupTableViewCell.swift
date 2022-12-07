@@ -3,7 +3,7 @@
 
 import UIKit
 
-// Ячейка других групп
+/// Ячейка других групп
 final class OtherGroupTableViewCell: UITableViewCell {
     // MARK: - Private IBOutlet
 
@@ -21,8 +21,9 @@ final class OtherGroupTableViewCell: UITableViewCell {
 
     func configure(_ otherGroup: Group) {
         otherGroupNameLabel.text = otherGroup.name
-        guard let urlOtherGroupAvatar = otherGroup.groupAvatar else { return }
-        otherGroupAvatarImageView.loadImage(url: urlOtherGroupAvatar)
+        guard let string = otherGroup.groupAvatar,
+              let url = URL(string: string) else { return }
+        otherGroupAvatarImageView.loadImage(url: url)
     }
 
     // MARK: - Private Methods

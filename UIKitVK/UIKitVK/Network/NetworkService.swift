@@ -43,13 +43,6 @@ final class NetworkService {
         return urlComponents.url
     }
 
-    func loadImageData(url: String) -> Data {
-        var imageData = Data()
-        guard let url = URL(string: url), let data = try? Data(contentsOf: url) else { return imageData }
-        imageData = data
-        return imageData
-    }
-
     func fetchFriends(completion: @escaping (Result<[User], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.userIdKey: Session.shared.userId,
@@ -122,6 +115,25 @@ final class NetworkService {
                 let result = try JSONDecoder().decode(ResultGroup.self, from: data)
                 let groups = result.response.groups
                 completion(.success(groups))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func fetchPostNews(completion: @escaping (Result<ResponseNews, Error>) -> Void) {
+        let parameters: Parameters = [
+            Constants.URLComponents.newsFiltersKey: Constants.URLComponents.newsFiltersPostValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
+        ]
+        let path = "\(Constants.URLComponents.baseUrl)\(Constants.URLComponents.newsMethod)"
+        AF.request(path, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+            do {
+                let result = try JSONDecoder().decode(ResultNews.self, from: data)
+                let news = result.response
+                completion(.success(news))
             } catch {
                 completion(.failure(error))
             }

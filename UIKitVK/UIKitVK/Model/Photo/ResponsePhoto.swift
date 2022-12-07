@@ -3,13 +3,12 @@
 
 import Foundation
 
-// Список фото
+/// Список фото
 struct ResponsePhoto: Codable {
-    let count: Int
+    /// Фотографии
     let photos: [Photo]
 
     private enum CodingKeys: String, CodingKey {
-        case count
         case photos = "items"
     }
 }
