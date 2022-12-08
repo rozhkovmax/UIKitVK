@@ -8,57 +8,57 @@ import UIKit
 /// Экран друзей
 final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
-    
+
     private let networkPromiseService = NetworkPromiseService()
     private let networkService = NetworkService()
     private var users: Results<User>?
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
     private var notificationToken: NotificationToken?
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         unloadingFriendsRealm()
     }
-    
+
     // MARK: - Public Methods
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionCount = sectionsMap[sectionNameChars[section]]?.count
         else { return Constants.OtherConstants.sectionCheck }
         return sectionCount
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         sectionsMap.count
     }
-    
+
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         sectionNameChars.compactMap { String($0) }
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         String(sectionNameChars[section])
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         tableView.backgroundColor = UIColor(named: Constants.CustomColorNames.lightGrayCustomColorName)?
             .withAlphaComponent(Constants.OtherConstants.tableViewBackgroundAlpha)
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell,
-              let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
+            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
         cell.configure(friend, networkService: networkService)
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: Constants.OtherConstants.storyboardName, bundle: nil)
         guard let friendCollectionVC = storyboard
@@ -71,9 +71,9 @@ final class FriendTableViewController: UITableViewController {
         friendCollectionVC.ownerID = ownerID
         navigationController?.pushViewController(friendCollectionVC, animated: true)
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func friendsNotifications(result: Results<User>) {
         notificationToken = result.observe { [weak self] change in
             guard let self = self else { return }
@@ -89,7 +89,7 @@ final class FriendTableViewController: UITableViewController {
             }
         }
     }
-    
+
     private func unloadingFriendsRealm() {
         guard let friends = RealmService.get(User.self) else { return }
         friendsNotifications(result: friends)
@@ -100,7 +100,7 @@ final class FriendTableViewController: UITableViewController {
             fetchFriends()
         }
     }
-    
+
     private func fetchFriends() {
         firstly {
             networkPromiseService.fetchPromiseFriends()
@@ -110,7 +110,7 @@ final class FriendTableViewController: UITableViewController {
             print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
-    
+
     private func headerFriendName() {
         guard let users = users else { return }
         for friendName in users {

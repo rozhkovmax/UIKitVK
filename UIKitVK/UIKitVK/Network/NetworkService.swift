@@ -150,13 +150,13 @@ final class NetworkService {
     }
 
     func fetchOperationGroups() {
-        let operation = OperationQueue()
+        let operationQueue = OperationQueue()
         let request = getOperationRequest()
         let getDataOperation = GetDataOperation(request: request)
-        operation.addOperation(getDataOperation)
+        operationQueue.addOperation(getDataOperation)
         let parseData = ParseData()
         parseData.addDependency(getDataOperation)
-        operation.addOperation(parseData)
+        operationQueue.addOperation(parseData)
         let saveToRealm = ReloadTableController()
         saveToRealm.addDependency(parseData)
         OperationQueue.main.addOperation(saveToRealm)

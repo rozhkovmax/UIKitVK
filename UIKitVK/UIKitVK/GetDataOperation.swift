@@ -14,6 +14,12 @@ final class GetDataOperation: AsyncOperation {
 
     private var request: DataRequest
 
+    // MARK: - Initializator
+
+    init(request: DataRequest) {
+        self.request = request
+    }
+
     // MARK: - Public Method
 
     override func cancel() {
@@ -26,11 +32,5 @@ final class GetDataOperation: AsyncOperation {
             self?.data = response.data
             self?.state = .finished
         }
-    }
-
-    // MARK: - Initializator
-
-    init(request: DataRequest) {
-        self.request = request
     }
 }
