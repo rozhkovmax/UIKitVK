@@ -139,4 +139,38 @@ final class NetworkService {
             }
         }
     }
+
+    func fetchImage(_ url: String, _ completion: @escaping (Data?) -> Void) {
+        AF.request(url).response { response in
+            guard response.data != nil else { return }
+            DispatchQueue.main.async {
+                completion(response.data)
+            }
+        }
+    }
+
+    func fetchOperationGroups() {
+        let operation = OperationQueue()
+        let request = getOperationRequest()
+        let getDataOperation = GetDataOperation(request: request)
+        operation.addOperation(getDataOperation)
+        let parseData = ParseData()
+        parseData.addDependency(getDataOperation)
+        operation.addOperation(parseData)
+        let saveToRealm = ReloadTableController()
+        saveToRealm.addDependency(parseData)
+        OperationQueue.main.addOperation(saveToRealm)
+    }
+
+    func getOperationRequest() -> DataRequest {
+        let parameters: Parameters = [
+            Constants.URLComponents.userIdKey: Session.shared.userId,
+            Constants.URLComponents.myGroupExtendedKey: Constants.URLComponents.myGroupExtendedValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
+        ]
+        let path = "\(Constants.URLComponents.baseUrl)\(Constants.URLComponents.myGroupMethod)"
+        let request = AF.request(path, parameters: parameters)
+        return request
+    }
 }

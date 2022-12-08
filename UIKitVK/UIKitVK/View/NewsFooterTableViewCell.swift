@@ -14,7 +14,7 @@ final class NewsFooterTableViewCell: UITableViewCell, NewsConfigurable {
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem) {
+    func configure(_ news: NewsItem, networkService: NetworkService) {
         repostCountLabel.text = String(news.reposts.count)
         commentCountLabel.text = String(news.comments.count)
         likeCountLabel.text = String(news.likes.count)

@@ -47,10 +47,10 @@ final class OtherGroupTableViewController: UITableViewController {
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
         if searchBool {
             let group = searchGroups[indexPath.row]
-            cell.configure(group)
+            cell.configure(group, networkService: networkService)
         } else {
             let group = groups[indexPath.row]
-            cell.configure(group)
+            cell.configure(group, networkService: networkService)
         }
         return cell
     }

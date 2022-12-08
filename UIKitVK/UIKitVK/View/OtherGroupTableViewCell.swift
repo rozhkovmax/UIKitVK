@@ -19,11 +19,10 @@ final class OtherGroupTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(_ otherGroup: Group) {
+    func configure(_ otherGroup: Group, networkService: NetworkService) {
         otherGroupNameLabel.text = otherGroup.name
-        guard let string = otherGroup.groupAvatar,
-              let url = URL(string: string) else { return }
-        otherGroupAvatarImageView.loadImage(url: url)
+        guard let avatar = otherGroup.groupAvatar else { return }
+        otherGroupAvatarImageView.loadImage(avatar, networkService: networkService)
     }
 
     // MARK: - Private Methods

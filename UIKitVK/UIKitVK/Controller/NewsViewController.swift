@@ -91,7 +91,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
             withIdentifier: cellID,
             for: indexPath
         ) as? NewsCell else { return UITableViewCell() }
-        cell.configure(news)
+        cell.configure(news, networkService: networkService)
         return cell
     }
 

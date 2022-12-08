@@ -35,7 +35,7 @@ final class GroupTableViewController: UITableViewController {
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
         guard let group = myGroups?[indexPath.row] else { return UITableViewCell() }
-        cell.configure(group)
+        cell.configure(group, networkService: networkService)
         return cell
     }
 
@@ -57,18 +57,11 @@ final class GroupTableViewController: UITableViewController {
     }
 
     private func fetchUserGroups() {
-        networkService.fetchUserGroups { groups in
-            switch groups {
-            case let .success(data):
-                RealmService.defaultRealmService.save(data)
-            case let .failure(error):
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
-            }
-        }
+        networkService.fetchOperationGroups()
     }
 
     private func unloadingGroupsRealm() {
-        guard let groups = RealmService.defaultRealmService.get(type: Group.self) else { return }
+        guard let groups = RealmService.get(Group.self) else { return }
         groupNotifications(result: groups)
         if !groups.isEmpty {
             myGroups = groups

@@ -16,6 +16,7 @@ final class FriendPhotoViewController: UIViewController {
 
     // MARK: - Private Properties
 
+    private let networkService = NetworkService()
     private var propertyAnimator: UIViewPropertyAnimator!
 
     // MARK: - Life Cycle
@@ -34,8 +35,8 @@ final class FriendPhotoViewController: UIViewController {
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
-        guard let url = URL(string: photos[currentPhotoIndex].sizes.last?.url ?? "") else { return }
-        friendPhotoImageView.loadImage(url: url)
+        guard let photo = photos[currentPhotoIndex].sizes.last?.url else { return }
+        friendPhotoImageView.loadImage(photo, networkService: networkService)
     }
 
     @objc private func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
@@ -78,7 +79,7 @@ final class FriendPhotoViewController: UIViewController {
             propertyAnimator?.startAnimation()
         default: return
         }
-        guard let url = URL(string: photos[currentPhotoIndex].sizes.last?.url ?? "") else { return }
-        friendPhotoImageView.loadImage(url: url)
+        guard let photo = photos[currentPhotoIndex].sizes.last?.url else { return }
+        friendPhotoImageView.loadImage(photo, networkService: networkService)
     }
 }

@@ -7,5 +7,5 @@ import UIKit
 typealias NewsCell = UITableViewCell & NewsConfigurable
 
 protocol NewsConfigurable {
-    func configure(_ news: NewsItem)
+    func configure(_ news: NewsItem, networkService: NetworkService)
 }

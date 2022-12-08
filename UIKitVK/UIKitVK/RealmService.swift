@@ -1,37 +1,41 @@
 // RealmService.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import RealmSwift
 
 /// Сервис для сохранения, чтения данных
 final class RealmService {
     // MARK: - Public Properties
 
-    static let defaultRealmService = RealmService()
+    static let deleteIfMigration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
 
     // MARK: - Public Methods
 
-    func save<T: Object>(_ object: [T]) {
+    static func save<T: Object>(
+        items: [T],
+        config: Realm.Configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true),
+        update: Bool = true
+    ) {
         do {
-            let configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-            let realm = try Realm(configuration: configuration)
+            let realm = try Realm(configuration: deleteIfMigration)
             try realm.write {
-                realm.add(object, update: .modified)
+                realm.add(items, update: .modified)
             }
         } catch {
             print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
 
-    func get<T: Object>(type: T.Type) -> Results<T>? {
-        var items: Results<T>?
+    static func get<T: Object>(
+        _ type: T.Type,
+        config: Realm.Configuration = Realm.Configuration.defaultConfiguration
+    ) -> Results<T>? {
         do {
-            let realm = try Realm()
-            items = realm.objects(T.self)
+            let realm = try Realm(configuration: deleteIfMigration)
+            return realm.objects(type)
         } catch {
             print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
-        return items
+        return nil
     }
 }
