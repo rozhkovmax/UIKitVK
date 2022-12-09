@@ -22,11 +22,11 @@ final class NewsItem: Codable {
     /// Имя автора
     var creatorName: String?
     /// Лайки новости
-    let likes: Likes
+    let likes: Likes?
     /// Комментарии новости
-    let comments: Comments
+    let comments: Comments?
     /// Репосты новости
-    let reposts: Reposts
+    let reposts: Reposts?
     /// Просмотры новости
     var views: Views?
     /// Тип поста
