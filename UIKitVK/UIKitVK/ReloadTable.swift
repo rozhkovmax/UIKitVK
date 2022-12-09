@@ -10,7 +10,7 @@ final class ReloadTable: Operation {
 
     override func main() {
         guard let parseData = dependencies.first as? ParseData else { return }
-        let tempData = parseData.outputData
+        let tempData = parseData.itemGroups
         do {
             let realm = try Realm()
             guard let oldData = RealmService.get(Group.self) else { return }
