@@ -137,9 +137,9 @@ final class NetworkService {
         let parseData = ParseData()
         parseData.addDependency(getDataOperation)
         operationQueue.addOperation(parseData)
-        let saveToRealm = ReloadTable()
-        saveToRealm.addDependency(parseData)
-        OperationQueue.main.addOperation(saveToRealm)
+        let saveDataOperation = SaveDataOperation()
+        saveDataOperation.addDependency(parseData)
+        OperationQueue.main.addOperation(saveDataOperation)
     }
 
     func getOperationRequest() -> DataRequest {

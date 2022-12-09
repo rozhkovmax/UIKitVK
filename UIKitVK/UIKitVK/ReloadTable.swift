@@ -5,12 +5,12 @@ import Foundation
 import RealmSwift
 
 /// Обновление данных
-final class ReloadTable: Operation {
+final class SaveDataOperation: Operation {
     // MARK: - Public Methods
 
     override func main() {
         guard let parseData = dependencies.first as? ParseData else { return }
-        let tempData = parseData.itemGroups
+        let tempData = parseData.groups
         do {
             let realm = try Realm()
             guard let oldData = RealmService.get(Group.self) else { return }
