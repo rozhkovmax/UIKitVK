@@ -31,7 +31,7 @@
 		9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56C294137C0003EEF54 /* AsyncOperation.swift */; };
 		9439E56F2941388D003EEF54 /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56E2941388D003EEF54 /* GetDataOperation.swift */; };
 		9439E5712941E894003EEF54 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5702941E894003EEF54 /* ParseData.swift */; };
-		9439E5732941E963003EEF54 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5722941E963003EEF54 /* ReloadTableController.swift */; };
+		9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5722941E963003EEF54 /* ReloadTable.swift */; };
 		9439E576294209CA003EEF54 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E575294209CA003EEF54 /* RealmService.swift */; };
 		9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
@@ -92,7 +92,7 @@
 		9439E56C294137C0003EEF54 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		9439E56E2941388D003EEF54 /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
 		9439E5702941E894003EEF54 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
-		9439E5722941E963003EEF54 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
+		9439E5722941E963003EEF54 /* ReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTable.swift; sourceTree = "<group>"; };
 		9439E575294209CA003EEF54 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				9439E5702941E894003EEF54 /* ParseData.swift */,
-				9439E5722941E963003EEF54 /* ReloadTableController.swift */,
+				9439E5722941E963003EEF54 /* ReloadTable.swift */,
 				9439E56E2941388D003EEF54 /* GetDataOperation.swift */,
 				9439E56C294137C0003EEF54 /* AsyncOperation.swift */,
 			);
@@ -525,7 +525,7 @@
 				9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */,
 				9439E5712941E894003EEF54 /* ParseData.swift in Sources */,
 				94CE5A512919CD1500A4D148 /* NewsHeaderTableViewCell.swift in Sources */,
-				9439E5732941E963003EEF54 /* ReloadTableController.swift in Sources */,
+				9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */,
 				9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */,
 				94CE5A5E291C28BE00A4D148 /* FriendPhotoViewController.swift in Sources */,
 				9439E569293FE4F0003EEF54 /* Views.swift in Sources */,

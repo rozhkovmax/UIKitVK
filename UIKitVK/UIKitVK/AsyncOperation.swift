@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Асинхронные очереди
+/// Асинхронные операции
 class AsyncOperation: Operation {
     // MARK: Public Enum
 

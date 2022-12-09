@@ -1,11 +1,11 @@
-// ReloadTableController.swift
+// ReloadTable.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// Перезапись данных
-final class ReloadTableController: Operation {
+/// Обновление данных
+final class ReloadTable: Operation {
     // MARK: - Public Methods
 
     override func main() {

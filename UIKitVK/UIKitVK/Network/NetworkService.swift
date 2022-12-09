@@ -157,7 +157,7 @@ final class NetworkService {
         let parseData = ParseData()
         parseData.addDependency(getDataOperation)
         operationQueue.addOperation(parseData)
-        let saveToRealm = ReloadTableController()
+        let saveToRealm = ReloadTable()
         saveToRealm.addDependency(parseData)
         OperationQueue.main.addOperation(saveToRealm)
     }
