@@ -43,26 +43,6 @@ final class NetworkService {
         return urlComponents.url
     }
 
-    func fetchFriends(completion: @escaping (Result<[User], Error>) -> Void) {
-        let parameters: Parameters = [
-            Constants.URLComponents.userIdKey: Session.shared.userId,
-            Constants.URLComponents.friendsFieldsKey: Constants.URLComponents.friendsFieldsValue,
-            Constants.URLComponents.accessTokenKey: Session.shared.token,
-            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
-        ]
-        let path = "\(Constants.URLComponents.baseUrl)\(Constants.URLComponents.friendsMethod)"
-        AF.request(path, parameters: parameters).responseData { response in
-            guard let data = response.value else { return }
-            do {
-                let result = try JSONDecoder().decode(ResultUser.self, from: data)
-                let users = result.response.users
-                completion(.success(users))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-    }
-
     func fetchPhotos(ownerID: Int, completion: @escaping (Result<[Photo], Error>) -> Void) {
         let parameters: Parameters = [
             Constants.URLComponents.ownerIdKey: ownerID,
@@ -138,5 +118,39 @@ final class NetworkService {
                 completion(.failure(error))
             }
         }
+    }
+
+    func fetchImage(_ url: String, _ completion: @escaping (Data?) -> Void) {
+        AF.request(url).response { response in
+            guard response.data != nil else { return }
+            DispatchQueue.main.async {
+                completion(response.data)
+            }
+        }
+    }
+
+    func fetchOperationGroups() {
+        let operationQueue = OperationQueue()
+        let request = getOperationRequest()
+        let getDataOperation = GetDataOperation(request: request)
+        operationQueue.addOperation(getDataOperation)
+        let parseData = ParseData()
+        parseData.addDependency(getDataOperation)
+        operationQueue.addOperation(parseData)
+        let saveDataOperation = SaveDataOperation()
+        saveDataOperation.addDependency(parseData)
+        OperationQueue.main.addOperation(saveDataOperation)
+    }
+
+    func getOperationRequest() -> DataRequest {
+        let parameters: Parameters = [
+            Constants.URLComponents.userIdKey: Session.shared.userId,
+            Constants.URLComponents.myGroupExtendedKey: Constants.URLComponents.myGroupExtendedValue,
+            Constants.URLComponents.accessTokenKey: Session.shared.token,
+            Constants.URLComponents.versionKey: Constants.URLComponents.versionValue
+        ]
+        let path = "\(Constants.URLComponents.baseUrl)\(Constants.URLComponents.myGroupMethod)"
+        let request = AF.request(path, parameters: parameters)
+        return request
     }
 }

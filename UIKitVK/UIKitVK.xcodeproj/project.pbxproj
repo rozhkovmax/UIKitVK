@@ -28,6 +28,12 @@
 		9439E567293FE4C3003EEF54 /* Reposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E566293FE4C3003EEF54 /* Reposts.swift */; };
 		9439E569293FE4F0003EEF54 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E568293FE4F0003EEF54 /* Views.swift */; };
 		9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56A2940A667003EEF54 /* NewsConfigurable.swift */; };
+		9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56C294137C0003EEF54 /* AsyncOperation.swift */; };
+		9439E56F2941388D003EEF54 /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56E2941388D003EEF54 /* GetDataOperation.swift */; };
+		9439E5712941E894003EEF54 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5702941E894003EEF54 /* ParseData.swift */; };
+		9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5722941E963003EEF54 /* ReloadTable.swift */; };
+		9439E576294209CA003EEF54 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E575294209CA003EEF54 /* RealmService.swift */; };
+		9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
 		94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
@@ -38,7 +44,6 @@
 		944CC8A9291069C800A5B7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */; };
 		944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC8B2291114AE00A5B7F1 /* FriendTableViewController.swift */; };
 		944CC8B8291139CC00A5B7F1 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */; };
-		945C32C029378D86000821AA /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C32BF29378D86000821AA /* RealmService.swift */; };
 		94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */; };
 		94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A1D2912EB9D00A4D148 /* FriendCollectionViewCell.swift */; };
 		94CE5A202912EBDB00A4D148 /* FriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CE5A1F2912EBDB00A4D148 /* FriendCollectionViewController.swift */; };
@@ -84,6 +89,12 @@
 		9439E566293FE4C3003EEF54 /* Reposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reposts.swift; sourceTree = "<group>"; };
 		9439E568293FE4F0003EEF54 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		9439E56A2940A667003EEF54 /* NewsConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConfigurable.swift; sourceTree = "<group>"; };
+		9439E56C294137C0003EEF54 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		9439E56E2941388D003EEF54 /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
+		9439E5702941E894003EEF54 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
+		9439E5722941E963003EEF54 /* ReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTable.swift; sourceTree = "<group>"; };
+		9439E575294209CA003EEF54 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
 		94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +107,6 @@
 		944CC8AA291069C800A5B7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944CC8B2291114AE00A5B7F1 /* FriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewController.swift; sourceTree = "<group>"; };
 		944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
-		945C32BF29378D86000821AA /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		94CE5A1D2912EB9D00A4D148 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		94CE5A1F2912EBDB00A4D148 /* FriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -188,11 +198,23 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		9439E577294211DC003EEF54 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				9439E5702941E894003EEF54 /* ParseData.swift */,
+				9439E5722941E963003EEF54 /* ReloadTable.swift */,
+				9439E56E2941388D003EEF54 /* GetDataOperation.swift */,
+				9439E56C294137C0003EEF54 /* AsyncOperation.swift */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
 		94446E142935249A0055E6EA /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				9433AC28292BC42E00E03BA8 /* Session.swift */,
 				9433AC2E292D42F700E03BA8 /* NetworkService.swift */,
+				9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -220,8 +242,8 @@
 			children = (
 				944CC89C291069C600A5B7F1 /* AppDelegate.swift */,
 				944CC89E291069C600A5B7F1 /* SceneDelegate.swift */,
-				945C32BF29378D86000821AA /* RealmService.swift */,
-				9439E56A2940A667003EEF54 /* NewsConfigurable.swift */,
+				9439E575294209CA003EEF54 /* RealmService.swift */,
+				9439E577294211DC003EEF54 /* Operation */,
 				94CE5A6A291DA08200A4D148 /* Constants */,
 				944CC8B92911439A00A5B7F1 /* View */,
 				944CC8B42911153700A5B7F1 /* Controller */,
@@ -257,6 +279,7 @@
 		944CC8B92911439A00A5B7F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9439E56A2940A667003EEF54 /* NewsConfigurable.swift */,
 				944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */,
 				94CE5A1D2912EB9D00A4D148 /* FriendCollectionViewCell.swift */,
 				94CE5A232913078B00A4D148 /* GroupTableViewCell.swift */,
@@ -490,6 +513,7 @@
 				9433AC3D2932514600E03BA8 /* ResponseUser.swift in Sources */,
 				94CE5A2A2913367B00A4D148 /* User.swift in Sources */,
 				94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */,
+				9439E576294209CA003EEF54 /* RealmService.swift in Sources */,
 				94CE5A4F2919CB5400A4D148 /* NewsViewController.swift in Sources */,
 				94CE5A4129145E3000A4D148 /* LikeButton.swift in Sources */,
 				944CC8A1291069C600A5B7F1 /* LoginViewController.swift in Sources */,
@@ -498,7 +522,11 @@
 				9433AC3729324FA600E03BA8 /* GroupResponse.swift in Sources */,
 				94CE5A222913070E00A4D148 /* GroupTableViewController.swift in Sources */,
 				94CE5A202912EBDB00A4D148 /* FriendCollectionViewController.swift in Sources */,
+				9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */,
+				9439E5712941E894003EEF54 /* ParseData.swift in Sources */,
 				94CE5A512919CD1500A4D148 /* NewsHeaderTableViewCell.swift in Sources */,
+				9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */,
+				9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */,
 				94CE5A5E291C28BE00A4D148 /* FriendPhotoViewController.swift in Sources */,
 				9439E569293FE4F0003EEF54 /* Views.swift in Sources */,
 				94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */,
@@ -506,7 +534,6 @@
 				9433AC3F2932525100E03BA8 /* LinkPhoto.swift in Sources */,
 				944CC8B3291114AE00A5B7F1 /* FriendTableViewController.swift in Sources */,
 				9433AC33292EA6D600E03BA8 /* Photo.swift in Sources */,
-				945C32C029378D86000821AA /* RealmService.swift in Sources */,
 				9439E558293E3920003EEF54 /* NewsFooterTableViewCell.swift in Sources */,
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
 				9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */,
@@ -528,6 +555,7 @@
 				9439E55B293E3B4A003EEF54 /* NewsPostTableViewCell.swift in Sources */,
 				9433AC2F292D42F700E03BA8 /* NetworkService.swift in Sources */,
 				94CE5A242913078B00A4D148 /* GroupTableViewCell.swift in Sources */,
+				9439E56F2941388D003EEF54 /* GetDataOperation.swift in Sources */,
 				94CE5A66291D3A0900A4D148 /* CustomPopAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

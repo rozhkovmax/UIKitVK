@@ -36,7 +36,7 @@ final class FriendCollectionViewController: UICollectionViewController {
             withReuseIdentifier: Constants.Identifiers.identifierFriendGalleryCollectionViewCellID,
             for: indexPath
         ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(photos[indexPath.row])
+        cell.configure(photos[indexPath.row], networkService: networkService)
         return cell
     }
 
@@ -58,7 +58,7 @@ final class FriendCollectionViewController: UICollectionViewController {
             switch photos {
             case let .success(data):
                 self.photos = data
-                RealmService.defaultRealmService.save(data)
+                RealmService.save(items: data)
                 self.collectionView.reloadData()
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
@@ -67,7 +67,7 @@ final class FriendCollectionViewController: UICollectionViewController {
     }
 
     private func unloadingPhotosRealm() {
-        guard let friendPhotos = RealmService.defaultRealmService.get(type: Photo.self) else { return }
+        guard let friendPhotos = RealmService.get(Photo.self) else { return }
         let userID = friendPhotos.map(\.ownerID)
         if userID.contains(where: { ownerID in
             ownerID == ownerID

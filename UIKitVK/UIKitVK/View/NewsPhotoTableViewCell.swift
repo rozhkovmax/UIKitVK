@@ -11,9 +11,8 @@ final class NewsPhotoTableViewCell: UITableViewCell, NewsConfigurable {
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem) {
-        guard let string = news.avatarURL,
-              let url = URL(string: string) else { return }
-        newsImageView.loadImage(url: url)
+    func configure(_ news: NewsItem, networkService: NetworkService) {
+        guard let avatar = news.avatarURL else { return }
+        newsImageView.loadImage(avatar, networkService: networkService)
     }
 }

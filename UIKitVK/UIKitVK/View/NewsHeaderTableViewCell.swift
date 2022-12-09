@@ -12,15 +12,14 @@ final class NewsHeaderTableViewCell: UITableViewCell, NewsConfigurable {
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem) {
+    func configure(_ news: NewsItem, networkService: NetworkService) {
         let date = dateFormat(dateForm: news.date)
         guard let name = news.creatorName else { return }
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(name)\n")
             .normal("\(date)")
-        guard let string = news.avatarURL,
-              let url = URL(string: string) else { return }
-        avatarImageView.loadImage(url: url)
+        guard let avatar = news.avatarURL else { return }
+        avatarImageView.loadImage(avatar, networkService: networkService)
     }
 
     // MARK: - Private Methods

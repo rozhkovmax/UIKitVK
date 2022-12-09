@@ -1,6 +1,7 @@
 // FriendTableViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import PromiseKit
 import RealmSwift
 import UIKit
 
@@ -8,6 +9,7 @@ import UIKit
 final class FriendTableViewController: UITableViewController {
     // MARK: - Private Properties
 
+    private let networkPromiseService = NetworkPromiseService()
     private let networkService = NetworkService()
     private var users: Results<User>?
     private var sectionsMap: [Character: [User]] = [:]
@@ -53,7 +55,7 @@ final class FriendTableViewController: UITableViewController {
         ) as? FriendTableViewCell,
             let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
-        cell.configure(friend)
+        cell.configure(friend, networkService: networkService)
         return cell
     }
 
@@ -89,7 +91,7 @@ final class FriendTableViewController: UITableViewController {
     }
 
     private func unloadingFriendsRealm() {
-        guard let friends = RealmService.defaultRealmService.get(type: User.self) else { return }
+        guard let friends = RealmService.get(User.self) else { return }
         friendsNotifications(result: friends)
         if !friends.isEmpty {
             users = friends
@@ -100,13 +102,12 @@ final class FriendTableViewController: UITableViewController {
     }
 
     private func fetchFriends() {
-        networkService.fetchFriends { friends in
-            switch friends {
-            case let .success(data):
-                RealmService.defaultRealmService.save(data)
-            case let .failure(error):
-                print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
-            }
+        firstly {
+            networkPromiseService.fetchPromiseFriends()
+        }.done { users in
+            RealmService.save(items: users)
+        }.catch { error in
+            print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
         }
     }
 
