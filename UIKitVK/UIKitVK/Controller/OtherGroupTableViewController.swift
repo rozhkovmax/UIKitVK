@@ -22,6 +22,7 @@ final class OtherGroupTableViewController: UITableViewController {
     private var searchBool = false
     private lazy var searchGroups: [Group] = []
     private lazy var networkService = NetworkService()
+    private lazy var photoCacheService = PhotoCacheService(container: self)
 
     // MARK: - Life Cycle
 
@@ -47,10 +48,24 @@ final class OtherGroupTableViewController: UITableViewController {
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
         if searchBool {
             let group = searchGroups[indexPath.row]
-            cell.configure(group, networkService: networkService)
+            cell.configure(
+                group,
+                networkService: networkService,
+                image: photoCacheService.photo(
+                    at: indexPath,
+                    byUrl: group.groupAvatar ?? Constants.OtherConstants.emptyString
+                )
+            )
         } else {
             let group = groups[indexPath.row]
-            cell.configure(group, networkService: networkService)
+            cell.configure(
+                group,
+                networkService: networkService,
+                image: photoCacheService.photo(
+                    at: indexPath,
+                    byUrl: group.groupAvatar ?? Constants.OtherConstants.emptyString
+                )
+            )
         }
         return cell
     }

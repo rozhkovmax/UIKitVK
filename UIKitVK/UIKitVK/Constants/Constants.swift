@@ -63,6 +63,10 @@ enum Constants {
         static let paramKeyIndex = 0
         static let paramValueIndex = 1
         static let error = "Ошибка"
+        static let cacheLifeTime = 30.0 * 24.0 * 60.0 * 60.0
+        static let imagePathName = "Images"
+        static let separator: Character = "/"
+        static let defaultFileName: Substring = "default"
     }
 
     enum AnimationOptions {

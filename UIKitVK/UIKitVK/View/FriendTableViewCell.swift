@@ -20,10 +20,9 @@ final class FriendTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(_ friend: User, networkService: NetworkService) {
+    func configure(_ friend: User, networkService: NetworkService, image: UIImage?) {
         friendNameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        guard let avatar = friend.friendAvatar else { return }
-        friendAvatarImageView.loadImage(avatar, networkService: networkService)
+        friendAvatarImageView.image = image
     }
 
     // MARK: - Private Methods

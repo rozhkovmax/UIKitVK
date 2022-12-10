@@ -11,7 +11,7 @@ final class NewsPostTableViewCell: UITableViewCell, NewsConfigurable {
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem, networkService: NetworkService) {
+    func configure(_ news: NewsItem, networkService: NetworkService, image: UIImage?) {
         newsPostTextView.text = news.text
     }
 }

@@ -15,6 +15,7 @@ final class FriendTableViewController: UITableViewController {
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
     private var notificationToken: NotificationToken?
+    private lazy var photoCacheService = PhotoCacheService(container: self)
 
     // MARK: - Life Cycle
 
@@ -53,9 +54,14 @@ final class FriendTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell,
-            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
+            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row],
+            let url = friend.friendAvatar
         else { return UITableViewCell() }
-        cell.configure(friend, networkService: networkService)
+        cell.configure(
+            friend,
+            networkService: networkService,
+            image: photoCacheService.photo(at: indexPath, byUrl: url)
+        )
         return cell
     }
 

@@ -19,10 +19,9 @@ final class GroupTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(_ group: Group, networkService: NetworkService) {
+    func configure(_ group: Group, networkService: NetworkService, image: UIImage?) {
         groupNameLabel.text = group.name
-        guard let avatar = group.groupAvatar else { return }
-        groupAvatarImageView.loadImage(avatar, networkService: networkService)
+        groupAvatarImageView.image = image
     }
 
     // MARK: - Private Methods
