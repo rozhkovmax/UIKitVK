@@ -14,6 +14,7 @@ final class FriendCollectionViewController: UICollectionViewController {
 
     private let networkService = NetworkService()
     private var photos: [Photo] = []
+    private lazy var photoCacheService = PhotoCacheService(container: self)
 
     // MARK: - Life Cycle
 
@@ -36,7 +37,7 @@ final class FriendCollectionViewController: UICollectionViewController {
             withReuseIdentifier: Constants.Identifiers.identifierFriendGalleryCollectionViewCellID,
             for: indexPath
         ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(photos[indexPath.row], networkService: networkService)
+        cell.configure(photos[indexPath.row], photoCacheService: photoCacheService)
         return cell
     }
 
@@ -69,8 +70,8 @@ final class FriendCollectionViewController: UICollectionViewController {
     private func unloadingPhotosRealm() {
         guard let friendPhotos = RealmService.get(Photo.self) else { return }
         let userID = friendPhotos.map(\.ownerID)
-        if userID.contains(where: { ownerID in
-            ownerID == ownerID
+        if userID.contains(where: { ownerIDRealm in
+            ownerIDRealm == ownerID
         }) {
             photos = friendPhotos.filter {
                 $0.ownerID == ownerID

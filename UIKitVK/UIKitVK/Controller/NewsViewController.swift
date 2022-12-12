@@ -5,7 +5,7 @@ import UIKit
 
 /// Экран новостей
 final class NewsViewController: UIViewController {
-    // MARK: - Private Types
+    // MARK: - Private Enum
 
     private enum NewsCellType: Int, CaseIterable {
         case header
@@ -21,6 +21,7 @@ final class NewsViewController: UIViewController {
 
     private let networkService = NetworkService()
     private var news: [NewsItem] = []
+    private lazy var photoCacheService = PhotoCacheService(container: newsTableView)
 
     // MARK: - Life Cycle
 
@@ -91,7 +92,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
             withIdentifier: cellID,
             for: indexPath
         ) as? NewsCell else { return UITableViewCell() }
-        cell.configure(news, networkService: networkService)
+        cell.configure(news, photoCacheService: photoCacheService)
         return cell
     }
 

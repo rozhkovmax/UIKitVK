@@ -59,9 +59,11 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="VKLogo" translatesAutoresizingMaskIntoConstraints="NO" id="y7T-Qr-upf">
                                         <rect key="frame" x="177" y="127" width="60" height="60"/>
+                                        <color key="backgroundColor" name="whiteCustomColor"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Телефон или почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NT6-2M-ket">
                                         <rect key="frame" x="19" y="306" width="375" height="34"/>
+                                        <color key="backgroundColor" name="whiteCustomColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="375" id="Zlb-4j-M5s"/>
                                         </constraints>
@@ -71,12 +73,14 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOa-AK-yIw">
                                         <rect key="frame" x="19" y="378" width="375" height="34"/>
+                                        <color key="backgroundColor" name="whiteCustomColor"/>
                                         <color key="textColor" name="blackCustomColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA0-SI-5j5">
                                         <rect key="frame" x="19" y="566" width="375" height="37"/>
+                                        <color key="backgroundColor" name="whiteCustomColor"/>
                                         <color key="tintColor" name="linkCustomColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -98,6 +102,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Вход ВКонтакте" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw1-mv-fxI">
                                         <rect key="frame" x="128" y="233" width="157" height="24"/>
+                                        <color key="backgroundColor" name="whiteCustomColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" name="blackCustomColor"/>
                                         <nil key="highlightedColor"/>
@@ -142,6 +147,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="whiteCustomColor"/>
                                 <constraints>
                                     <constraint firstItem="fA0-SI-5j5" firstAttribute="centerX" secondItem="DOa-AK-yIw" secondAttribute="centerX" id="8dn-wu-OKb"/>
                                     <constraint firstItem="y7T-Qr-upf" firstAttribute="centerX" secondItem="cuF-Nm-1DZ" secondAttribute="centerX" id="ATc-fB-roZ"/>

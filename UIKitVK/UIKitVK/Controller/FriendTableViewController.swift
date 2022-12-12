@@ -15,6 +15,7 @@ final class FriendTableViewController: UITableViewController {
     private var sectionsMap: [Character: [User]] = [:]
     private var sectionNameChars: [Character] = []
     private var notificationToken: NotificationToken?
+    private lazy var photoCacheService = PhotoCacheService(container: self)
 
     // MARK: - Life Cycle
 
@@ -55,7 +56,7 @@ final class FriendTableViewController: UITableViewController {
         ) as? FriendTableViewCell,
             let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
-        cell.configure(friend, networkService: networkService)
+        cell.configure(friend, photoCacheService: photoCacheService)
         return cell
     }
 

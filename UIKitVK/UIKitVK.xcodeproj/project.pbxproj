@@ -31,9 +31,12 @@
 		9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56C294137C0003EEF54 /* AsyncOperation.swift */; };
 		9439E56F2941388D003EEF54 /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E56E2941388D003EEF54 /* GetDataOperation.swift */; };
 		9439E5712941E894003EEF54 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5702941E894003EEF54 /* ParseData.swift */; };
-		9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5722941E963003EEF54 /* ReloadTable.swift */; };
+		9439E5732941E963003EEF54 /* SaveDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5722941E963003EEF54 /* SaveDataOperation.swift */; };
 		9439E576294209CA003EEF54 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E575294209CA003EEF54 /* RealmService.swift */; };
 		9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */; };
+		9439E57C29449BDB003EEF54 /* PhotoCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */; };
+		9439E57E29449C42003EEF54 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57D29449C42003EEF54 /* DataReloadable.swift */; };
+		9439E58029476BA7003EEF54 /* PhotoCacheService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
 		94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
@@ -92,9 +95,12 @@
 		9439E56C294137C0003EEF54 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		9439E56E2941388D003EEF54 /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
 		9439E5702941E894003EEF54 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
-		9439E5722941E963003EEF54 /* ReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTable.swift; sourceTree = "<group>"; };
+		9439E5722941E963003EEF54 /* SaveDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataOperation.swift; sourceTree = "<group>"; };
 		9439E575294209CA003EEF54 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
+		9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCacheService.swift; sourceTree = "<group>"; };
+		9439E57D29449C42003EEF54 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
+		9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCacheService+Extension.swift"; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
 		94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,21 +208,32 @@
 			isa = PBXGroup;
 			children = (
 				9439E5702941E894003EEF54 /* ParseData.swift */,
-				9439E5722941E963003EEF54 /* ReloadTable.swift */,
+				9439E5722941E963003EEF54 /* SaveDataOperation.swift */,
 				9439E56E2941388D003EEF54 /* GetDataOperation.swift */,
 				9439E56C294137C0003EEF54 /* AsyncOperation.swift */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
 		};
-		94446E142935249A0055E6EA /* Network */ = {
+		9439E57A29449B14003EEF54 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9439E56A2940A667003EEF54 /* NewsConfigurable.swift */,
+				9439E57D29449C42003EEF54 /* DataReloadable.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		94446E142935249A0055E6EA /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				9433AC28292BC42E00E03BA8 /* Session.swift */,
+				9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */,
+				9439E575294209CA003EEF54 /* RealmService.swift */,
 				9433AC2E292D42F700E03BA8 /* NetworkService.swift */,
 				9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */,
 			);
-			path = Network;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		944CC890291069C600A5B7F1 = {
@@ -242,16 +259,16 @@
 			children = (
 				944CC89C291069C600A5B7F1 /* AppDelegate.swift */,
 				944CC89E291069C600A5B7F1 /* SceneDelegate.swift */,
-				9439E575294209CA003EEF54 /* RealmService.swift */,
-				9439E577294211DC003EEF54 /* Operation */,
+				9439E57A29449B14003EEF54 /* Helpers */,
 				94CE5A6A291DA08200A4D148 /* Constants */,
+				9439E577294211DC003EEF54 /* Operation */,
 				944CC8B92911439A00A5B7F1 /* View */,
 				944CC8B42911153700A5B7F1 /* Controller */,
 				94CE5A1C2912B1C600A4D148 /* Extension */,
 				94CE5A2B2913368200A4D148 /* Model */,
 				94CE5A3A2914556900A4D148 /* CustomUI */,
 				94CE5A69291DA05200A4D148 /* Animation */,
-				94446E142935249A0055E6EA /* Network */,
+				94446E142935249A0055E6EA /* Service */,
 				944CC8A2291069C600A5B7F1 /* Main.storyboard */,
 				944CC8A5291069C800A5B7F1 /* Assets.xcassets */,
 				944CC8A7291069C800A5B7F1 /* LaunchScreen.storyboard */,
@@ -279,7 +296,6 @@
 		944CC8B92911439A00A5B7F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9439E56A2940A667003EEF54 /* NewsConfigurable.swift */,
 				944CC8B7291139CC00A5B7F1 /* FriendTableViewCell.swift */,
 				94CE5A1D2912EB9D00A4D148 /* FriendCollectionViewCell.swift */,
 				94CE5A232913078B00A4D148 /* GroupTableViewCell.swift */,
@@ -298,6 +314,7 @@
 				94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */,
 				94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */,
 				94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */,
+				9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -525,7 +542,7 @@
 				9439E56D294137C0003EEF54 /* AsyncOperation.swift in Sources */,
 				9439E5712941E894003EEF54 /* ParseData.swift in Sources */,
 				94CE5A512919CD1500A4D148 /* NewsHeaderTableViewCell.swift in Sources */,
-				9439E5732941E963003EEF54 /* ReloadTable.swift in Sources */,
+				9439E5732941E963003EEF54 /* SaveDataOperation.swift in Sources */,
 				9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */,
 				94CE5A5E291C28BE00A4D148 /* FriendPhotoViewController.swift in Sources */,
 				9439E569293FE4F0003EEF54 /* Views.swift in Sources */,
@@ -538,7 +555,9 @@
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
 				9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */,
 				94CE5A2D2913376000A4D148 /* Group.swift in Sources */,
+				9439E58029476BA7003EEF54 /* PhotoCacheService+Extension.swift in Sources */,
 				94CE5A68291D3AB900A4D148 /* CustomInteractiveTransition.swift in Sources */,
+				9439E57E29449C42003EEF54 /* DataReloadable.swift in Sources */,
 				9439E55F293FC9A6003EEF54 /* ResultNews.swift in Sources */,
 				94CE5A2829130D1000A4D148 /* OtherGroupTableViewCell.swift in Sources */,
 				944CC8B8291139CC00A5B7F1 /* FriendTableViewCell.swift in Sources */,
@@ -548,6 +567,7 @@
 				944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */,
 				94CE5A432916750300A4D148 /* Constants.swift in Sources */,
 				94CE5A2629130C2500A4D148 /* OtherGroupTableViewController.swift in Sources */,
+				9439E57C29449BDB003EEF54 /* PhotoCacheService.swift in Sources */,
 				944CC89F291069C600A5B7F1 /* SceneDelegate.swift in Sources */,
 				9433AC43293252C200E03BA8 /* ResultPhoto.swift in Sources */,
 				94CE5A62291D1FC900A4D148 /* CustomPushAnimation.swift in Sources */,

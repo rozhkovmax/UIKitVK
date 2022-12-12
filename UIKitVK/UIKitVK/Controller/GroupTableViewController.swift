@@ -16,6 +16,8 @@ final class GroupTableViewController: UITableViewController {
         }
     }
 
+    private lazy var photoCacheService = PhotoCacheService(container: self)
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -33,9 +35,9 @@ final class GroupTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.Identifiers.identifierGroupTableViewCellID,
             for: indexPath
-        ) as? GroupTableViewCell else { return UITableViewCell() }
-        guard let group = myGroups?[indexPath.row] else { return UITableViewCell() }
-        cell.configure(group, networkService: networkService)
+        ) as? GroupTableViewCell,
+            let group = myGroups?[indexPath.row] else { return UITableViewCell() }
+        cell.configure(group, photoCacheService: photoCacheService)
         return cell
     }
 

@@ -11,8 +11,8 @@ final class FriendCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Public Methods
 
-    func configure(_ photo: Photo, networkService: NetworkService) {
+    func configure(_ photo: Photo, photoCacheService: PhotoCacheService) {
         guard let photo = photo.sizes.first?.url else { return }
-        friendGalleryImageView.loadImage(photo, networkService: networkService)
+        friendGalleryImageView.image = photoCacheService.photo(byUrl: photo)
     }
 }
