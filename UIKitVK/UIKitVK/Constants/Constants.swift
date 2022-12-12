@@ -22,8 +22,8 @@ enum Constants {
     }
 
     enum OtherConstants {
-        static let loginText = "q"
-        static let passwordText = "q"
+        static let loginText = ""
+        static let passwordText = ""
         static let alertTitleText = "Внимание!"
         static let alertMessageText = "Введен неверный логин и/или пароль"
         static let alertActionTitleText = "OK"
