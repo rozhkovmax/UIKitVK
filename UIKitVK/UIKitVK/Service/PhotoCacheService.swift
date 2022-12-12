@@ -83,9 +83,8 @@ final class PhotoCacheService {
     }
 
     private func loadPhoto(byUrl url: String) {
-        AF.request(url).responseData(queue: DispatchQueue.global()) { [weak self] response in
+        AF.request(url).responseData(queue: DispatchQueue.global()) { response in
             guard let data = response.data,
-                  let self = self,
                   let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
                 self.imagesMap[url] = image
