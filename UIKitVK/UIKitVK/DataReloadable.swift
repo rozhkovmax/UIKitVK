@@ -5,5 +5,5 @@ import Foundation
 
 /// Обновление данных
 protocol DataReloadable {
-    func reloadRow(at indexPath: IndexPath)
+    func reloadRow()
 }

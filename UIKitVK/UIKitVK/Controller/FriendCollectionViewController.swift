@@ -36,13 +36,8 @@ final class FriendCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: Constants.Identifiers.identifierFriendGalleryCollectionViewCellID,
             for: indexPath
-        ) as? FriendCollectionViewCell,
-            let url = photos[indexPath.row].sizes.first?.url else { return UICollectionViewCell() }
-        cell.configure(
-            photos[indexPath.row],
-            networkService: networkService,
-            image: photoCacheService.photo(at: indexPath, byUrl: url)
-        )
+        ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(photos[indexPath.row], photoCacheService: photoCacheService)
         return cell
     }
 

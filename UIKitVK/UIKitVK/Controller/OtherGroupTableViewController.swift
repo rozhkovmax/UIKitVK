@@ -48,24 +48,10 @@ final class OtherGroupTableViewController: UITableViewController {
         ) as? OtherGroupTableViewCell else { return UITableViewCell() }
         if searchBool {
             let group = searchGroups[indexPath.row]
-            cell.configure(
-                group,
-                networkService: networkService,
-                image: photoCacheService.photo(
-                    at: indexPath,
-                    byUrl: group.groupAvatar ?? Constants.OtherConstants.emptyString
-                )
-            )
+            cell.configure(group, photoCacheService: photoCacheService)
         } else {
             let group = groups[indexPath.row]
-            cell.configure(
-                group,
-                networkService: networkService,
-                image: photoCacheService.photo(
-                    at: indexPath,
-                    byUrl: group.groupAvatar ?? Constants.OtherConstants.emptyString
-                )
-            )
+            cell.configure(group, photoCacheService: photoCacheService)
         }
         return cell
     }

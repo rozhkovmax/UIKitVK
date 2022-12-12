@@ -36,6 +36,7 @@
 		9439E57929424D8F003EEF54 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */; };
 		9439E57C29449BDB003EEF54 /* PhotoCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */; };
 		9439E57E29449C42003EEF54 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57D29449C42003EEF54 /* DataReloadable.swift */; };
+		9439E58029476BA7003EEF54 /* PhotoCacheService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
 		94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
@@ -99,6 +100,7 @@
 		9439E57829424D8F003EEF54 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
 		9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCacheService.swift; sourceTree = "<group>"; };
 		9439E57D29449C42003EEF54 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
+		9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCacheService+Extension.swift"; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
 		94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +314,7 @@
 				94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */,
 				94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */,
 				94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */,
+				9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				94CE5A1E2912EB9D00A4D148 /* FriendCollectionViewCell.swift in Sources */,
 				9439E56B2940A667003EEF54 /* NewsConfigurable.swift in Sources */,
 				94CE5A2D2913376000A4D148 /* Group.swift in Sources */,
+				9439E58029476BA7003EEF54 /* PhotoCacheService+Extension.swift in Sources */,
 				94CE5A68291D3AB900A4D148 /* CustomInteractiveTransition.swift in Sources */,
 				9439E57E29449C42003EEF54 /* DataReloadable.swift in Sources */,
 				9439E55F293FC9A6003EEF54 /* ResultNews.swift in Sources */,

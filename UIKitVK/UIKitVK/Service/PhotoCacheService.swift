@@ -21,7 +21,7 @@ final class PhotoCacheService {
         return pathName
     }()
 
-    private var images = [String: UIImage]()
+    private var imagesMap = [String: UIImage]()
 
     // MARK: - Initializator
 
@@ -39,14 +39,14 @@ final class PhotoCacheService {
 
     // MARK: - Public Methods
 
-    func photo(at indexPath: IndexPath, byUrl url: String) -> UIImage? {
+    func photo(byUrl url: String) -> UIImage? {
         var image: UIImage?
-        if let photo = images[url] {
+        if let photo = imagesMap[url] {
             image = photo
         } else if let photo = getImageFromCache(url: url) {
             image = photo
         } else {
-            loadPhoto(at: indexPath, byUrl: url)
+            loadPhoto(byUrl: url)
         }
         return image
     }
@@ -77,84 +77,23 @@ final class PhotoCacheService {
         guard lifeTime <= cacheLifeTime,
               let image = UIImage(contentsOfFile: fileName) else { return nil }
         DispatchQueue.main.async {
-            self.images[url] = image
+            self.imagesMap[url] = image
         }
         return image
     }
 
-    private func loadPhoto(at indexPath: IndexPath, byUrl url: String) {
+    private func loadPhoto(byUrl url: String) {
         AF.request(url).responseData(queue: DispatchQueue.global()) { [weak self] response in
             guard let data = response.data,
                   let self = self,
                   let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
-                self.images[url] = image
+                self.imagesMap[url] = image
             }
             self.saveImageToCache(url: url, image: image)
             DispatchQueue.main.async {
-                self.container.reloadRow(at: indexPath)
+                self.container.reloadRow()
             }
-        }
-    }
-}
-
-// MARK: - PhotoCacheService+Extension
-
-extension PhotoCacheService {
-    /// Обновление ячейки в TableViewController
-    private class TableVC: DataReloadable {
-        // MARK: - Public Properties
-
-        let tableVC: UITableViewController
-
-        // MARK: - Initializator
-
-        init(tableVC: UITableViewController) {
-            self.tableVC = tableVC
-        }
-
-        // MARK: - Public Methods
-
-        func reloadRow(at indexPath: IndexPath) {
-            tableVC.tableView.reloadRows(at: [indexPath], with: .none)
-        }
-    }
-
-    /// Обновление ячейки в CollectionViewController
-    private class CollectionVC: DataReloadable {
-        // MARK: - Public Properties
-
-        let collectionVC: UICollectionViewController
-
-        // MARK: - Initializator
-
-        init(collectionVC: UICollectionViewController) {
-            self.collectionVC = collectionVC
-        }
-
-        // MARK: - Public Methods
-
-        func reloadRow(at indexPath: IndexPath) {
-            collectionVC.collectionView.reloadItems(at: [indexPath])
-        }
-    }
-
-    /// Обновление ячейки в TableView
-    private class Table: DataReloadable {
-        // MARK: - Public Properties
-
-        let table: UITableView
-
-        // MARK: - Initializator
-
-        init(table: UITableView) {
-            self.table = table
-        }
-
-        // MARK: - Public Methods
-
-        func reloadRow(at indexPath: IndexPath) {
-            table.reloadRows(at: [indexPath], with: .none)
         }
     }
 }

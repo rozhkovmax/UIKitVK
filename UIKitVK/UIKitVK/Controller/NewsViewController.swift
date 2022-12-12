@@ -91,9 +91,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: cellID,
             for: indexPath
-        ) as? NewsCell,
-            let url = news.avatarURL else { return UITableViewCell() }
-        cell.configure(news, networkService: networkService, image: photoCacheService.photo(at: indexPath, byUrl: url))
+        ) as? NewsCell else { return UITableViewCell() }
+        cell.configure(news, photoCacheService: photoCacheService)
         return cell
     }
 

@@ -54,14 +54,9 @@ final class FriendTableViewController: UITableViewController {
             withIdentifier: Constants.Identifiers.identifierFriendTableViewCellID,
             for: indexPath
         ) as? FriendTableViewCell,
-            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row],
-            let url = friend.friendAvatar
+            let friend = sectionsMap[sectionNameChars[indexPath.section]]?[indexPath.row]
         else { return UITableViewCell() }
-        cell.configure(
-            friend,
-            networkService: networkService,
-            image: photoCacheService.photo(at: indexPath, byUrl: url)
-        )
+        cell.configure(friend, photoCacheService: photoCacheService)
         return cell
     }
 

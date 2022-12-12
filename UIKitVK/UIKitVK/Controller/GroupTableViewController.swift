@@ -35,10 +35,9 @@ final class GroupTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.Identifiers.identifierGroupTableViewCellID,
             for: indexPath
-        ) as? GroupTableViewCell else { return UITableViewCell() }
-        guard let group = myGroups?[indexPath.row],
-              let url = group.groupAvatar else { return UITableViewCell() }
-        cell.configure(group, networkService: networkService, image: photoCacheService.photo(at: indexPath, byUrl: url))
+        ) as? GroupTableViewCell,
+            let group = myGroups?[indexPath.row] else { return UITableViewCell() }
+        cell.configure(group, photoCacheService: photoCacheService)
         return cell
     }
 

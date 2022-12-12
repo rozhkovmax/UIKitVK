@@ -14,7 +14,7 @@ final class NewsFooterTableViewCell: UITableViewCell, NewsConfigurable {
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem, networkService: NetworkService, image: UIImage?) {
+    func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {
         guard let repost = news.reposts?.count else { return }
         repostCountLabel.text = String(repost)
         guard let comment = news.comments?.count else { return }
