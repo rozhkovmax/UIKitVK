@@ -65,8 +65,10 @@ final class NewsViewController: UIViewController {
             switch news {
             case let .success(data):
                 self.news = self.updateNewsTable(response: data) + self.news
-                self.currentInterval = data.news.first?.date ?? 0
-                self.nextPage = data.nextPage ?? Constants.OtherConstants.emptyString
+                guard let currentInterval = data.news.first?.date,
+                      let nextPage = data.nextPage else { return }
+                self.currentInterval = currentInterval
+                self.nextPage = nextPage
                 self.newsTableView.reloadData()
             case let .failure(error):
                 print("\(Constants.OtherConstants.error): \(error.localizedDescription)")
