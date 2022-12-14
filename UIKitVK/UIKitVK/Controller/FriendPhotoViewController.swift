@@ -23,14 +23,10 @@ final class FriendPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        panGesture()
     }
 
     // MARK: - Private Methods
-
-    private func setupUI() {
-        panGesture()
-    }
 
     private func panGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))

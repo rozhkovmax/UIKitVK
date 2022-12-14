@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка нижнего колонтитула новости
-final class NewsFooterTableViewCell: UITableViewCell, NewsConfigurable {
+final class NewsFooterTableViewCell: NewsCell {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var repostCountLabel: UILabel!
@@ -15,13 +15,13 @@ final class NewsFooterTableViewCell: UITableViewCell, NewsConfigurable {
     // MARK: - Public Methods
 
     func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {
-        guard let repost = news.reposts?.count else { return }
+        guard let repost = news.reposts?.count,
+              let comment = news.comments?.count,
+              let like = news.likes?.count,
+              let view = news.views?.count else { return }
         repostCountLabel.text = String(repost)
-        guard let comment = news.comments?.count else { return }
         commentCountLabel.text = String(comment)
-        guard let like = news.likes?.count else { return }
         likeCountLabel.text = String(like)
-        guard let view = news.views?.count else { return }
         viewCountLabel.text = String(view)
     }
 }

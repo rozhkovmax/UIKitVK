@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIs-Ii-JC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="-33"/>
+            <point key="canvasLocation" x="-783" y="-33"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="cbx-0r-GTg">
@@ -453,7 +453,6 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-Q1-FFG">
                                                             <rect key="frame" x="32" y="0.0" width="30" height="30"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="lightGrayCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="2aL-9d-2Pd"/>
@@ -465,7 +464,6 @@
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XEu-tN-euf">
                                                             <rect key="frame" x="0.0" y="1.5" width="30" height="27.5"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="redCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="JCL-3s-NU2"/>
@@ -497,7 +495,6 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXA-1Z-Mni">
                                                             <rect key="frame" x="32" y="0.0" width="30" height="30"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="lightGrayCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="G99-17-Ppt"/>
@@ -509,7 +506,6 @@
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJu-qN-wNt">
                                                             <rect key="frame" x="0.0" y="2.5" width="30" height="24.5"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="blackCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="1Ke-gy-Piq"/>
@@ -542,7 +538,6 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kaW-u3-NlC">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="29.5"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="blackCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="2w1-BD-x0O"/>
@@ -551,7 +546,6 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apl-my-KrH">
                                                             <rect key="frame" x="32" y="0.0" width="30" height="30"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="nLb-ys-D3Y"/>
                                                                 <constraint firstAttribute="height" constant="30" id="vMo-Vm-LFr"/>
@@ -585,7 +579,6 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="55c-rf-XEy">
                                                             <rect key="frame" x="0.0" y="1.5" width="30" height="26.5"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <color key="tintColor" name="blackCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="ak1-s2-K3E"/>
@@ -594,7 +587,6 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzM-0w-zfU">
                                                             <rect key="frame" x="32" y="0.0" width="30" height="30"/>
-                                                            <color key="backgroundColor" name="lightGrayCustomColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="0ld-I4-paM"/>
                                                                 <constraint firstAttribute="width" constant="30" id="RHV-KH-3Ln"/>
@@ -661,19 +653,15 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsPostTableViewCell" id="Yws-Ta-h0s" customClass="NewsPostTableViewCell" customModule="UIKitVK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="201" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="201" width="414" height="183.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yws-Ta-h0s" id="cKC-Qr-hfu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="183.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-4g-VAC">
-                                                    <rect key="frame" x="20" y="10" width="374" height="180"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-4g-VAC">
+                                                    <rect key="frame" x="10" y="0.0" width="394" height="183.5"/>
                                                     <color key="backgroundColor" name="whiteCustomColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="XEQ-bP-Gjn"/>
-                                                        <constraint firstAttribute="width" constant="374" id="uLM-iN-5Sa"/>
-                                                    </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" name="blackCustomColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -682,10 +670,10 @@
                                             </subviews>
                                             <color key="backgroundColor" name="whiteCustomColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="zVm-4g-VAC" secondAttribute="bottom" constant="10" id="9Qm-ze-mdQ"/>
-                                                <constraint firstItem="zVm-4g-VAC" firstAttribute="leading" secondItem="cKC-Qr-hfu" secondAttribute="leading" constant="20" id="MlP-Vg-Gfe"/>
-                                                <constraint firstAttribute="trailing" secondItem="zVm-4g-VAC" secondAttribute="trailing" constant="20" id="qMT-qO-Fmb"/>
-                                                <constraint firstItem="zVm-4g-VAC" firstAttribute="top" secondItem="cKC-Qr-hfu" secondAttribute="top" constant="10" id="vuS-DT-h1F"/>
+                                                <constraint firstAttribute="bottom" secondItem="zVm-4g-VAC" secondAttribute="bottom" id="9Qm-ze-mdQ"/>
+                                                <constraint firstItem="zVm-4g-VAC" firstAttribute="leading" secondItem="cKC-Qr-hfu" secondAttribute="leading" constant="10" id="MlP-Vg-Gfe"/>
+                                                <constraint firstAttribute="trailing" secondItem="zVm-4g-VAC" secondAttribute="trailing" constant="10" id="qMT-qO-Fmb"/>
+                                                <constraint firstItem="zVm-4g-VAC" firstAttribute="top" secondItem="cKC-Qr-hfu" secondAttribute="top" id="vuS-DT-h1F"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="whiteCustomColor"/>
@@ -694,26 +682,22 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsPhotoTableViewCell" id="GQ6-O9-ID9" customClass="NewsPhotoTableViewCell" customModule="UIKitVK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="401" width="414" height="250"/>
+                                        <rect key="frame" x="0.0" y="384.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GQ6-O9-ID9" id="0kQ-WJ-5Gg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bKV-jL-wp7">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="250"/>
+                                                    <rect key="frame" x="10" y="0.0" width="394" height="44"/>
                                                     <color key="backgroundColor" name="whiteCustomColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="250" id="qQF-4S-2Ap"/>
-                                                        <constraint firstAttribute="width" constant="250" id="uIJ-ls-GLV"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="whiteCustomColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bKV-jL-wp7" secondAttribute="bottom" id="8TD-Ro-l3t"/>
-                                                <constraint firstItem="bKV-jL-wp7" firstAttribute="leading" secondItem="0kQ-WJ-5Gg" secondAttribute="leading" constant="20" id="Grt-cF-T9p"/>
-                                                <constraint firstAttribute="trailing" secondItem="bKV-jL-wp7" secondAttribute="trailing" constant="20" id="nzJ-Ka-ZeK"/>
+                                                <constraint firstItem="bKV-jL-wp7" firstAttribute="leading" secondItem="0kQ-WJ-5Gg" secondAttribute="leading" constant="10" id="Grt-cF-T9p"/>
+                                                <constraint firstAttribute="trailing" secondItem="bKV-jL-wp7" secondAttribute="trailing" constant="10" id="nzJ-Ka-ZeK"/>
                                                 <constraint firstItem="bKV-jL-wp7" firstAttribute="top" secondItem="0kQ-WJ-5Gg" secondAttribute="top" id="wKM-KM-E8f"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -869,7 +853,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gE-56-qrL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3340.579710144928" y="-287.27678571428572"/>
+            <point key="canvasLocation" x="3341" y="-287"/>
         </scene>
         <!--Фото друга-->
         <scene sceneID="ogW-sG-c4O">
@@ -904,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihQ-Gi-K6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4165" y="-287"/>
+            <point key="canvasLocation" x="4117" y="-287"/>
         </scene>
         <!--Мои Группы-->
         <scene sceneID="vMn-XZ-7oD">

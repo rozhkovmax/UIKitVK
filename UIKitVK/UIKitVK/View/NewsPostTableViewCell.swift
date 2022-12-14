@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка поста новости
-final class NewsPostTableViewCell: UITableViewCell, NewsConfigurable {
+final class NewsPostTableViewCell: NewsCell {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var newsPostTextView: UITextView!

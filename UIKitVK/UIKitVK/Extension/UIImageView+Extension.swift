@@ -5,6 +5,8 @@ import UIKit
 
 /// Расширение для получения изображения
 extension UIImageView {
+    // MARK: - Public Methods
+
     func loadImage(_ url: String, networkService: NetworkService) {
         networkService.fetchImage(url) { [weak self] data in
             guard let self = self,
