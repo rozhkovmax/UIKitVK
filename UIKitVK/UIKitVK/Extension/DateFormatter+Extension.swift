@@ -7,7 +7,7 @@ import Foundation
 extension DateFormatter {
     // MARK: - Public Methods
 
-    static func convertData(_ value: Int) -> String {
+    static func convert(_ value: Int) -> String {
         let inputValue = TimeInterval(value)
         let date = Date(timeIntervalSince1970: inputValue)
         let formatter = DateFormatter()

@@ -23,12 +23,12 @@ final class FriendPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        panGesture()
+        createPanGesture()
     }
 
     // MARK: - Private Methods
 
-    private func panGesture() {
+    private func createPanGesture() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
         view.addGestureRecognizer(recognizer)
         guard let photo = photos[currentPhotoIndex].sizes.last?.url else { return }

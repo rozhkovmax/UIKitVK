@@ -13,7 +13,7 @@ final class NewsHeaderTableViewCell: NewsCell {
     // MARK: - Public Methods
 
     func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {
-        let date = DateFormatter.convertData(Int(news.date))
+        let date = DateFormatter.convert(Int(news.date))
         guard let name = news.creatorName else { return }
         nameLabel.attributedText = NSMutableAttributedString()
             .bold("\(name)\n")
