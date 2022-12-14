@@ -22,8 +22,8 @@ enum Constants {
     }
 
     enum OtherConstants {
-        static let loginText = "q"
-        static let passwordText = "q"
+        static let loginText = ""
+        static let passwordText = ""
         static let alertTitleText = "Внимание!"
         static let alertMessageText = "Введен неверный логин и/или пароль"
         static let alertActionTitleText = "OK"
@@ -67,6 +67,10 @@ enum Constants {
         static let imagePathName = "Images"
         static let separator: Character = "/"
         static let defaultFileName: Substring = "default"
+        static let dateFormat = "dd.MM.yyyy HH:mm"
+        static let refreshControlTitle = "Загрузка..."
+        static let tableViewEmptyText = "Новости не загружены.\nПотяните, пожалуйста, экран вниз"
+        static let tableViewRowBeforeScroll = 3
     }
 
     enum AnimationOptions {
@@ -117,7 +121,7 @@ enum Constants {
         static let host = "oauth.vk.com"
         static let path = "/authorize"
         static let queryItemsClientIdKeyName = "client_id"
-        static let queryItemsClientIdValue = "51483156"
+        static let queryItemsClientIdValue = "51503015"
         static let queryItemsDisplayKeyName = "display"
         static let queryItemsDisplayValue = "mobile"
         static let queryItemsRedirectUriKeyName = "redirect_uri"
@@ -149,5 +153,7 @@ enum Constants {
         static let newsFiltersKey = "filters"
         static let newsFiltersPostValue = "post"
         static let newsFiltersPhotoValue = "wall_photo"
+        static let newsStartTimeKey = "start_time"
+        static let newsStartFromKey = "start_from"
     }
 }

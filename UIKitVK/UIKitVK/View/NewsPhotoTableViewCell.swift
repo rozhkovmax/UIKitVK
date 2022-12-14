@@ -4,12 +4,20 @@
 import UIKit
 
 /// Ячейка фото новости
-final class NewsPhotoTableViewCell: UITableViewCell, NewsConfigurable {
+final class NewsPhotoTableViewCell: NewsCell {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var newsImageView: UIImageView!
 
     // MARK: - Public Methods
 
-    func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {}
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        newsImageView.image = nil
+    }
+
+    func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {
+        guard let photo = news.attachments?.first?.photo?.sizes.last?.url else { return }
+        newsImageView.image = photoCacheService.photo(byUrl: photo)
+    }
 }

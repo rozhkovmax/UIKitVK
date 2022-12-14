@@ -37,6 +37,9 @@
 		9439E57C29449BDB003EEF54 /* PhotoCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */; };
 		9439E57E29449C42003EEF54 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57D29449C42003EEF54 /* DataReloadable.swift */; };
 		9439E58029476BA7003EEF54 /* PhotoCacheService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */; };
+		9439E5842947B7BF003EEF54 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E5832947B7BF003EEF54 /* DateFormatter+Extension.swift */; };
+		9439E58629488B44003EEF54 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E58529488B44003EEF54 /* UITableView+Extension.swift */; };
+		9439E588294918C8003EEF54 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439E587294918C8003EEF54 /* Attachment.swift */; };
 		94446E11293259F50055E6EA /* ResponsePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E10293259F50055E6EA /* ResponsePhoto.swift */; };
 		94446E1329350A0C0055E6EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */; };
 		944CC89D291069C600A5B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC89C291069C600A5B7F1 /* AppDelegate.swift */; };
@@ -101,6 +104,9 @@
 		9439E57B29449BDB003EEF54 /* PhotoCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCacheService.swift; sourceTree = "<group>"; };
 		9439E57D29449C42003EEF54 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
 		9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCacheService+Extension.swift"; sourceTree = "<group>"; };
+		9439E5832947B7BF003EEF54 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		9439E58529488B44003EEF54 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		9439E587294918C8003EEF54 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		94446E10293259F50055E6EA /* ResponsePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePhoto.swift; sourceTree = "<group>"; };
 		94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		944CC899291069C600A5B7F1 /* UIKitVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +202,7 @@
 				9439E55E293FC9A6003EEF54 /* ResultNews.swift */,
 				9439E560293FC9CA003EEF54 /* ResponseNews.swift */,
 				94CE5A52291A5A8D00A4D148 /* News.swift */,
+				9439E587294918C8003EEF54 /* Attachment.swift */,
 				9439E568293FE4F0003EEF54 /* Views.swift */,
 				9439E566293FE4C3003EEF54 /* Reposts.swift */,
 				9439E564293FE486003EEF54 /* Comments.swift */,
@@ -312,8 +319,10 @@
 			isa = PBXGroup;
 			children = (
 				94CE5A54291A5D8100A4D148 /* NSMutableAttributedString+Extension.swift */,
+				9439E5832947B7BF003EEF54 /* DateFormatter+Extension.swift */,
 				94CE5A1A2912B10600A4D148 /* UIViewController+Extension.swift */,
 				94446E1229350A0C0055E6EA /* UIImageView+Extension.swift */,
+				9439E58529488B44003EEF54 /* UITableView+Extension.swift */,
 				9439E57F29476BA7003EEF54 /* PhotoCacheService+Extension.swift */,
 			);
 			path = Extension;
@@ -523,6 +532,8 @@
 				94CE5A3529140B9500A4D148 /* CustomView.swift in Sources */,
 				9433AC3929324FF400E03BA8 /* ResultGroup.swift in Sources */,
 				9433AC2D292C0FAA00E03BA8 /* LoginWebViewController.swift in Sources */,
+				9439E58629488B44003EEF54 /* UITableView+Extension.swift in Sources */,
+				9439E588294918C8003EEF54 /* Attachment.swift in Sources */,
 				9439E55D293E3CD7003EEF54 /* NewsPhotoTableViewCell.swift in Sources */,
 				9439E567293FE4C3003EEF54 /* Reposts.swift in Sources */,
 				9439E563293FE43E003EEF54 /* Likes.swift in Sources */,
@@ -531,6 +542,7 @@
 				94CE5A2A2913367B00A4D148 /* User.swift in Sources */,
 				94CE5A1B2912B10600A4D148 /* UIViewController+Extension.swift in Sources */,
 				9439E576294209CA003EEF54 /* RealmService.swift in Sources */,
+				9439E5842947B7BF003EEF54 /* DateFormatter+Extension.swift in Sources */,
 				94CE5A4F2919CB5400A4D148 /* NewsViewController.swift in Sources */,
 				94CE5A4129145E3000A4D148 /* LikeButton.swift in Sources */,
 				944CC8A1291069C600A5B7F1 /* LoginViewController.swift in Sources */,

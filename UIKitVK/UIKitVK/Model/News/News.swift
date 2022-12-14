@@ -31,6 +31,8 @@ final class NewsItem: Codable {
     var views: Views?
     /// Тип поста
     var newsType: NewsItemType?
+    /// Тип вложения
+    var attachments: [Attachment]?
 
     enum CodingKeys: String, CodingKey {
         case text
@@ -42,5 +44,6 @@ final class NewsItem: Codable {
         case comments
         case reposts
         case views
+        case attachments
     }
 }

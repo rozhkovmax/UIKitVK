@@ -4,14 +4,15 @@
 import UIKit
 
 /// Ячейка поста новости
-final class NewsPostTableViewCell: UITableViewCell, NewsConfigurable {
+final class NewsPostTableViewCell: NewsCell {
     // MARK: - Private IBOutlet
 
-    @IBOutlet private var newsPostTextView: UITextView!
+    @IBOutlet private var newsTextLabel: UILabel!
 
     // MARK: - Public Methods
 
     func configure(_ news: NewsItem, photoCacheService: PhotoCacheService) {
-        newsPostTextView.text = news.text
+        newsTextLabel.text = news.text
+        newsTextLabel.numberOfLines = 5
     }
 }

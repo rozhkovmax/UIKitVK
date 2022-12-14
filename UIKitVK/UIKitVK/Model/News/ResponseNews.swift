@@ -11,10 +11,13 @@ struct ResponseNews: Codable {
     let friends: [User]
     /// Группы
     let groups: [Group]
+    /// Следующая страница
+    let nextPage: String?
 
     enum CodingKeys: String, CodingKey {
         case news = "items"
         case friends = "profiles"
         case groups
+        case nextPage = "next_from"
     }
 }
